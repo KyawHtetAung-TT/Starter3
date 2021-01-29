@@ -20,6 +20,8 @@
 		7892C6F325C4110D0066E549 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6F225C4110D0066E549 /* RatingControl.swift */; };
 		7892C6F725C41D320066E549 /* PopularFilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6F525C41D320066E549 /* PopularFilmTableViewCell.swift */; };
 		7892C6F825C41D320066E549 /* PopularFilmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7892C6F625C41D320066E549 /* PopularFilmTableViewCell.xib */; };
+		7892C6FE25C426370066E549 /* PopularFilmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6FC25C426370066E549 /* PopularFilmCollectionViewCell.swift */; };
+		7892C6FF25C426370066E549 /* PopularFilmCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7892C6FD25C426370066E549 /* PopularFilmCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		7892C6F225C4110D0066E549 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		7892C6F525C41D320066E549 /* PopularFilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularFilmTableViewCell.swift; sourceTree = "<group>"; };
 		7892C6F625C41D320066E549 /* PopularFilmTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularFilmTableViewCell.xib; sourceTree = "<group>"; };
+		7892C6FC25C426370066E549 /* PopularFilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularFilmCollectionViewCell.swift; sourceTree = "<group>"; };
+		7892C6FD25C426370066E549 /* PopularFilmCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularFilmCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				7892C6ED25C320880066E549 /* MovieSliderCollectionViewCell.xib */,
+				7892C6FD25C426370066E549 /* PopularFilmCollectionViewCell.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				7892C6EC25C320880066E549 /* MovieSliderCollectionViewCell.swift */,
+				7892C6FC25C426370066E549 /* PopularFilmCollectionViewCell.swift */,
 			);
 			name = Swifts;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7892C6FF25C426370066E549 /* PopularFilmCollectionViewCell.xib in Resources */,
 				7892C6D025C30D7E0066E549 /* LaunchScreen.storyboard in Resources */,
 				7892C6CD25C30D7E0066E549 /* Assets.xcassets in Resources */,
 				7892C6CB25C30D7B0066E549 /* Main.storyboard in Resources */,
@@ -257,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7892C6FE25C426370066E549 /* PopularFilmCollectionViewCell.swift in Sources */,
 				7892C6F725C41D320066E549 /* PopularFilmTableViewCell.swift in Sources */,
 				7892C6C825C30D7B0066E549 /* ViewController.swift in Sources */,
 				7892C6C425C30D7B0066E549 /* AppDelegate.swift in Sources */,

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PopularFilmCollectionViewCell" customModule="Strater3" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="211" height="270"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="211" height="270"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rating img" translatesAutoresizingMaskIntoConstraints="NO" id="pKc-DX-msA">
+                        <rect key="frame" x="0.0" y="0.0" width="211" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="Kgb-x8-uhS"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLACK WIDOW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0S-7H-fRf">
+                        <rect key="frame" x="5" y="216" width="113" height="19"/>
+                        <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="15"/>
+                        <color key="textColor" red="0.31764942410000002" green="0.31764277819999998" blue="0.31764724849999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qq6-fd-qXD">
+                        <rect key="frame" x="5" y="243" width="22" height="19"/>
+                        <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="15"/>
+                        <color key="textColor" red="0.31764942410000002" green="0.31764277819999998" blue="0.31764724849999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mw4-wL-6Mr" customClass="RatingControl" customModule="Strater3" customModuleProvider="target">
+                        <rect key="frame" x="32" y="244.5" width="80" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="4mh-8B-XIT"/>
+                            <constraint firstAttribute="height" constant="16" id="81E-te-XvZ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                <size key="value" width="16" height="16"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Qq6-fd-qXD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="5rp-PJ-5SA"/>
+                <constraint firstItem="pKc-DX-msA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7Vj-Eo-Dz7"/>
+                <constraint firstItem="pKc-DX-msA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="CU1-Ba-r08"/>
+                <constraint firstAttribute="trailing" secondItem="pKc-DX-msA" secondAttribute="trailing" id="NSu-Ok-ZHQ"/>
+                <constraint firstAttribute="bottom" secondItem="Qq6-fd-qXD" secondAttribute="bottom" constant="8" id="S4K-ZN-orf"/>
+                <constraint firstItem="Mw4-wL-6Mr" firstAttribute="leading" secondItem="Qq6-fd-qXD" secondAttribute="trailing" constant="5" id="U6J-In-mzp"/>
+                <constraint firstItem="Mw4-wL-6Mr" firstAttribute="centerY" secondItem="Qq6-fd-qXD" secondAttribute="centerY" id="ZmA-EI-IZr"/>
+                <constraint firstAttribute="bottom" secondItem="Mw4-wL-6Mr" secondAttribute="bottom" constant="9.5" id="kbh-oh-RCv"/>
+                <constraint firstItem="Qq6-fd-qXD" firstAttribute="top" secondItem="t0S-7H-fRf" secondAttribute="bottom" constant="8" id="kc4-rA-4Xp"/>
+                <constraint firstItem="Mw4-wL-6Mr" firstAttribute="top" secondItem="t0S-7H-fRf" secondAttribute="bottom" constant="9.5" id="mhC-MM-DfM"/>
+                <constraint firstItem="t0S-7H-fRf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="pf7-jl-gZ0"/>
+                <constraint firstItem="t0S-7H-fRf" firstAttribute="top" secondItem="pKc-DX-msA" secondAttribute="bottom" constant="16" id="vZ4-xe-pWp"/>
+            </constraints>
+            <size key="customSize" width="211" height="277"/>
+            <point key="canvasLocation" x="228.2608695652174" y="155.35714285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="rating img" width="225" height="333.33334350585938"/>
+    </resources>
+</document>
