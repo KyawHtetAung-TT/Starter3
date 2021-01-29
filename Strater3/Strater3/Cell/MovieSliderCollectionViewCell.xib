@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MovieSliderCollectionViewCell" customModule="Strater3" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="337" height="234"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="337" height="234"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nbf-54-zya">
+                        <rect key="frame" x="0.0" y="0.0" width="337" height="234"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider img1" translatesAutoresizingMaskIntoConstraints="NO" id="lCh-90-w7i">
+                                <rect key="frame" x="0.0" y="0.0" width="337" height="234"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8Bc-UM-lV3">
+                                <rect key="frame" x="133.5" y="82.5" width="70" height="69"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="hYn-0f-Z7a"/>
+                                    <constraint firstAttribute="height" constant="70" id="seO-F4-PVo"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLACK WIDOW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdq-d9-NSC">
+                                <rect key="frame" x="8" y="205" width="127.5" height="21"/>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lCh-90-w7i" firstAttribute="top" secondItem="Nbf-54-zya" secondAttribute="top" id="9bG-pe-LAP"/>
+                            <constraint firstItem="8Bc-UM-lV3" firstAttribute="centerX" secondItem="Nbf-54-zya" secondAttribute="centerX" id="EpM-w9-sOX"/>
+                            <constraint firstAttribute="bottom" secondItem="lCh-90-w7i" secondAttribute="bottom" id="Hjw-tO-gfM"/>
+                            <constraint firstAttribute="bottom" secondItem="kdq-d9-NSC" secondAttribute="bottom" constant="8" id="MLO-5O-vGV"/>
+                            <constraint firstItem="lCh-90-w7i" firstAttribute="leading" secondItem="Nbf-54-zya" secondAttribute="leading" id="Oft-mG-zDm"/>
+                            <constraint firstItem="8Bc-UM-lV3" firstAttribute="centerY" secondItem="Nbf-54-zya" secondAttribute="centerY" id="Tyj-xa-eGg"/>
+                            <constraint firstItem="kdq-d9-NSC" firstAttribute="leading" secondItem="Nbf-54-zya" secondAttribute="leading" constant="8" id="b0H-MT-4gw"/>
+                            <constraint firstAttribute="trailing" secondItem="lCh-90-w7i" secondAttribute="trailing" id="r94-0L-3ck"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Nbf-54-zya" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="530-wU-NPb"/>
+                <constraint firstAttribute="trailing" secondItem="Nbf-54-zya" secondAttribute="trailing" id="Vea-vF-ZP2"/>
+                <constraint firstItem="Nbf-54-zya" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ct9-Gd-UUV"/>
+                <constraint firstAttribute="bottom" secondItem="Nbf-54-zya" secondAttribute="bottom" id="rHj-1l-ZWU"/>
+            </constraints>
+            <size key="customSize" width="337" height="234"/>
+            <point key="canvasLocation" x="318.11594202898556" y="141.29464285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="play.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="slider img1" width="700" height="400"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
