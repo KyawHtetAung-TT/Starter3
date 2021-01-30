@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MovieViewController: UIViewController {
 
     @IBOutlet weak var tableViewMovies: UITableView!
     @IBOutlet weak var viewForToolbar: UIView!
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITableViewDataSource{
+extension MovieViewController: UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }

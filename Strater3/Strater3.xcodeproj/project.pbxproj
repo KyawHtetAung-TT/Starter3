@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7892C6C425C30D7B0066E549 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6C325C30D7B0066E549 /* AppDelegate.swift */; };
 		7892C6C625C30D7B0066E549 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6C525C30D7B0066E549 /* SceneDelegate.swift */; };
-		7892C6C825C30D7B0066E549 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6C725C30D7B0066E549 /* ViewController.swift */; };
+		7892C6C825C30D7B0066E549 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6C725C30D7B0066E549 /* MovieViewController.swift */; };
 		7892C6CB25C30D7B0066E549 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7892C6C925C30D7B0066E549 /* Main.storyboard */; };
 		7892C6CD25C30D7E0066E549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7892C6CC25C30D7E0066E549 /* Assets.xcassets */; };
 		7892C6D025C30D7E0066E549 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7892C6CE25C30D7E0066E549 /* LaunchScreen.storyboard */; };
@@ -35,7 +35,7 @@
 		7892C6C025C30D7B0066E549 /* Strater3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strater3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7892C6C325C30D7B0066E549 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7892C6C525C30D7B0066E549 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7892C6C725C30D7B0066E549 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7892C6C725C30D7B0066E549 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		7892C6CA25C30D7B0066E549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7892C6CC25C30D7E0066E549 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7892C6CF25C30D7E0066E549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,99 +89,99 @@
 			isa = PBXGroup;
 			children = (
 				7892C72725C52A150066E549 /* vos */,
-				7892C6E425C30E4B0066E549 /* Components */,
-				7892C6D825C30D960066E549 /* Delegagte */,
-				7892C6DC25C30DE80066E549 /* Cell */,
-				7892C6D925C30DA50066E549 /* Stroybaord */,
-				7892C6DA25C30DC40066E549 /* ViewController */,
-				7892C6DB25C30DD70066E549 /* Resources */,
+				7892C6E425C30E4B0066E549 /* components */,
+				7892C6D825C30D960066E549 /* delegagte */,
+				7892C6DC25C30DE80066E549 /* cell */,
+				7892C6D925C30DA50066E549 /* stroybaord */,
+				7892C6DA25C30DC40066E549 /* viewController */,
+				7892C6DB25C30DD70066E549 /* resources */,
 				7892C6D125C30D7E0066E549 /* Info.plist */,
 			);
 			path = Strater3;
 			sourceTree = "<group>";
 		};
-		7892C6D825C30D960066E549 /* Delegagte */ = {
+		7892C6D825C30D960066E549 /* delegagte */ = {
 			isa = PBXGroup;
 			children = (
 				7892C6C325C30D7B0066E549 /* AppDelegate.swift */,
 				7892C6C525C30D7B0066E549 /* SceneDelegate.swift */,
 			);
-			path = Delegagte;
+			path = delegagte;
 			sourceTree = "<group>";
 		};
-		7892C6D925C30DA50066E549 /* Stroybaord */ = {
+		7892C6D925C30DA50066E549 /* stroybaord */ = {
 			isa = PBXGroup;
 			children = (
 				7892C6C925C30D7B0066E549 /* Main.storyboard */,
 				7892C6CE25C30D7E0066E549 /* LaunchScreen.storyboard */,
 			);
-			path = Stroybaord;
+			path = stroybaord;
 			sourceTree = "<group>";
 		};
-		7892C6DA25C30DC40066E549 /* ViewController */ = {
+		7892C6DA25C30DC40066E549 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
-				7892C6C725C30D7B0066E549 /* ViewController.swift */,
+				7892C6C725C30D7B0066E549 /* MovieViewController.swift */,
 			);
-			path = ViewController;
+			path = viewController;
 			sourceTree = "<group>";
 		};
-		7892C6DB25C30DD70066E549 /* Resources */ = {
+		7892C6DB25C30DD70066E549 /* resources */ = {
 			isa = PBXGroup;
 			children = (
 				7892C6CC25C30D7E0066E549 /* Assets.xcassets */,
 			);
-			path = Resources;
+			path = resources;
 			sourceTree = "<group>";
 		};
-		7892C6DC25C30DE80066E549 /* Cell */ = {
+		7892C6DC25C30DE80066E549 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				7892C6DE25C30E160066E549 /* CollectionView */,
-				7892C6DD25C30DF80066E549 /* TableVIew */,
+				7892C6DE25C30E160066E549 /* collectionView */,
+				7892C6DD25C30DF80066E549 /* tableVIew */,
 			);
-			path = Cell;
+			path = cell;
 			sourceTree = "<group>";
 		};
-		7892C6DD25C30DF80066E549 /* TableVIew */ = {
+		7892C6DD25C30DF80066E549 /* tableVIew */ = {
 			isa = PBXGroup;
 			children = (
-				7892C6E225C30E330066E549 /* Swifts */,
-				7892C6E125C30E2C0066E549 /* Xibs */,
+				7892C6E225C30E330066E549 /* swifts */,
+				7892C6E125C30E2C0066E549 /* xibs */,
 			);
-			name = TableVIew;
+			name = tableVIew;
 			sourceTree = "<group>";
 		};
-		7892C6DE25C30E160066E549 /* CollectionView */ = {
+		7892C6DE25C30E160066E549 /* collectionView */ = {
 			isa = PBXGroup;
 			children = (
-				7892C6E025C30E270066E549 /* Swifts */,
-				7892C6DF25C30E1F0066E549 /* Xibs */,
+				7892C6E025C30E270066E549 /* swifts */,
+				7892C6DF25C30E1F0066E549 /* xibs */,
 			);
-			name = CollectionView;
+			name = collectionView;
 			sourceTree = "<group>";
 		};
-		7892C6DF25C30E1F0066E549 /* Xibs */ = {
+		7892C6DF25C30E1F0066E549 /* xibs */ = {
 			isa = PBXGroup;
 			children = (
 				7892C6ED25C320880066E549 /* MovieSliderCollectionViewCell.xib */,
 				7892C6FD25C426370066E549 /* PopularFilmCollectionViewCell.xib */,
 				7892C72225C526470066E549 /* GenreCollectionViewCell.xib */,
 			);
-			name = Xibs;
+			name = xibs;
 			sourceTree = "<group>";
 		};
-		7892C6E025C30E270066E549 /* Swifts */ = {
+		7892C6E025C30E270066E549 /* swifts */ = {
 			isa = PBXGroup;
 			children = (
 				7892C6EC25C320880066E549 /* MovieSliderCollectionViewCell.swift */,
 				7892C6FC25C426370066E549 /* PopularFilmCollectionViewCell.swift */,
 				7892C72125C526470066E549 /* GenreCollectionViewCell.swift */,
 			);
-			name = Swifts;
+			name = swifts;
 			sourceTree = "<group>";
 		};
-		7892C6E125C30E2C0066E549 /* Xibs */ = {
+		7892C6E125C30E2C0066E549 /* xibs */ = {
 			isa = PBXGroup;
 			children = (
 				7892C6E725C31A3C0066E549 /* MovieSliderTableViewCell.xib */,
@@ -189,10 +189,10 @@
 				7892C70525C500C80066E549 /* MovieShowTImeTableViewCell.xib */,
 				7892C71C25C525830066E549 /* GenreTableViewCell.xib */,
 			);
-			name = Xibs;
+			name = xibs;
 			sourceTree = "<group>";
 		};
-		7892C6E225C30E330066E549 /* Swifts */ = {
+		7892C6E225C30E330066E549 /* swifts */ = {
 			isa = PBXGroup;
 			children = (
 				7892C6E625C31A3C0066E549 /* MovieSliderTableViewCell.swift */,
@@ -200,15 +200,15 @@
 				7892C70425C500C80066E549 /* MovieShowTImeTableViewCell.swift */,
 				7892C71B25C525830066E549 /* GenreTableViewCell.swift */,
 			);
-			name = Swifts;
+			name = swifts;
 			sourceTree = "<group>";
 		};
-		7892C6E425C30E4B0066E549 /* Components */ = {
+		7892C6E425C30E4B0066E549 /* components */ = {
 			isa = PBXGroup;
 			children = (
 				7892C6F225C4110D0066E549 /* RatingControl.swift */,
 			);
-			path = Components;
+			path = components;
 			sourceTree = "<group>";
 		};
 		7892C72725C52A150066E549 /* vos */ = {
@@ -300,7 +300,7 @@
 				7892C70625C500C80066E549 /* MovieShowTImeTableViewCell.swift in Sources */,
 				7892C72325C526470066E549 /* GenreCollectionViewCell.swift in Sources */,
 				7892C6F725C41D320066E549 /* PopularFilmTableViewCell.swift in Sources */,
-				7892C6C825C30D7B0066E549 /* ViewController.swift in Sources */,
+				7892C6C825C30D7B0066E549 /* MovieViewController.swift in Sources */,
 				7892C6C425C30D7B0066E549 /* AppDelegate.swift in Sources */,
 				7892C73225C52A6B0066E549 /* GenreVO.swift in Sources */,
 				7892C6EE25C320880066E549 /* MovieSliderCollectionViewCell.swift in Sources */,

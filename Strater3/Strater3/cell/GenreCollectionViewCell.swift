@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class GenreCollectionViewCell: UICollectionViewCell {
 
@@ -18,11 +19,19 @@ class GenreCollectionViewCell: UICollectionViewCell {
     var data: GenreVO?=nil{
         
         didSet{
+           
             if let genre = data{
                 lblGenre.text = genre.name
                 (genre.isSelected) ? (viewForOverlay.isHidden = false) : (viewForOverlay.isHidden = true)
+                genreColor()
+
             }
+            
         }
+        
+        
+        
+        
     }
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,6 +44,14 @@ class GenreCollectionViewCell: UICollectionViewCell {
     @objc func didTapItem(){
         
         onTapItem(data?.name ?? "")
+    }
+    
+    func genreColor(){
+        
+        if let genre = data{
+            lblGenre.text = genre.name
+            (genre.isSelected) ? (lblGenre.textColor = .white) : (lblGenre.textColor = .darkGray)
+        }
     }
 }
 

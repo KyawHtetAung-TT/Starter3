@@ -12,13 +12,13 @@ class RatingControl: UIStackView {
 
     @IBInspectable var starSize : CGSize = CGSize(width: 50.0, height: 50.0){
         didSet{
-            SetupButton()
+            setupButton()
             updateButtonRating()
         }
     }
     @IBInspectable var starCount : Int = 5{
         didSet{
-            SetupButton()
+            setupButton()
             updateButtonRating()
         }
     }
@@ -32,16 +32,16 @@ class RatingControl: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        SetupButton()
+        setupButton()
         updateButtonRating()
     }
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        SetupButton()
+        setupButton()
         updateButtonRating()
     }
-    private func SetupButton(){
+    private func setupButton(){
         clearExistingButton()
         
         for _ in 0..<starCount{
