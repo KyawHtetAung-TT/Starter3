@@ -17,9 +17,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BEST POPULAR FILMS AND SERIES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFe-yy-6U8">
-                        <rect key="frame" x="5" y="5" width="317.5" height="21"/>
-                        <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="18"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="frame" x="20" y="5" width="247" height="21"/>
+                        <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bd4-ED-4th">
@@ -28,11 +28,11 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="270" id="cpt-4S-C3A"/>
                         </constraints>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="PG6-ag-vgu">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PG6-ag-vgu">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
@@ -41,7 +41,7 @@
                     <constraint firstAttribute="trailing" secondItem="bd4-ED-4th" secondAttribute="trailing" id="08U-Pn-ix9"/>
                     <constraint firstAttribute="bottom" secondItem="bd4-ED-4th" secondAttribute="bottom" id="Ojb-oH-eq3"/>
                     <constraint firstItem="bd4-ED-4th" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Q5d-Zr-hzf"/>
-                    <constraint firstItem="cFe-yy-6U8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="rx8-mU-aAF"/>
+                    <constraint firstItem="cFe-yy-6U8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="rx8-mU-aAF"/>
                     <constraint firstItem="cFe-yy-6U8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="y1p-QL-XDB"/>
                     <constraint firstItem="bd4-ED-4th" firstAttribute="top" secondItem="cFe-yy-6U8" secondAttribute="bottom" constant="10" id="zgJ-zM-NLF"/>
                 </constraints>
