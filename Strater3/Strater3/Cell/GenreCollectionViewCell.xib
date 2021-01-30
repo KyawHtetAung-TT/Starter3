@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnn-Ab-TVR">
                         <rect key="frame" x="0.0" y="0.0" width="325" height="49"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5K-RN-AYi">
-                                <rect key="frame" x="128" y="13.5" width="69" height="22.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="U5K-RN-AYi">
+                                <rect key="frame" x="0.0" y="13.5" width="325" height="22.5"/>
                                 <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -37,10 +37,12 @@
                         <color key="backgroundColor" red="0.075351677830000005" green="0.1071746126" blue="0.13983055950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="U5K-RN-AYi" firstAttribute="centerY" secondItem="bnn-Ab-TVR" secondAttribute="centerY" id="Eiu-Ec-ngm"/>
+                            <constraint firstItem="U5K-RN-AYi" firstAttribute="leading" secondItem="bnn-Ab-TVR" secondAttribute="leading" id="Kvc-Q3-bOa"/>
                             <constraint firstAttribute="trailing" secondItem="MC5-d1-AFl" secondAttribute="trailing" id="aeQ-A4-ksa"/>
                             <constraint firstItem="MC5-d1-AFl" firstAttribute="leading" secondItem="bnn-Ab-TVR" secondAttribute="leading" id="eCH-dE-aoA"/>
                             <constraint firstItem="U5K-RN-AYi" firstAttribute="centerX" secondItem="bnn-Ab-TVR" secondAttribute="centerX" id="lGg-hb-ASQ"/>
                             <constraint firstAttribute="bottom" secondItem="MC5-d1-AFl" secondAttribute="bottom" id="yXe-td-F6A"/>
+                            <constraint firstAttribute="trailing" secondItem="U5K-RN-AYi" secondAttribute="trailing" id="yai-uG-2Fg"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -54,6 +56,7 @@
             </constraints>
             <size key="customSize" width="325" height="49"/>
             <connections>
+                <outlet property="containerView" destination="bnn-Ab-TVR" id="Tec-Ys-NQM"/>
                 <outlet property="lblGenre" destination="U5K-RN-AYi" id="EtZ-8c-Gvm"/>
                 <outlet property="viewForOverlay" destination="MC5-d1-AFl" id="g1z-68-Bip"/>
             </connections>
