@@ -23,7 +23,7 @@ class GenreCollectionViewCell: UICollectionViewCell {
             if let genre = data{
                 lblGenre.text = genre.name
                 (genre.isSelected) ? (viewForOverlay.isHidden = false) : (viewForOverlay.isHidden = true)
-                genreColor()
+                (genre.isSelected) ? (lblGenre.textColor = UIColor(named: "White")) : (lblGenre.textColor = .gray)
 
             }
             

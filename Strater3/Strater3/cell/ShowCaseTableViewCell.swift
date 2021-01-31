@@ -26,6 +26,7 @@ class ShowCaseTableViewCell: UITableViewCell {
         
 //        showCaseCollectionView.semanticContentAttribute = UISemanticContentAttribute.forceRightToLeft
         
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
