@@ -10,7 +10,7 @@ import UIKit
 class MovieShowTImeTableViewCell: UITableViewCell {
     @IBOutlet weak var viewForBackgruoud: UIView!
     
-    @IBOutlet weak var lvlSeeMore: UILabel!
+    @IBOutlet weak var lblSeeMore: UILabel!
     
     
     override func awakeFromNib() {
@@ -22,9 +22,11 @@ class MovieShowTImeTableViewCell: UITableViewCell {
 //        viewForBackgruoud.layer.cornerRadius = 20
 //        viewForBackgruoud.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMinXMinYCorner]
         
-      let attributeString = NSMutableAttributedString(string: "SEE MORE")
-        attributeString.addAttribute(NSAttributedString.Key.underlineStyle, value: 3, range: NSRange(location: 0, length: attributeString.length))
-        lvlSeeMore.attributedText = attributeString
+//      let attributeString = NSMutableAttributedString(string: "SEE MORE")
+//        attributeString.addAttribute(NSAttributedString.Key.underlineStyle, value: 3, range: NSRange(location: 0, length: attributeString.length))
+//        lvlSeeMore.attributedText = attributeString
+        
+        lblSeeMore.underlineText(text: "SEE MORE")
         
     }
 
