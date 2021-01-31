@@ -24,7 +24,7 @@ class ShowCaseTableViewCell: UITableViewCell {
         showCaseCollectionView.register(UINib(nibName: String(describing: ShowCaseCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: ShowCaseCollectionViewCell.self))
         lblMoreShowCase.underlineText(text: "MORE SHOWCASES")
         
-        showCaseCollectionView.semanticContentAttribute = UISemanticContentAttribute.forceRightToLeft
+//        showCaseCollectionView.semanticContentAttribute = UISemanticContentAttribute.forceRightToLeft
         
     }
 
@@ -49,9 +49,12 @@ extension ShowCaseTableViewCell : UICollectionViewDataSource,UICollectionViewDel
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width-100, height: 200
-         )
+        return CGSize(width: collectionView.frame.width-100, height: 180)
         
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        ( (scrollView.subviews[(scrollView.subviews.count-1)]).subviews[0]).backgroundColor = UIColor(named: "Yellow")
     }
 
     

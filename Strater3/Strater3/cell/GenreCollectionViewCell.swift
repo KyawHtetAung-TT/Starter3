@@ -50,7 +50,7 @@ class GenreCollectionViewCell: UICollectionViewCell {
         
         if let genre = data{
             lblGenre.text = genre.name
-            (genre.isSelected) ? (lblGenre.textColor = .white) : (lblGenre.textColor = .darkGray)
+            (genre.isSelected) ? (lblGenre.textColor = UIColor(named: "White")) : (lblGenre.textColor = .gray)
         }
     }
 }
