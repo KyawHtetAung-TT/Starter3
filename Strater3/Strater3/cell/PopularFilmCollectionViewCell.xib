@@ -24,6 +24,9 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLACK WIDOW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0S-7H-fRf">
                         <rect key="frame" x="5" y="216" width="113" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="qo6-R4-9Ax"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="15"/>
                         <color key="textColor" red="0.31764942410000002" green="0.31764277819999998" blue="0.31764724849999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>

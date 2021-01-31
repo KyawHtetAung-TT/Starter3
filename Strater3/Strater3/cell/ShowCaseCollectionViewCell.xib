@@ -10,21 +10,67 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ShowCaseCollectionViewCell" customModule="Strater3" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="323" height="185"/>
+            <rect key="frame" x="0.0" y="0.0" width="362" height="230"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="323" height="185"/>
+                <rect key="frame" x="0.0" y="0.0" width="362" height="230"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P4S-VG-r59">
-                        <rect key="frame" x="41" y="28" width="240" height="128"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="showcase img" translatesAutoresizingMaskIntoConstraints="NO" id="P4S-VG-r59">
+                        <rect key="frame" x="0.0" y="0.0" width="362" height="230"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="230" id="ftU-78-4rd"/>
+                        </constraints>
+                    </imageView>
+                    <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vru-FA-6K3">
+                        <rect key="frame" x="0.0" y="0.0" width="362" height="230"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVENGERS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brc-Oj-HcO">
+                        <rect key="frame" x="10" y="186" width="72.5" height="16"/>
+                        <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31 January 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwz-gj-2jN">
+                        <rect key="frame" x="10" y="205" width="90.5" height="15"/>
+                        <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="12"/>
+                        <color key="textColor" red="0.31764942410000002" green="0.31764277819999998" blue="0.31764724849999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tpO-LZ-mgc">
+                        <rect key="frame" x="156" y="90.5" width="50" height="49"/>
+                        <color key="tintColor" red="0.97832018139999999" green="0.92237228159999995" blue="0.45479369159999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="aGX-M3-CMq"/>
+                            <constraint firstAttribute="width" constant="50" id="rtk-Rt-RsT"/>
+                        </constraints>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="323" height="185"/>
-            <point key="canvasLocation" x="309.4202898550725" y="124.88839285714285"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Bwz-gj-2jN" secondAttribute="bottom" constant="10" id="0ho-P1-NF6"/>
+                <constraint firstItem="P4S-VG-r59" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="14x-Hk-i5T"/>
+                <constraint firstItem="tpO-LZ-mgc" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="1bi-7M-FHj"/>
+                <constraint firstItem="vru-FA-6K3" firstAttribute="top" secondItem="P4S-VG-r59" secondAttribute="top" id="54X-rL-bvu"/>
+                <constraint firstItem="vru-FA-6K3" firstAttribute="trailing" secondItem="P4S-VG-r59" secondAttribute="trailing" id="AMe-kY-8bf"/>
+                <constraint firstItem="P4S-VG-r59" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Hob-WI-75K"/>
+                <constraint firstItem="Bwz-gj-2jN" firstAttribute="top" secondItem="brc-Oj-HcO" secondAttribute="bottom" constant="3" id="IBf-Oi-DVm"/>
+                <constraint firstAttribute="bottom" secondItem="P4S-VG-r59" secondAttribute="bottom" id="IiG-mL-1qt"/>
+                <constraint firstItem="brc-Oj-HcO" firstAttribute="leading" secondItem="Bwz-gj-2jN" secondAttribute="leading" id="aAN-ry-NUg"/>
+                <constraint firstItem="tpO-LZ-mgc" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aIu-le-Wva"/>
+                <constraint firstItem="vru-FA-6K3" firstAttribute="leading" secondItem="P4S-VG-r59" secondAttribute="leading" id="nXW-ZL-d0C"/>
+                <constraint firstItem="vru-FA-6K3" firstAttribute="bottom" secondItem="P4S-VG-r59" secondAttribute="bottom" id="ndP-sU-1Ky"/>
+                <constraint firstAttribute="trailing" secondItem="P4S-VG-r59" secondAttribute="trailing" id="ohq-Jo-iYa"/>
+                <constraint firstItem="Bwz-gj-2jN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="rZu-ql-XYx"/>
+            </constraints>
+            <size key="customSize" width="362" height="230"/>
+            <point key="canvasLocation" x="337.68115942028987" y="139.28571428571428"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="play.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="showcase img" width="113.33333587646484" height="64"/>
+    </resources>
 </document>

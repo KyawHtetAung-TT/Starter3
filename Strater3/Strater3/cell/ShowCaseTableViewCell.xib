@@ -5,71 +5,93 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="261" id="KGk-i7-Jjw" customClass="ShowCaseTableViewCell" customModule="Strater3" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="495" height="261"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="308" id="KGk-i7-Jjw" customClass="ShowCaseTableViewCell" customModule="Strater3" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="402" height="308"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="495" height="261"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="402" height="308"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOWCASES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV2-me-dvu">
-                        <rect key="frame" x="15" y="20" width="91.5" height="17.5"/>
-                        <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="14"/>
-                        <color key="textColor" red="0.31764942410000002" green="0.31764277819999998" blue="0.31764724849999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MORE SHOWCASES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBE-Gl-oBS">
-                        <rect key="frame" x="312" y="20" width="168" height="21"/>
-                        <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="sJz-av-ELd">
-                        <rect key="frame" x="0.0" y="61" width="495" height="200"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eFe-Vx-dJX">
+                        <rect key="frame" x="0.0" y="21" width="400" height="270"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="sJz-av-ELd">
+                                <rect key="frame" x="0.0" y="43" width="400" height="209"/>
+                                <color key="backgroundColor" name="Color movie show bg"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="209" id="O0v-bO-Rt2"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="20" id="B1g-FY-n7Y">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MORE SHOWCASES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBE-Gl-oBS">
+                                <rect key="frame" x="212" y="15" width="168" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="t13-AP-q3e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOWCASES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV2-me-dvu">
+                                <rect key="frame" x="20" y="15" width="91.5" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="xca-bB-Y1u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="14"/>
+                                <color key="textColor" red="0.31764942410000002" green="0.31764277819999998" blue="0.31764724849999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Color movie show bg"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="200" id="vDM-C7-0fw"/>
+                            <constraint firstItem="eV2-me-dvu" firstAttribute="top" secondItem="eFe-Vx-dJX" secondAttribute="top" constant="15" id="0FI-6Z-cWq"/>
+                            <constraint firstItem="cBE-Gl-oBS" firstAttribute="top" secondItem="eFe-Vx-dJX" secondAttribute="top" constant="15" id="1r1-gQ-2i1"/>
+                            <constraint firstItem="sJz-av-ELd" firstAttribute="top" secondItem="eV2-me-dvu" secondAttribute="bottom" constant="8" symbolic="YES" id="4QP-7T-WPR"/>
+                            <constraint firstItem="eV2-me-dvu" firstAttribute="leading" secondItem="eFe-Vx-dJX" secondAttribute="leading" constant="20" id="FhA-AQ-z6Y"/>
+                            <constraint firstAttribute="trailing" secondItem="sJz-av-ELd" secondAttribute="trailing" id="Owh-Ii-P8y"/>
+                            <constraint firstAttribute="width" constant="400" id="PYM-I2-8qb"/>
+                            <constraint firstAttribute="bottom" secondItem="sJz-av-ELd" secondAttribute="bottom" constant="18" id="UvT-Sm-k6i"/>
+                            <constraint firstAttribute="trailing" secondItem="cBE-Gl-oBS" secondAttribute="trailing" constant="20" id="VRW-hu-nX5"/>
+                            <constraint firstAttribute="height" constant="270" id="noY-Gr-7mO"/>
+                            <constraint firstItem="sJz-av-ELd" firstAttribute="leading" secondItem="eFe-Vx-dJX" secondAttribute="leading" id="pWJ-iI-Mo9"/>
+                            <constraint firstItem="sJz-av-ELd" firstAttribute="top" secondItem="cBE-Gl-oBS" secondAttribute="bottom" constant="8" symbolic="YES" id="pxn-q5-vsk"/>
                         </constraints>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B1g-FY-n7Y">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                    </collectionView>
+                    </view>
                 </subviews>
-                <color key="backgroundColor" name="Color movie show bg"/>
+                <color key="backgroundColor" name="BG color"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="sJz-av-ELd" secondAttribute="bottom" id="0WA-11-atT"/>
-                    <constraint firstAttribute="trailing" secondItem="cBE-Gl-oBS" secondAttribute="trailing" constant="15" id="Kby-0o-dap"/>
-                    <constraint firstItem="eV2-me-dvu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="XzA-g5-ed3"/>
-                    <constraint firstItem="cBE-Gl-oBS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="aH3-bV-5oK"/>
-                    <constraint firstAttribute="trailing" secondItem="sJz-av-ELd" secondAttribute="trailing" id="kdc-tk-KVm"/>
-                    <constraint firstItem="sJz-av-ELd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uDJ-dA-oPW"/>
-                    <constraint firstItem="eV2-me-dvu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="zNd-ep-jvg"/>
+                    <constraint firstItem="eFe-Vx-dJX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="D01-Ww-rjr"/>
+                    <constraint firstAttribute="trailing" secondItem="eFe-Vx-dJX" secondAttribute="trailing" id="ah0-nh-uvj"/>
+                    <constraint firstAttribute="bottom" secondItem="eFe-Vx-dJX" secondAttribute="bottom" constant="21" id="cZy-Yl-RgV"/>
+                    <constraint firstItem="eFe-Vx-dJX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="rnA-sx-i0G"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="BG color"/>
             <connections>
                 <outlet property="lblMoreShowCase" destination="cBE-Gl-oBS" id="z0D-c5-nKp"/>
                 <outlet property="lblShowCase" destination="eV2-me-dvu" id="qTG-3k-vDz"/>
                 <outlet property="showCaseCollectionView" destination="sJz-av-ELd" id="ju8-eX-SDK"/>
             </connections>
-            <point key="canvasLocation" x="238.40579710144928" y="134.93303571428569"/>
+            <point key="canvasLocation" x="169.56521739130437" y="178.79464285714286"/>
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="BG color">
+            <color red="0.10100000351667404" green="0.11900000274181366" blue="0.16599999368190765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Color movie show bg">
             <color red="0.12200000137090683" green="0.14499999582767487" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
