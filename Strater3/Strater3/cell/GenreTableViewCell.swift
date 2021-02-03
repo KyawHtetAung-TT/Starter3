@@ -20,12 +20,12 @@ class GenreTableViewCell: UITableViewCell {
         
         collectionViewGenre.dataSource = self
         collectionViewGenre.delegate = self
-        collectionViewGenre.register(UINib(nibName: String(describing: GenreCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: GenreCollectionViewCell.self))
+        collectionViewGenre.registerForCell(identifier: GenreCollectionViewCell.identifier)
         
         
         collectionViewMovie.dataSource = self
         collectionViewMovie.delegate = self
-        collectionViewMovie.register(UINib(nibName: String(describing: PopularFilmCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: PopularFilmCollectionViewCell.self))
+        collectionViewMovie.registerForCell(identifier: PopularFilmCollectionViewCell.identifier)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -47,15 +47,17 @@ extension GenreTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == collectionViewMovie{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PopularFilmCollectionViewCell.self), for: indexPath) as? PopularFilmCollectionViewCell else {
-                return UICollectionViewCell()
-            }
+            let cell = collectionView.dequeCell(identifier: PopularFilmCollectionViewCell.identifier, indexPath: indexPath)
             return cell
             
         }else{
+            
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GenreCollectionViewCell.self), for: indexPath) as? GenreCollectionViewCell else {
             return UICollectionViewCell()
         }
+            
+//        let cell = collectionView.dequeCell(identifier: GenreCollectionViewCell.identifier, indexPath:  indexPath)
+            
         cell.data = genreList[indexPath.row]
         
         cell.onTapItem = { genreName in

@@ -18,19 +18,25 @@ class MovieViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        registerTableViewCell()
         
-        tableViewMovies.dataSource = self
-        tableViewMovies.register(UINib(nibName: String(describing: MovieSliderTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MovieSliderTableViewCell.self))
-        tableViewMovies.register(UINib(nibName: String(describing: PopularFilmTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: PopularFilmTableViewCell.self))
-        tableViewMovies.register(UINib(nibName: String(describing: MovieShowTImeTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MovieShowTImeTableViewCell.self))
-        tableViewMovies.register(UINib(nibName: String(describing: GenreTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: GenreTableViewCell.self))
-        tableViewMovies.register(UINib(nibName: String(describing: ShowCaseTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ShowCaseTableViewCell.self))
-        tableViewMovies.register(UINib(nibName: String(describing: BestActorTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: BestActorTableViewCell.self))
     }
-
-
+    
+    private func registerTableViewCell(){
+        tableViewMovies.dataSource = self
+        
+//        tableViewMovies.register(UINib(nibName: String(describing: MovieSliderTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MovieSliderTableViewCell.self))
+        
+        tableViewMovies.registerForCell(identifier: MovieSliderTableViewCell.identifier)
+        tableViewMovies.registerForCell(identifier: PopularFilmTableViewCell.identifier)
+        tableViewMovies.registerForCell(identifier: MovieShowTImeTableViewCell.identifier)
+        tableViewMovies.registerForCell(identifier: GenreTableViewCell.identifier)
+        tableViewMovies.registerForCell(identifier: ShowCaseTableViewCell.identifier)
+        tableViewMovies.registerForCell(identifier: BestActorTableViewCell.identifier)
+    }
+    
 }
-
+    
 extension MovieViewController: UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 6
@@ -42,36 +48,32 @@ extension MovieViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
-        case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MovieSliderTableViewCell.self)) as? MovieSliderTableViewCell else {
-                return UITableViewCell()
-            }
+        
+//        case 0 :
+//            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MovieSliderTableViewCell.self, for: indexPath) as? MovieSliderTableViewCell else {
+//                return UITableViewCell()
+//            }
+//            return cell
+        
+        
+        case MovieType.MOVIE_SLIDER.rawValue:
+            let cell = tableView.dequeCell(identifier: MovieSliderTableViewCell.identifier, indexPath: indexPath)
             return cell
             
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PopularFilmTableViewCell.self)) as? PopularFilmTableViewCell else {
-                return UITableViewCell()
-            }
+        case MovieType.MOVIE_POPULAR.rawValue:
+            let cell = tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath)
             return cell
-        case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MovieShowTImeTableViewCell.self)) as? MovieShowTImeTableViewCell else {
-                return UITableViewCell()
-            }
+        case MovieType.MOVIE_SHOWTIME.rawValue:
+            let cell = tableView.dequeCell(identifier: MovieShowTImeTableViewCell.identifier, indexPath: indexPath)
             return cell
-        case 3:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: GenreTableViewCell.self)) as? GenreTableViewCell else {
-                return UITableViewCell()
-            }
+        case MovieType.MOVIE_GENRE.rawValue:
+            let cell = tableView.dequeCell(identifier: GenreTableViewCell.identifier, indexPath: indexPath)
             return cell
-        case 4:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ShowCaseTableViewCell.self)) as? ShowCaseTableViewCell else {
-                return UITableViewCell()
-            }
+        case MovieType.MOVIE_SHOWCASE.rawValue:
+            let cell = tableView.dequeCell(identifier: ShowCaseTableViewCell.identifier, indexPath: indexPath)
             return cell
-        case 5:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: BestActorTableViewCell.self)) as? BestActorTableViewCell else {
-                return UITableViewCell()
-            }
+        case MovieType.MOVIE_BESTACTOR.rawValue:
+            let cell = tableView.dequeCell(identifier: BestActorTableViewCell.identifier, indexPath: indexPath)
             return cell
         default:
             return UITableViewCell()

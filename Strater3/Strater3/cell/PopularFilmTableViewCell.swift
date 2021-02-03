@@ -16,7 +16,8 @@ class PopularFilmTableViewCell: UITableViewCell {
         
         collectionViewMoive.dataSource = self
         collectionViewMoive.delegate = self
-        collectionViewMoive.register(UINib(nibName: String(describing: PopularFilmCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: PopularFilmCollectionViewCell.self))
+        
+        collectionViewMoive.registerForCell(identifier: PopularFilmCollectionViewCell.identifier)
         
     }
 
@@ -35,9 +36,7 @@ extension PopularFilmTableViewCell : UICollectionViewDataSource,UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PopularFilmCollectionViewCell.self), for: indexPath) as? PopularFilmCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+        let cell = collectionView.dequeCell(identifier: PopularFilmCollectionViewCell.identifier, indexPath: indexPath)
         return cell
         
     }

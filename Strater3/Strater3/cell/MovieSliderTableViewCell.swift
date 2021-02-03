@@ -17,7 +17,10 @@ class MovieSliderTableViewCell: UITableViewCell {
         // Initialization code
         collectionViewMovie.dataSource = self
         collectionViewMovie.delegate = self
-        collectionViewMovie.register(UINib(nibName:String(describing: MovieSliderCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: MovieSliderCollectionViewCell.self))
+        
+//        collectionViewMovie.register(UINib(nibName:String(describing: MovieSliderCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: MovieSliderCollectionViewCell.self))
+        
+        collectionViewMovie.registerForCell(identifier: MovieSliderCollectionViewCell.identifier)
         
         
     }
@@ -37,11 +40,16 @@ extension MovieSliderTableViewCell:UICollectionViewDataSource,UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MovieSliderCollectionViewCell.self), for: indexPath) as? MovieSliderCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        return cell
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MovieSliderCollectionViewCell.self), for: indexPath) as? MovieSliderCollectionViewCell else {
+//            return UICollectionViewCell()
+//        }
+//        return cell
+        
+        let cell = collectionView.dequeCell(identifier: MovieSliderCollectionViewCell.identifier, indexPath: indexPath)
+            return cell
+            
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 240)
     }

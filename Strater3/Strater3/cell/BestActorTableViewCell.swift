@@ -22,8 +22,7 @@ class BestActorTableViewCell: UITableViewCell,ActorActionDelegate{
         collectionViewActors.dataSource = self
         collectionViewActors.delegate = self
         
-        collectionViewActors.register(UINib(nibName: String(describing: BestActorCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BestActorCollectionViewCell.self))
-        
+        collectionViewActors.registerForCell(identifier: BestActorCollectionViewCell.identifier)
         lblMoreActors.underlineText(text: "MORE ACOTRS")
     }
     
@@ -48,8 +47,12 @@ extension BestActorTableViewCell : UICollectionViewDataSource,UICollectionViewDe
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BestActorCollectionViewCell.self), for: indexPath) as? BestActorCollectionViewCell else {
             return UICollectionViewCell()
         }
+        
+//        let cell = collectionView.dequeCell(identifier: BestActorCollectionViewCell.identifier, indexPath:  indexPath)
+        
         cell.delegate = self
         return cell
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width/2, height: CGFloat(220))

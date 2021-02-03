@@ -21,7 +21,9 @@ class ShowCaseTableViewCell: UITableViewCell {
         showCaseCollectionView.dataSource = self
         showCaseCollectionView.delegate = self
         
-        showCaseCollectionView.register(UINib(nibName: String(describing: ShowCaseCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: ShowCaseCollectionViewCell.self))
+        
+        showCaseCollectionView.registerForCell(identifier: ShowCaseCollectionViewCell.identifier)
+        
         lblMoreShowCase.underlineText(text: "MORE SHOWCASES")
         
 //        showCaseCollectionView.semanticContentAttribute = UISemanticContentAttribute.forceRightToLeft
@@ -43,9 +45,7 @@ extension ShowCaseTableViewCell : UICollectionViewDataSource,UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ShowCaseCollectionViewCell.self), for: indexPath) as? ShowCaseCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+        let cell = collectionView.dequeCell(identifier: ShowCaseCollectionViewCell.identifier, indexPath: indexPath)
         return cell
         
     }
