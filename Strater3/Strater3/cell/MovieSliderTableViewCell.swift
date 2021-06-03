@@ -12,6 +12,8 @@ class MovieSliderTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionViewMovie: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    var delegate:MovieItemDelegate? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -48,6 +50,10 @@ extension MovieSliderTableViewCell:UICollectionViewDataSource,UICollectionViewDe
         let cell = collectionView.dequeCell(identifier: MovieSliderCollectionViewCell.identifier, indexPath: indexPath)
             return cell
             
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.onTapMovie()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

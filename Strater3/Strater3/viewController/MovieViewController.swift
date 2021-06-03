@@ -7,8 +7,8 @@
 
 import UIKit
 
-class MovieViewController: UIViewController {
-
+class MovieViewController: UIViewController,MovieItemDelegate {
+    
     @IBOutlet weak var tableViewMovies: UITableView!
     @IBOutlet weak var viewForToolbar: UIView!
     @IBOutlet weak var ivMenu: UIImageView!
@@ -35,6 +35,12 @@ class MovieViewController: UIViewController {
         tableViewMovies.registerForCell(identifier: BestActorTableViewCell.identifier)
     }
     
+    func onTapMovie() {
+        
+        nevigateToMovieDetailViewController()
+        
+    }
+    
 }
     
 extension MovieViewController: UITableViewDataSource{
@@ -57,24 +63,34 @@ extension MovieViewController: UITableViewDataSource{
         
         
         case MovieType.MOVIE_SLIDER.rawValue:
-            let cell = tableView.dequeCell(identifier: MovieSliderTableViewCell.identifier, indexPath: indexPath)
+            let cell = tableView.dequeCell(identifier: MovieSliderTableViewCell.identifier, indexPath: indexPath) as MovieSliderTableViewCell
+            cell.delegate = self
             return cell
+           
             
         case MovieType.MOVIE_POPULAR.rawValue:
-            let cell = tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath)
-            return cell
+//            let cell = tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath)
+//
+//            return cell
+//
+            return tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath)
+            
         case MovieType.MOVIE_SHOWTIME.rawValue:
             let cell = tableView.dequeCell(identifier: MovieShowTImeTableViewCell.identifier, indexPath: indexPath)
             return cell
+            
         case MovieType.MOVIE_GENRE.rawValue:
             let cell = tableView.dequeCell(identifier: GenreTableViewCell.identifier, indexPath: indexPath)
             return cell
+            
         case MovieType.MOVIE_SHOWCASE.rawValue:
             let cell = tableView.dequeCell(identifier: ShowCaseTableViewCell.identifier, indexPath: indexPath)
             return cell
+            
         case MovieType.MOVIE_BESTACTOR.rawValue:
             let cell = tableView.dequeCell(identifier: BestActorTableViewCell.identifier, indexPath: indexPath)
             return cell
+            
         default:
             return UITableViewCell()
         }
