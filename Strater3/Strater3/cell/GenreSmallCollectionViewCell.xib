@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GenreSmallCollectionViewCell" customModule="Strater3" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CeQ-Ae-xbx">
+                        <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtM-zN-CW8">
+                                <rect key="frame" x="5" y="0.0" width="50" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Color movie show bg"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZtM-zN-CW8" secondAttribute="trailing" constant="5" id="8Ci-td-Afc"/>
+                            <constraint firstAttribute="bottom" secondItem="ZtM-zN-CW8" secondAttribute="bottom" id="BjG-AJ-uhw"/>
+                            <constraint firstAttribute="width" constant="60" id="K1v-sF-ys7"/>
+                            <constraint firstAttribute="height" constant="30" id="ZaC-tJ-5cL"/>
+                            <constraint firstItem="ZtM-zN-CW8" firstAttribute="top" secondItem="CeQ-Ae-xbx" secondAttribute="top" id="fIY-aB-rSW"/>
+                            <constraint firstItem="ZtM-zN-CW8" firstAttribute="leading" secondItem="CeQ-Ae-xbx" secondAttribute="leading" constant="5" id="txR-JF-Rr0"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="CeQ-Ae-xbx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LJx-hO-2GG"/>
+                <constraint firstAttribute="bottom" secondItem="CeQ-Ae-xbx" secondAttribute="bottom" id="Ol5-xb-ScZ"/>
+                <constraint firstItem="CeQ-Ae-xbx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UBZ-dC-z9l"/>
+                <constraint firstAttribute="trailing" secondItem="CeQ-Ae-xbx" secondAttribute="trailing" id="ejb-GH-lDX"/>
+            </constraints>
+            <size key="customSize" width="60" height="30"/>
+            <connections>
+                <outlet property="lblGenre" destination="ZtM-zN-CW8" id="gsd-pV-RAd"/>
+            </connections>
+            <point key="canvasLocation" x="40.579710144927539" y="72.991071428571431"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Color movie show bg">
+            <color red="0.12200000137090683" green="0.14499999582767487" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
