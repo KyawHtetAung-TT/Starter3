@@ -14,7 +14,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var btnRateMovie: UIButton!
     @IBOutlet weak var collectionViewGenre: UICollectionView!
     @IBOutlet weak var collectionViewActor: UICollectionView!
-    
+    @IBOutlet weak var collectionViewCreator: UICollectionView!
     
     
     override func viewDidLoad() {
@@ -23,7 +23,9 @@ class MovieDetailViewController: UIViewController {
         initGestureRecognizerBack()
         btnBorderColor()
         registerCollectionView()
-        GenreSamllregisterCollectionView()
+//        GenreSamllregisterCollectionView()
+
+        
 //        btnRateMovie.isUserInteractionEnabled = false
 
         // Do any additional setup after loading the view.
@@ -35,14 +37,19 @@ class MovieDetailViewController: UIViewController {
         collectionViewActor.delegate = self
         collectionViewActor.registerForCell(identifier: BestActorCollectionViewCell.identifier)
         
+        collectionViewCreator.dataSource = self
+        collectionViewCreator.delegate = self
+        collectionViewCreator.registerForCell(identifier: BestActorCollectionViewCell.identifier)
     }
-    private func GenreSamllregisterCollectionView(){
-        
-        collectionViewGenre.dataSource = self
-        collectionViewGenre.delegate = self
-        collectionViewGenre.registerForCell(identifier: GenreSmallCollectionViewCell.identifier)
-        
-    }
+//    private func GenreSamllregisterCollectionView(){
+//
+//        collectionViewGenre.dataSource = self
+//        collectionViewGenre.delegate = self
+//        collectionViewGenre.registerForCell(identifier: GenreSmallCollectionViewCell.identifier)
+//
+//    }
+    
+  
     
     private func initGestureRecognizerBack(){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapButton))
@@ -67,28 +74,28 @@ class MovieDetailViewController: UIViewController {
 }
 extension MovieDetailViewController : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == collectionViewActor{
+//        if collectionView == collectionViewActor && (collectionViewCreator != nil){
         return 5
-        }
-        return 3
+//        }
+////        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == collectionViewActor{
+//        if collectionView == collectionViewActor {
             
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BestActorCollectionViewCell.self), for: indexPath) as? BestActorCollectionViewCell else {
             return UICollectionViewCell()
-        }
+//        }
         
         
 //        let cell = collectionView.dequeCell(identifier: BestActorCollectionViewCell.identifier, indexPath:  indexPath)
         
-        return cell
+//        return cell
+//        }
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GenreSmallCollectionViewCell.self), for: indexPath) as? GenreSmallCollectionViewCell else {
+//            return UICollectionViewCell()
         }
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GenreSmallCollectionViewCell.self), for: indexPath) as? GenreSmallCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-       
+//
             return cell
         
     }
