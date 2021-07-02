@@ -18,7 +18,7 @@ class PopularFilmCollectionViewCell: UICollectionViewCell {
     var data : MovieResult?{
         didSet {
             if let data = data {
-                let title = data.originalTitle
+                let title = data.originalTitle ?? data.originalName 
                 let backdropPath = "\(AppConstants.baseImageUrl)/\(data.backdropPath ?? "")"
                 
                 labelContentTitle.text = title

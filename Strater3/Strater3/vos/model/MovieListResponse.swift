@@ -56,7 +56,7 @@ public struct MovieResult: Codable {
     let genreIDS: [Int]?
     let id: Int?
     let originalLanguage: String?
-    let originalTitle, overview: String?
+    let originalTitle, originalName, overview: String?
     let popularity: Double?
     let posterPath, releaseDate, title: String?
     let video: Bool?
@@ -69,6 +69,7 @@ public struct MovieResult: Codable {
         case genreIDS = "genre_ids"
         case id
         case originalLanguage = "original_language"
+        case originalName = "original_name"
         case originalTitle = "original_title"
         case overview, popularity
         case posterPath = "poster_path"
@@ -77,13 +78,14 @@ public struct MovieResult: Codable {
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
-    public init(adult : Bool?, backdropPath: String?, genreIDS: [Int]?, id: Int?, originalLanguage: String?, originalTitle : String?, overview: String? , popularity: Double?, posterPath : String?, releaseDate : String?, title: String?, video: Bool? ,voteAverage: Double?, voteCount: Int?){
+    public init(adult : Bool?, backdropPath: String?, genreIDS: [Int]?, id: Int?, originalLanguage: String?, originalName : String?, originalTitle : String?, overview: String? , popularity: Double?, posterPath : String?, releaseDate : String?, title: String?, video: Bool? ,voteAverage: Double?, voteCount: Int?){
         
         self.adult = adult
         self.backdropPath = backdropPath
         self.genreIDS = genreIDS
         self.id = id
         self.originalLanguage = originalLanguage
+        self.originalName = originalName
         self.originalTitle = originalTitle
         self.overview = overview
         self.popularity = popularity

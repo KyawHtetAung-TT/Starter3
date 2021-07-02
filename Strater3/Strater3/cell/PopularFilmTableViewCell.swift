@@ -9,6 +9,7 @@ import UIKit
 
 class PopularFilmTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lableTitle: UILabel!
     @IBOutlet weak var collectionViewMoive: UICollectionView!
     
     var delegate:MovieItemDelegate? = nil

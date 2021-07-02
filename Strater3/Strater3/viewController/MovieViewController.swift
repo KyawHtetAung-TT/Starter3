@@ -18,6 +18,7 @@ class MovieViewController: UIViewController,MovieItemDelegate {
 
     private var upcomingMovieList : MovieListResponse?
     private var popularMovieList: MovieListResponse?
+    private var popularSeriesList: MovieListResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class MovieViewController: UIViewController,MovieItemDelegate {
         registerTableViewCell()
         fetchUpcomingMovieList()
         fetchPopularMovieList()
+        fetchPopularSeriesList()
     }
     
     private func registerTableViewCell(){
@@ -68,12 +70,12 @@ class MovieViewController: UIViewController,MovieItemDelegate {
             print(error.description)
         }
     }
-    func fetchPopularMovieList(){
+    func fetchPopularSeriesList(){
         
         networkAgent.getUpcomingMovieList { (data) in
             self.popularMovieList = data
             // UI update
-            self.tableViewMovies.reloadSections(IndexSet(integer: 1), with: .automatic)
+            self.tableViewMovies.reloadSections(IndexSet(integer: 2), with: .automatic)
         } failure: { (error) in
             print(error.description)
         }
@@ -115,7 +117,7 @@ extension MovieViewController: UITableViewDataSource{
             
             let cell = tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath) as PopularFilmTableViewCell
             cell.delegate = self
-            
+            cell.lableTitle.text = "popular moives".uppercased()
             cell.data = popularMovieList
             return cell
 
@@ -123,8 +125,8 @@ extension MovieViewController: UITableViewDataSource{
             
             let cell = tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath) as PopularFilmTableViewCell
             cell.delegate = self
-            
-            cell.data = popularMovieList
+            cell.lableTitle.text = "popular series".uppercased()
+            cell.data = popularSeriesList
             return cell
             
             

@@ -49,6 +49,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="collectionViewMoive" destination="bd4-ED-4th" id="tpM-B1-Aby"/>
+                <outlet property="lableTitle" destination="cFe-yy-6U8" id="6zi-se-wpO"/>
             </connections>
             <point key="canvasLocation" x="147.82608695652175" y="164.73214285714286"/>
         </tableViewCell>
