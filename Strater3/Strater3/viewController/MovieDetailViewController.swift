@@ -23,7 +23,7 @@ class MovieDetailViewController: UIViewController {
         initGestureRecognizerBack()
         btnBorderColor()
         registerCollectionView()
-//        GenreSamllregisterCollectionView()
+        
 
         
 //        btnRateMovie.isUserInteractionEnabled = false
@@ -41,13 +41,8 @@ class MovieDetailViewController: UIViewController {
         collectionViewCreator.delegate = self
         collectionViewCreator.registerForCell(identifier: BestActorCollectionViewCell.identifier)
     }
-//    private func GenreSamllregisterCollectionView(){
-//
-//        collectionViewGenre.dataSource = self
-//        collectionViewGenre.delegate = self
-//        collectionViewGenre.registerForCell(identifier: GenreSmallCollectionViewCell.identifier)
-//
-//    }
+    
+    
     
   
     
@@ -74,31 +69,22 @@ class MovieDetailViewController: UIViewController {
 }
 extension MovieDetailViewController : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if collectionView == collectionViewActor && (collectionViewCreator != nil){
+   
         return 5
-//        }
-////        return 3
+   
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        if collectionView == collectionViewActor {
-            
+        
+        
+
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BestActorCollectionViewCell.self), for: indexPath) as? BestActorCollectionViewCell else {
             return UICollectionViewCell()
-//        }
-        
-        
-//        let cell = collectionView.dequeCell(identifier: BestActorCollectionViewCell.identifier, indexPath:  indexPath)
-        
-//        return cell
-//        }
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GenreSmallCollectionViewCell.self), for: indexPath) as? GenreSmallCollectionViewCell else {
-//            return UICollectionViewCell()
         }
-//
-            return cell
+        return cell
         
     }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width/2, height: CGFloat(220))
     }

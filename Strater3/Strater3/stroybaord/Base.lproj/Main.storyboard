@@ -124,7 +124,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.075351677830000005" green="0.1071746126" blue="0.13983055950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.074509803921568626" green="0.10588235294117647" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7oD-we-AuA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4MQ-7L-aKc"/>
                             <constraint firstItem="7oD-we-AuA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7w7-Qz-67c"/>
@@ -690,7 +690,7 @@
                         <outlet property="btnRateMovie" destination="nE1-cu-hWU" id="lhT-1S-qPb"/>
                         <outlet property="collectionViewActor" destination="1Dc-0g-C4F" id="LzR-8D-igf"/>
                         <outlet property="collectionViewCreator" destination="9BI-CZ-08Z" id="BGb-c0-4QB"/>
-                        <outlet property="collectionViewGenre" destination="i5n-qw-U9Y" id="IOG-RZ-7ax"/>
+                        <outlet property="collectionViewGenre" destination="i5n-qw-U9Y" id="yy5-xR-Eal"/>
                         <outlet property="ivBack" destination="4f4-ah-VvL" id="6i9-SW-yls"/>
                     </connections>
                 </viewController>

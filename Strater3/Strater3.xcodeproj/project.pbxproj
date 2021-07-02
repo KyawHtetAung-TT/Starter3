@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48A897AEE5F36D58A75E0675 /* Pods_Strater3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B4B6F75D3290196B0AE9DD /* Pods_Strater3.framework */; };
 		7892C6C425C30D7B0066E549 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6C325C30D7B0066E549 /* AppDelegate.swift */; };
 		7892C6C625C30D7B0066E549 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6C525C30D7B0066E549 /* SceneDelegate.swift */; };
 		7892C6C825C30D7B0066E549 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6C725C30D7B0066E549 /* MovieViewController.swift */; };
@@ -40,6 +41,11 @@
 		7892C7EE25CAF1950066E549 /* BestActorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7892C7EC25CAF1950066E549 /* BestActorCollectionViewCell.xib */; };
 		7892C7F425CB08E80066E549 /* ActorActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7892C7F325CB08E80066E549 /* ActorActionDelegate.swift */; };
 		7892C7FB25CB242D0066E549 /* MovieType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7892C7FA25CB242D0066E549 /* MovieType.swift */; };
+		9826AF24268F1AEA008DD7AA /* NetworkingAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9826AF23268F1AEA008DD7AA /* NetworkingAgent.swift */; };
+		9826AF26268F1BC8008DD7AA /* Consultants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9826AF25268F1BC8008DD7AA /* Consultants.swift */; };
+		9826AF2D268F1E60008DD7AA /* MovieListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9826AF2A268F1E60008DD7AA /* MovieListResponse.swift */; };
+		9826AF2E268F1E60008DD7AA /* SearchSeriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9826AF2B268F1E60008DD7AA /* SearchSeriesResponse.swift */; };
+		9826AF2F268F1E60008DD7AA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9826AF2C268F1E60008DD7AA /* Models.swift */; };
 		9836FB0A26693E3000E2A0BE /* MovieItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9836FB0926693E3000E2A0BE /* MovieItemDelegate.swift */; };
 		9836FB122669477000E2A0BE /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9836FB112669477000E2A0BE /* MovieDetailViewController.swift */; };
 		9836FB1426694B6D00E2A0BE /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9836FB1326694B6D00E2A0BE /* Router.swift */; };
@@ -48,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F911E8F81DCEF9934E75D07 /* Pods-Strater3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Strater3.debug.xcconfig"; path = "Target Support Files/Pods-Strater3/Pods-Strater3.debug.xcconfig"; sourceTree = "<group>"; };
 		7892C6C025C30D7B0066E549 /* Strater3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strater3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7892C6C325C30D7B0066E549 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7892C6C525C30D7B0066E549 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,11 +90,18 @@
 		7892C7EC25CAF1950066E549 /* BestActorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BestActorCollectionViewCell.xib; sourceTree = "<group>"; };
 		7892C7F325CB08E80066E549 /* ActorActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorActionDelegate.swift; sourceTree = "<group>"; };
 		7892C7FA25CB242D0066E549 /* MovieType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieType.swift; sourceTree = "<group>"; };
+		87ABE8DFB7D332A52899B6FC /* Pods-Strater3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Strater3.release.xcconfig"; path = "Target Support Files/Pods-Strater3/Pods-Strater3.release.xcconfig"; sourceTree = "<group>"; };
+		9826AF23268F1AEA008DD7AA /* NetworkingAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingAgent.swift; sourceTree = "<group>"; };
+		9826AF25268F1BC8008DD7AA /* Consultants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consultants.swift; sourceTree = "<group>"; };
+		9826AF2A268F1E60008DD7AA /* MovieListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListResponse.swift; sourceTree = "<group>"; };
+		9826AF2B268F1E60008DD7AA /* SearchSeriesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSeriesResponse.swift; sourceTree = "<group>"; };
+		9826AF2C268F1E60008DD7AA /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		9836FB0926693E3000E2A0BE /* MovieItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemDelegate.swift; sourceTree = "<group>"; };
 		9836FB112669477000E2A0BE /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		9836FB1326694B6D00E2A0BE /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		9836FB15266BEB6900E2A0BE /* GenreSmallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSmallCollectionViewCell.swift; sourceTree = "<group>"; };
 		9836FB16266BEB6900E2A0BE /* GenreSmallCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreSmallCollectionViewCell.xib; sourceTree = "<group>"; };
+		D4B4B6F75D3290196B0AE9DD /* Pods_Strater3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Strater3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A897AEE5F36D58A75E0675 /* Pods_Strater3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +121,8 @@
 			children = (
 				7892C6C225C30D7B0066E549 /* Strater3 */,
 				7892C6C125C30D7B0066E549 /* Products */,
+				BAA0F76474213927C12CF08B /* Pods */,
+				B34BFFB73D0D15CE6280FDBD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +137,7 @@
 		7892C6C225C30D7B0066E549 /* Strater3 */ = {
 			isa = PBXGroup;
 			children = (
+				9826AF22268F1AD8008DD7AA /* Networking */,
 				7892C73B25C5DD030066E549 /* utils */,
 				7892C72725C52A150066E549 /* vos */,
 				7892C6E425C30E4B0066E549 /* components */,
@@ -259,6 +277,7 @@
 		7892C72725C52A150066E549 /* vos */ = {
 			isa = PBXGroup;
 			children = (
+				9826AF29268F1E37008DD7AA /* model */,
 				7892C7F925CB23F50066E549 /* enum */,
 				7892C73125C52A6B0066E549 /* GenreVO.swift */,
 			);
@@ -268,6 +287,7 @@
 		7892C73B25C5DD030066E549 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				9826AF25268F1BC8008DD7AA /* Consultants.swift */,
 				7892C74125C666C20066E549 /* ViewExtension.swift */,
 				9836FB1326694B6D00E2A0BE /* Router.swift */,
 			);
@@ -291,6 +311,41 @@
 			path = enum;
 			sourceTree = "<group>";
 		};
+		9826AF22268F1AD8008DD7AA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				9826AF23268F1AEA008DD7AA /* NetworkingAgent.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		9826AF29268F1E37008DD7AA /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9826AF2C268F1E60008DD7AA /* Models.swift */,
+				9826AF2B268F1E60008DD7AA /* SearchSeriesResponse.swift */,
+				9826AF2A268F1E60008DD7AA /* MovieListResponse.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		B34BFFB73D0D15CE6280FDBD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4B4B6F75D3290196B0AE9DD /* Pods_Strater3.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BAA0F76474213927C12CF08B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F911E8F81DCEF9934E75D07 /* Pods-Strater3.debug.xcconfig */,
+				87ABE8DFB7D332A52899B6FC /* Pods-Strater3.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -298,9 +353,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7892C6D425C30D7E0066E549 /* Build configuration list for PBXNativeTarget "Strater3" */;
 			buildPhases = (
+				AAF0D0B762DFB4AB8550375D /* [CP] Check Pods Manifest.lock */,
 				7892C6BC25C30D7B0066E549 /* Sources */,
 				7892C6BD25C30D7B0066E549 /* Frameworks */,
 				7892C6BE25C30D7B0066E549 /* Resources */,
+				0879FC6FFB65D46ED7D349CF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -369,6 +426,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0879FC6FFB65D46ED7D349CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Strater3/Pods-Strater3-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Strater3/Pods-Strater3-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Strater3/Pods-Strater3-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAF0D0B762DFB4AB8550375D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Strater3-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7892C6BC25C30D7B0066E549 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -381,15 +480,19 @@
 				7892C70625C500C80066E549 /* MovieShowTImeTableViewCell.swift in Sources */,
 				9836FB122669477000E2A0BE /* MovieDetailViewController.swift in Sources */,
 				9836FB0A26693E3000E2A0BE /* MovieItemDelegate.swift in Sources */,
+				9826AF24268F1AEA008DD7AA /* NetworkingAgent.swift in Sources */,
 				7892C72325C526470066E549 /* GenreCollectionViewCell.swift in Sources */,
+				9826AF2E268F1E60008DD7AA /* SearchSeriesResponse.swift in Sources */,
 				7892C74C25C66B4F0066E549 /* ShowCaseCollectionViewCell.swift in Sources */,
 				7892C6F725C41D320066E549 /* PopularFilmTableViewCell.swift in Sources */,
 				7892C6C825C30D7B0066E549 /* MovieViewController.swift in Sources */,
 				7892C7ED25CAF1950066E549 /* BestActorCollectionViewCell.swift in Sources */,
 				7892C6C425C30D7B0066E549 /* AppDelegate.swift in Sources */,
+				9826AF2D268F1E60008DD7AA /* MovieListResponse.swift in Sources */,
 				7892C74625C6690E0066E549 /* ShowCaseTableViewCell.swift in Sources */,
 				7892C7F425CB08E80066E549 /* ActorActionDelegate.swift in Sources */,
 				7892C73225C52A6B0066E549 /* GenreVO.swift in Sources */,
+				9826AF26268F1BC8008DD7AA /* Consultants.swift in Sources */,
 				7892C6EE25C320880066E549 /* MovieSliderCollectionViewCell.swift in Sources */,
 				7892C6C625C30D7B0066E549 /* SceneDelegate.swift in Sources */,
 				7892C71D25C525830066E549 /* GenreTableViewCell.swift in Sources */,
@@ -397,6 +500,7 @@
 				7892C6F325C4110D0066E549 /* RatingControl.swift in Sources */,
 				7892C6E825C31A3C0066E549 /* MovieSliderTableViewCell.swift in Sources */,
 				7892C74225C666C20066E549 /* ViewExtension.swift in Sources */,
+				9826AF2F268F1E60008DD7AA /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +644,7 @@
 		};
 		7892C6D525C30D7E0066E549 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F911E8F81DCEF9934E75D07 /* Pods-Strater3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -562,6 +667,7 @@
 		};
 		7892C6D625C30D7E0066E549 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87ABE8DFB7D332A52899B6FC /* Pods-Strater3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

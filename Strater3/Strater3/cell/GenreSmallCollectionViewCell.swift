@@ -11,7 +11,7 @@ class GenreSmallCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var lblGenre: UILabel!
     
-    var GenreName = ["GMG","gjdj","sjf"]
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

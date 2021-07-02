@@ -14,12 +14,18 @@ class MovieViewController: UIViewController,MovieItemDelegate {
     @IBOutlet weak var ivMenu: UIImageView!
     @IBOutlet weak var ivSearch: UIImageView!
     
+    private let networkAgent = MovieDBNetworkAgent.shared
+
+    private var upcomingMovieList : MovieListResponse?
+    private var popularMovieList: MovieListResponse?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         registerTableViewCell()
-        
+        fetchUpcomingMovieList()
+        fetchPopularMovieList()
     }
     
     private func registerTableViewCell(){
@@ -40,6 +46,39 @@ class MovieViewController: UIViewController,MovieItemDelegate {
         nevigateToMovieDetailViewController()
         
     }
+    
+    func fetchUpcomingMovieList(){
+        
+        networkAgent.getUpcomingMovieList { (data) in
+            self.upcomingMovieList = data
+            // UI update
+            self.tableViewMovies.reloadSections(IndexSet(integer: 0), with: .automatic)
+        } failure: { (error) in
+            print(error.description)
+        }
+    }
+    
+    func fetchPopularMovieList(){
+        
+        networkAgent.getUpcomingMovieList { (data) in
+            self.popularMovieList = data
+            // UI update
+            self.tableViewMovies.reloadSections(IndexSet(integer: 1), with: .automatic)
+        } failure: { (error) in
+            print(error.description)
+        }
+    }
+    func fetchPopularMovieList(){
+        
+        networkAgent.getUpcomingMovieList { (data) in
+            self.popularMovieList = data
+            // UI update
+            self.tableViewMovies.reloadSections(IndexSet(integer: 1), with: .automatic)
+        } failure: { (error) in
+            print(error.description)
+        }
+    }
+    
     
 }
     
@@ -64,16 +103,31 @@ extension MovieViewController: UITableViewDataSource{
         
         case MovieType.MOVIE_SLIDER.rawValue:
             let cell = tableView.dequeCell(identifier: MovieSliderTableViewCell.identifier, indexPath: indexPath) as MovieSliderTableViewCell
+
             cell.delegate = self
+            cell.data = upcomingMovieList
+            
             return cell
            
             
         case MovieType.MOVIE_POPULAR.rawValue:
-//            let cell = tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath)
-//
-//            return cell
-//
-            return tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath)
+//            return tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath)
+            
+            let cell = tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath) as PopularFilmTableViewCell
+            cell.delegate = self
+            
+            cell.data = popularMovieList
+            return cell
+
+        case MovieType.SERIE_POPULAR.rawValue:
+            
+            let cell = tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath) as PopularFilmTableViewCell
+            cell.delegate = self
+            
+            cell.data = popularMovieList
+            return cell
+            
+            
             
         case MovieType.MOVIE_SHOWTIME.rawValue:
             let cell = tableView.dequeCell(identifier: MovieShowTImeTableViewCell.identifier, indexPath: indexPath)

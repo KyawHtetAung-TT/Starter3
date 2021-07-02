@@ -7,12 +7,22 @@
 
 import UIKit
 
+
 class MovieSliderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionViewMovie: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
     var delegate:MovieItemDelegate? = nil
+    
+    var  data : MovieListResponse? {
+        didSet{
+            if let data = data{
+                pageControl.numberOfPages = data.results?.count ?? 0
+                collectionViewMovie.reloadData()
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,19 +46,25 @@ class MovieSliderTableViewCell: UITableViewCell {
 }
 extension MovieSliderTableViewCell:UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return data?.results?.count ?? 0
     
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MovieSliderCollectionViewCell.self), for: indexPath) as? MovieSliderCollectionViewCell else {
-//            return UICollectionViewCell()
-//        }
-//        return cell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MovieSliderCollectionViewCell.self), for: indexPath) as? MovieSliderCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         
-        let cell = collectionView.dequeCell(identifier: MovieSliderCollectionViewCell.identifier, indexPath: indexPath)
-            return cell
+        let cellData = data?.results?[indexPath.row]
+        cell.data = cellData
+        return cell
+        
+        
+        
+        
+//        let cell = collectionView.dequeCell(identifier: MovieSliderCollectionViewCell.identifier, indexPath: indexPath)
+//            return cell
             
     }
     
@@ -57,7 +73,9 @@ extension MovieSliderTableViewCell:UICollectionViewDataSource,UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 240)
+        let itemWidth : CGFloat = 120
+        let itemHeight : CGFloat = collectionView.frame.height
+        return CGSize(width: itemWidth, height: itemHeight)
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)

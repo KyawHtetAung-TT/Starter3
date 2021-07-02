@@ -10,6 +10,17 @@ import UIKit
 class PopularFilmTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionViewMoive: UICollectionView!
+    
+    var delegate:MovieItemDelegate? = nil
+    
+    var  data : MovieListResponse? {
+        didSet{
+            if let data = data{
+                collectionViewMoive.reloadData()
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,18 +42,26 @@ class PopularFilmTableViewCell: UITableViewCell {
 
 extension PopularFilmTableViewCell : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return data?.results?.count ?? 0
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeCell(identifier: PopularFilmCollectionViewCell.identifier, indexPath: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PopularFilmCollectionViewCell.self), for: indexPath) as? PopularFilmCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.data = data?.results?[indexPath.row]
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/3, height: 270)
+        let itemWidth : CGFloat = 120
+        let itemHeight : CGFloat = collectionView.frame.height
+        return CGSize(width: itemWidth, height: itemHeight)
     }
     
     
