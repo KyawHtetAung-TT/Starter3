@@ -158,6 +158,12 @@ extension MovieViewController: UITableViewDataSource{
             })
             resultData?.first?.isSelected = true
             cell.genreList = resultData
+            
+            var movieList : [MovieResult] = []
+            movieList.append(contentsOf: upcomingMovieList?.results ?? [MovieResult]())
+            movieList.append(contentsOf: popularSeriesList?.results ?? [MovieResult]())
+            movieList.append(contentsOf: popularMovieList?.results ?? [MovieResult]())
+            cell.allMoivieAndSeries = movieList
             return cell
             
         case MovieType.MOVIE_SHOWCASE.rawValue:

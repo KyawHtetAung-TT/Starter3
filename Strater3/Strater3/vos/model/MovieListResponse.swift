@@ -50,7 +50,7 @@ public struct Dates: Codable {
 }
 
 // MARK: - MovieResult
-public struct MovieResult: Codable {
+public struct MovieResult: Codable, Hashable {
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?
