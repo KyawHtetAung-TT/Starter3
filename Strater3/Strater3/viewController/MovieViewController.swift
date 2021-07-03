@@ -153,17 +153,21 @@ extension MovieViewController: UITableViewDataSource{
             
         case MovieType.MOVIE_GENRE.rawValue:
             let cell = tableView.dequeCell(identifier: GenreTableViewCell.identifier, indexPath: indexPath) as GenreTableViewCell
-            let resultData : [GenreVO]? = genresMovieList?.genres.map({ movieGenres -> GenreVO in
-                return movieGenres.convertToGenreVO()
-            })
-            resultData?.first?.isSelected = true
-            cell.genreList = resultData
+            
+           
             
             var movieList : [MovieResult] = []
             movieList.append(contentsOf: upcomingMovieList?.results ?? [MovieResult]())
             movieList.append(contentsOf: popularSeriesList?.results ?? [MovieResult]())
             movieList.append(contentsOf: popularMovieList?.results ?? [MovieResult]())
             cell.allMoivieAndSeries = movieList
+            
+            let resultData : [GenreVO]? = genresMovieList?.genres.map({ movieGenres -> GenreVO in
+                return movieGenres.convertToGenreVO()
+            })
+            resultData?.first?.isSelected = true
+            cell.genreList = resultData
+            
             return cell
             
         case MovieType.MOVIE_SHOWCASE.rawValue:

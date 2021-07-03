@@ -19,6 +19,16 @@ class GenreTableViewCell: UITableViewCell {
             if let _ = genreList {
                 collectionViewGenre.reloadData()
                 
+                genreList?.removeAll(where: { (genreVO) in
+                    let genreID = genreVO.id
+                   
+                    let results = movieListByGenre.filter { (key,value) -> Bool in
+                        genreID == key
+                    }
+                    return results.count == 0
+                    
+                    
+                })
             }
         }
     }
