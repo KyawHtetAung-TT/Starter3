@@ -19,6 +19,8 @@ class MovieViewController: UIViewController,MovieItemDelegate {
     private var upcomingMovieList : MovieListResponse?
     private var popularMovieList: MovieListResponse?
     private var popularSeriesList: MovieListResponse?
+    private var genresMovieList: MovieGenreList?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,20 @@ class MovieViewController: UIViewController,MovieItemDelegate {
         nevigateToMovieDetailViewController()
         
     }
+    
+    func fetchMoiveGenreList(){
+        
+        networkAgent.getGenreList { (data) in
+            self.genresMovieList = data
+            // UI update
+            self.tableViewMovies.reloadSections(IndexSet(integer: 4), with: .automatic)
+        } failure: { (error) in
+            print(error.description)
+        }
+        
+    }
+    
+    
     
     func fetchUpcomingMovieList(){
         
@@ -136,7 +152,12 @@ extension MovieViewController: UITableViewDataSource{
             return cell
             
         case MovieType.MOVIE_GENRE.rawValue:
-            let cell = tableView.dequeCell(identifier: GenreTableViewCell.identifier, indexPath: indexPath)
+            let cell = tableView.dequeCell(identifier: GenreTableViewCell.identifier, indexPath: indexPath) as GenreTableViewCell
+            let resultData : [GenreVO]? = genresMovieList?.genres.map({ movieGenres -> GenreVO in
+                return movieGenres.convertToGenreVO()
+            })
+            resultData?.first?.isSelected = true
+            cell.genreList = resultData
             return cell
             
         case MovieType.MOVIE_SHOWCASE.rawValue:

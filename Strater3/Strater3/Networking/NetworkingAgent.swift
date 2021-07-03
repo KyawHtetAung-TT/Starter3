@@ -14,6 +14,26 @@ struct MovieDBNetworkAgent {
     
     private init() { }
     
+    func getGenreList(success : @escaping (MovieGenreList) -> Void, failure : @escaping (String) -> Void){
+       
+        let url = "\(AppConstants.BaseURL)/genre/movie/list?api_key=\(AppConstants.apiKey)"
+
+        AF.request(url).responseDecodable(of: MovieGenreList.self) { response in
+            switch response.result{
+            case .success(let data):
+                success(data)
+            case .failure(let error):
+                failure(error.errorDescription!)
+                    
+            }
+            
+        }
+    
+    }
+    
+    
+    
+    
     func getPopularMovieList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
        
         let url = "\(AppConstants.BaseURL)/movie/popular?.api_key=\(AppConstants.apiKey)"
@@ -65,6 +85,9 @@ struct MovieDBNetworkAgent {
         }
     
     }
+    
+    
+    
 
 
 }

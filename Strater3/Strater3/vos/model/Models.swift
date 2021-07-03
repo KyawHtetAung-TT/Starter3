@@ -7,16 +7,28 @@
 
 import Foundation
 
+//
+//struct LoginSuccess : Codable {
+//    let success : Bool?
+//    let statusCode : Int?
+//    let statusMessage : String?
+//
+//    enum  CodingKeys: String, CodingKey {
+//        case success
+//        case statusCode = "status_code"
+//        case statusMessage = "status_message"
+//    }
+//}
 
 struct LoginSuccess : Codable {
     let success : Bool?
-    let statusCode : Int?
-    let statusMessage : String?
+    let expiresAt : String?
+    let requstToken : String?
     
     enum  CodingKeys: String, CodingKey {
         case success
-        case statusCode = "status_code"
-        case statusMessage = "status_message"
+        case expiresAt = "expires_at"
+        case requstToken = "request_token"
     }
 }
 
@@ -67,6 +79,12 @@ struct MoiveGenre : Codable{
     let id : Int
     let name : String
 //    let anotherProperty : String?   // data မပါရင်သုံးဖို
+    func convertToGenreVO() -> GenreVO{
+        let vo = GenreVO(id: id, name: name, isSelected: false)
+        return vo
+    }
+    
+    
 }
 
 var movieGenres = [MoiveGenre]()

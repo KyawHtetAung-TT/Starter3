@@ -21,7 +21,7 @@ class GenreCollectionViewCell: UICollectionViewCell {
         didSet{
            
             if let genre = data{
-                lblGenre.text = genre.name
+                lblGenre.text = genre.name.uppercased()
                 (genre.isSelected) ? (viewForOverlay.isHidden = false) : (viewForOverlay.isHidden = true)
                 (genre.isSelected) ? (lblGenre.textColor = UIColor(named: "White")) : (lblGenre.textColor = .gray)
 

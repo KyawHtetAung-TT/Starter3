@@ -12,7 +12,15 @@ class GenreTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionViewGenre: UICollectionView!
     @IBOutlet weak var collectionViewMovie: UICollectionView!
     
-    let genreList = [GenreVO(name: "ACTION", isSelected: true),GenreVO(name: "ADVENTURE", isSelected: false),GenreVO(name: "CRIMINAL", isSelected: false),GenreVO(name: "DRAMA", isSelected: false),GenreVO(name: "COMEDY", isSelected: false)]
+//    let genreList = [GenreVO(name: "ACTION", isSelected: true),GenreVO(name: "ADVENTURE", isSelected: false),GenreVO(name: "CRIMINAL", isSelected: false),GenreVO(name: "DRAMA", isSelected: false),GenreVO(name: "COMEDY", isSelected: false)]
+    
+    var genreList : [GenreVO]? {
+        didSet{
+            if let _ = genreList {
+                collectionViewGenre.reloadData()
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,7 +50,7 @@ extension GenreTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
         if collectionView == collectionViewMovie{
             return 10
         }
-        return genreList.count
+        return genreList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,10 +66,10 @@ extension GenreTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
             
 //        let cell = collectionView.dequeCell(identifier: GenreCollectionViewCell.identifier, indexPath:  indexPath)
             
-        cell.data = genreList[indexPath.row]
+        cell.data = genreList?[indexPath.row]
         
         cell.onTapItem = { genreName in
-            self.genreList.forEach { (genreVO) in
+            self.genreList?.forEach { (genreVO) in
                 if genreName == genreVO.name{
                     genreVO.isSelected = true
                 }
@@ -83,7 +91,11 @@ extension GenreTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
             return CGSize(width: collectionView.frame.width/3, height: 250)
         }
         
-        return CGSize(width: widthOfString(text: genreList[indexPath.row].name,font: UIFont(name: "Geeza Pro Regular", size: 14) ?? UIFont.systemFont(ofSize: 14))+40, height: 40)
+        return CGSize(width: widthOfString(text: genreList?[indexPath.row].name ?? "",font: UIFont(name: "Geeza Pro Regular", size: 14) ?? UIFont.systemFont(ofSize: 14))+40, height: 40)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
     }
     
     func widthOfString(text : String,font : UIFont)-> CGFloat{
