@@ -19,6 +19,8 @@ class MovieViewController: UIViewController,MovieItemDelegate {
     private var upcomingMovieList : MovieListResponse?
     private var popularMovieList: MovieListResponse?
     private var popularSeriesList: MovieListResponse?
+    private var topRatingMovieList : MovieListResponse?
+    
     private var genresMovieList: MovieGenreList?
     
     
@@ -61,6 +63,16 @@ class MovieViewController: UIViewController,MovieItemDelegate {
             print(error.description)
         }
         
+    }
+    func fetchTopRaingMovieList(){
+        
+        networkAgent.getTopRatingMovieList { (data) in
+            self.topRatingMovieList = data
+            // UI update
+            self.tableViewMovies.reloadSections(IndexSet(integer: 4), with: .automatic)
+        } failure: { (error) in
+            print(error.description)
+        }
     }
     
     
