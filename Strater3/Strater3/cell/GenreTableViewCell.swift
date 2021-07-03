@@ -22,6 +22,18 @@ class GenreTableViewCell: UITableViewCell {
         }
     }
     
+    let movieList : [MovieResult] = []
+    
+    let movieListByGenre : [Int, ]
+    
+    /**
+     let movieListKeyValuePair : [MovieGenreID : [MovieResult]]
+     
+     14 -> movieList
+     12 -> movieList
+     
+     */
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -48,14 +60,24 @@ extension GenreTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == collectionViewMovie{
-            return 10
+            return movieList.count
+            
+            
         }
         return genreList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == collectionViewMovie{
-            let cell = collectionView.dequeCell(identifier: PopularFilmCollectionViewCell.identifier, indexPath: indexPath)
+         
+//            let cell = collectionView.dequeCell(identifier: PopularFilmCollectionViewCell.identifier, indexPath: indexPath)
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PopularFilmCollectionViewCell.self), for: indexPath) as? PopularFilmCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            cell.data = movieList[indexPath.row]
+            
             return cell
             
         }else{
@@ -68,9 +90,9 @@ extension GenreTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
             
         cell.data = genreList?[indexPath.row]
         
-        cell.onTapItem = { genreName in
+        cell.onTapItem = { genreId in
             self.genreList?.forEach { (genreVO) in
-                if genreName == genreVO.name{
+                if genreId == genreVO.id{
                     genreVO.isSelected = true
                 }
                 else{

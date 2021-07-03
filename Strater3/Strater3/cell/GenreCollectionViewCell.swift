@@ -14,7 +14,7 @@ class GenreCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblGenre: UILabel!
     @IBOutlet weak var viewForOverlay: UIView!
     
-    var onTapItem : ((String) -> Void) = { _ in}
+    var onTapItem : ((Int) -> Void) = { _ in}
     
     var data: GenreVO?=nil{
         
@@ -29,9 +29,6 @@ class GenreCollectionViewCell: UICollectionViewCell {
             
         }
         
-        
-        
-        
     }
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,7 +40,7 @@ class GenreCollectionViewCell: UICollectionViewCell {
     }
     @objc func didTapItem(){
         
-        onTapItem(data?.name ?? "")
+        onTapItem(data?.id ?? 0)
     }
     
     func genreColor(){
