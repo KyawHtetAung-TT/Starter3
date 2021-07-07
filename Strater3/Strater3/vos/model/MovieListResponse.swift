@@ -8,12 +8,15 @@
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
+
 //   let upcomingMoiveList = try? newJSONDecoder().decode(UpcomingMoiveList.self, from: jsonData)
 
 import Foundation
 
 
-// MARK: - UpcomingMoiveList
+// MARK: - MoiveSlider
+// popular list
+
 public struct MovieListResponse : Codable {
     public let dates : Dates?
     public let page : Int?
@@ -35,22 +38,9 @@ public struct MovieListResponse : Codable {
         self.totalResults = totalResults
         
     }
-    
 }
-
-// MARK: - Dates
-public struct Dates: Codable {
-    public let maximum, minimum: String?
-    
-    public init(maximum : String?, minimum : String?){
-        self.maximum = maximum
-        self.minimum = minimum
-    }
-    
-}
-
 // MARK: - MovieResult
-public struct MovieResult: Codable, Hashable {
+public struct MovieResult: Codable,Hashable  {
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?
@@ -96,18 +86,24 @@ public struct MovieResult: Codable, Hashable {
         self.voteAverage = voteAverage
         self.voteCount = voteCount
         
-        
-        
     }
-    
-    
-    
-    
 }
 
+// MARK: - Languages
 public enum OriginalLanguage: String, Codable {
     case en = "en"
     case ja = "ja"
     case es = "es"
+}
+
+// MARK: - Dates
+public struct Dates: Codable {
+    public let maximum, minimum: String?
+    
+    public init(maximum : String?, minimum : String?){
+        self.maximum = maximum
+        self.minimum = minimum
+    }
+    
 }
 

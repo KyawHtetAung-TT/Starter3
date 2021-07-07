@@ -12,7 +12,9 @@ struct MovieDBNetworkAgent {
 
     static let shared = MovieDBNetworkAgent()
     
-    private init() { }
+    private init() { } // initialization ကိုပိတ်တာ
+    
+    
     
     func getGenreList(success : @escaping (MovieGenreList) -> Void, failure : @escaping (String) -> Void){
        
@@ -31,6 +33,7 @@ struct MovieDBNetworkAgent {
     
     }
     
+    
     func getTopRatingMovieList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
        
         let url = "\(AppConstants.BaseURL)/movie/top_rated?api_key=\(AppConstants.apiKey)"
@@ -48,10 +51,34 @@ struct MovieDBNetworkAgent {
     
     }
     
+    // network call သည် asynchronous ဖြစ်လို @escaping သုံးရတာ
+    // 1
+    
+    func getUpcomingMovieList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
+
+        let url = "\(AppConstants.BaseURL)/movie/upcoming?api_key=\(AppConstants.apiKey)"
+
+        AF.request(url).responseDecodable(of: MovieListResponse.self) { response in
+            switch response.result{
+            case .success(let upcomingMovieList):
+                success(upcomingMovieList)
+//                upcomingMovieList.results?.forEach{
+//                    debugPrint($0.originalTitle)
+//                }
+            case .failure(let error):
+                failure(error.errorDescription!)
+                    
+            }
+            
+        }
+    
+    }
+    
+    // 2
     
     func getPopularMovieList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
        
-        let url = "\(AppConstants.BaseURL)/movie/popular?.api_key=\(AppConstants.apiKey)"
+        let url = "\(AppConstants.BaseURL)/movie/popular?api_key=\(AppConstants.apiKey)"
 
         AF.request(url).responseDecodable(of: MovieListResponse.self) { response in
             switch response.result{
@@ -65,28 +92,11 @@ struct MovieDBNetworkAgent {
         }
     
     }
-    
-    
-    func getUpcomingMovieList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
 
-        let url = "\(AppConstants.BaseURL)/movie/upcoming?.api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: MovieListResponse.self) { response in
-            switch response.result{
-            case .success(let upcomingMovieList):
-                success(upcomingMovieList)
-            case .failure(let error):
-                failure(error.errorDescription!)
-                    
-            }
-            
-        }
-    
-    }
-
+    // 3
     func getPopularSeriesList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
        
-        let url = "\(AppConstants.BaseURL)/tv/popular?.api_key=\(AppConstants.apiKey)"
+        let url = "\(AppConstants.BaseURL)/tv/popular?api_key=\(AppConstants.apiKey)"
 
         AF.request(url).responseDecodable(of: MovieListResponse.self) { response in
             switch response.result{

@@ -22,36 +22,42 @@
                             <constraint firstAttribute="height" constant="200" id="Kgb-x8-uhS"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLACK WIDOW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0S-7H-fRf">
-                        <rect key="frame" x="5" y="216" width="113" height="19"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgp-N1-nQK">
+                        <rect key="frame" x="0.0" y="208" width="211" height="35"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLACK WIDOW" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0S-7H-fRf">
+                                <rect key="frame" x="5" y="0.0" width="201" height="35"/>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="19" id="qo6-R4-9Ax"/>
+                            <constraint firstAttribute="bottom" secondItem="t0S-7H-fRf" secondAttribute="bottom" id="5lS-7W-ICI"/>
+                            <constraint firstItem="t0S-7H-fRf" firstAttribute="leading" secondItem="xgp-N1-nQK" secondAttribute="leading" constant="5" id="PFt-tl-XGU"/>
+                            <constraint firstAttribute="trailing" secondItem="t0S-7H-fRf" secondAttribute="trailing" constant="5" id="YAI-Qk-3tZ"/>
+                            <constraint firstAttribute="height" constant="35" id="nZf-xw-oYj"/>
+                            <constraint firstItem="t0S-7H-fRf" firstAttribute="top" secondItem="xgp-N1-nQK" secondAttribute="top" id="tfF-I7-QVh"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="15"/>
-                        <color key="textColor" red="0.31764942410000002" green="0.31764277819999998" blue="0.31764724849999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qq6-fd-qXD">
-                        <rect key="frame" x="5" y="243" width="22" height="19"/>
+                        <rect key="frame" x="5" y="248" width="22" height="14"/>
                         <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="15"/>
-                        <color key="textColor" red="0.31764942410000002" green="0.31764277819999998" blue="0.31764724849999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mw4-wL-6Mr" customClass="RatingControl" customModule="Strater3" customModuleProvider="target">
-                        <rect key="frame" x="32" y="244.5" width="80" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="80" id="4mh-8B-XIT"/>
-                            <constraint firstAttribute="height" constant="16" id="81E-te-XvZ"/>
-                        </constraints>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mw4-wL-6Mr" customClass="RatingControl" customModule="Strater3" customModuleProvider="target">
+                        <rect key="frame" x="32" y="244.5" width="150" height="16"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="size" keyPath="starSize">
-                                <size key="value" width="16" height="16"/>
+                                <size key="value" width="14" height="14"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="starCount">
-                                <integer key="value" value="5"/>
+                                <integer key="value" value="6"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                <integer key="value" value="3"/>
+                                <integer key="value" value="2"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </stackView>
@@ -59,18 +65,17 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="xgp-N1-nQK" firstAttribute="top" secondItem="pKc-DX-msA" secondAttribute="bottom" constant="8" symbolic="YES" id="0nu-cM-sFy"/>
+                <constraint firstItem="Qq6-fd-qXD" firstAttribute="top" secondItem="xgp-N1-nQK" secondAttribute="bottom" constant="5" id="4Dj-I0-2z1"/>
                 <constraint firstItem="Qq6-fd-qXD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="5rp-PJ-5SA"/>
                 <constraint firstItem="pKc-DX-msA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7Vj-Eo-Dz7"/>
                 <constraint firstItem="pKc-DX-msA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="CU1-Ba-r08"/>
+                <constraint firstAttribute="trailing" secondItem="xgp-N1-nQK" secondAttribute="trailing" id="H6E-Cl-3sK"/>
+                <constraint firstItem="Mw4-wL-6Mr" firstAttribute="leading" secondItem="Qq6-fd-qXD" secondAttribute="trailing" constant="5" id="IpV-AG-SbL"/>
                 <constraint firstAttribute="trailing" secondItem="pKc-DX-msA" secondAttribute="trailing" id="NSu-Ok-ZHQ"/>
                 <constraint firstAttribute="bottom" secondItem="Qq6-fd-qXD" secondAttribute="bottom" constant="8" id="S4K-ZN-orf"/>
-                <constraint firstItem="Mw4-wL-6Mr" firstAttribute="leading" secondItem="Qq6-fd-qXD" secondAttribute="trailing" constant="5" id="U6J-In-mzp"/>
-                <constraint firstItem="Mw4-wL-6Mr" firstAttribute="centerY" secondItem="Qq6-fd-qXD" secondAttribute="centerY" id="ZmA-EI-IZr"/>
-                <constraint firstAttribute="bottom" secondItem="Mw4-wL-6Mr" secondAttribute="bottom" constant="9.5" id="kbh-oh-RCv"/>
-                <constraint firstItem="Qq6-fd-qXD" firstAttribute="top" secondItem="t0S-7H-fRf" secondAttribute="bottom" constant="8" id="kc4-rA-4Xp"/>
-                <constraint firstItem="Mw4-wL-6Mr" firstAttribute="top" secondItem="t0S-7H-fRf" secondAttribute="bottom" constant="9.5" id="mhC-MM-DfM"/>
-                <constraint firstItem="t0S-7H-fRf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="pf7-jl-gZ0"/>
-                <constraint firstItem="t0S-7H-fRf" firstAttribute="top" secondItem="pKc-DX-msA" secondAttribute="bottom" constant="16" id="vZ4-xe-pWp"/>
+                <constraint firstItem="xgp-N1-nQK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gfC-GD-YoA"/>
+                <constraint firstItem="Mw4-wL-6Mr" firstAttribute="centerY" secondItem="Qq6-fd-qXD" secondAttribute="centerY" id="mVj-Kc-18W"/>
             </constraints>
             <size key="customSize" width="211" height="277"/>
             <connections>

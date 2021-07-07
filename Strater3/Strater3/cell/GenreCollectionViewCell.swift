@@ -18,6 +18,7 @@ class GenreCollectionViewCell: UICollectionViewCell {
     
     var data: GenreVO?=nil{
         
+        
         didSet{
            
             if let genre = data{
@@ -30,6 +31,8 @@ class GenreCollectionViewCell: UICollectionViewCell {
         }
         
     }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,10 +41,12 @@ class GenreCollectionViewCell: UICollectionViewCell {
         containerView.isUserInteractionEnabled = true
         containerView.addGestureRecognizer(tapGestureForContainer)
     }
+    
+    
     @objc func didTapItem(){
-        
         onTapItem(data?.id ?? 0)
     }
+    
     
     func genreColor(){
         

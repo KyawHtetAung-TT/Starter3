@@ -322,9 +322,9 @@
 		9826AF29268F1E37008DD7AA /* model */ = {
 			isa = PBXGroup;
 			children = (
-				9826AF2C268F1E60008DD7AA /* Models.swift */,
 				9826AF2B268F1E60008DD7AA /* SearchSeriesResponse.swift */,
 				9826AF2A268F1E60008DD7AA /* MovieListResponse.swift */,
+				9826AF2C268F1E60008DD7AA /* Models.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";

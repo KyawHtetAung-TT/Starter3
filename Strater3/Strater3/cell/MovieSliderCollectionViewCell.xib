@@ -31,10 +31,10 @@
                                     <constraint firstAttribute="height" constant="70" id="seO-F4-PVo"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLACK WIDOW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdq-d9-NSC">
-                                <rect key="frame" x="8" y="205" width="127.5" height="21"/>
-                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLACK WIDOW" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdq-d9-NSC">
+                                <rect key="frame" x="20" y="189" width="307" height="25"/>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -43,10 +43,11 @@
                             <constraint firstItem="lCh-90-w7i" firstAttribute="top" secondItem="Nbf-54-zya" secondAttribute="top" id="9bG-pe-LAP"/>
                             <constraint firstItem="8Bc-UM-lV3" firstAttribute="centerX" secondItem="Nbf-54-zya" secondAttribute="centerX" id="EpM-w9-sOX"/>
                             <constraint firstAttribute="bottom" secondItem="lCh-90-w7i" secondAttribute="bottom" id="Hjw-tO-gfM"/>
-                            <constraint firstAttribute="bottom" secondItem="kdq-d9-NSC" secondAttribute="bottom" constant="8" id="MLO-5O-vGV"/>
+                            <constraint firstAttribute="trailing" secondItem="kdq-d9-NSC" secondAttribute="trailing" constant="10" id="JaS-Ug-HWO"/>
+                            <constraint firstAttribute="bottom" secondItem="kdq-d9-NSC" secondAttribute="bottom" constant="20" id="MLO-5O-vGV"/>
                             <constraint firstItem="lCh-90-w7i" firstAttribute="leading" secondItem="Nbf-54-zya" secondAttribute="leading" id="Oft-mG-zDm"/>
                             <constraint firstItem="8Bc-UM-lV3" firstAttribute="centerY" secondItem="Nbf-54-zya" secondAttribute="centerY" id="Tyj-xa-eGg"/>
-                            <constraint firstItem="kdq-d9-NSC" firstAttribute="leading" secondItem="Nbf-54-zya" secondAttribute="leading" constant="8" id="b0H-MT-4gw"/>
+                            <constraint firstItem="kdq-d9-NSC" firstAttribute="leading" secondItem="Nbf-54-zya" secondAttribute="leading" constant="20" id="b0H-MT-4gw"/>
                             <constraint firstAttribute="trailing" secondItem="lCh-90-w7i" secondAttribute="trailing" id="r94-0L-3ck"/>
                         </constraints>
                     </view>

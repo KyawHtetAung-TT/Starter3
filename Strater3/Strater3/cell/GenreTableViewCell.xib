@@ -17,11 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lin-9u-cGe">
-                        <rect key="frame" x="0.0" y="0.0" width="426" height="40"/>
+                        <rect key="frame" x="0.0" y="0.0" width="426" height="60"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="9BY-pQ-GFh"/>
-                            <constraint firstAttribute="height" constant="40" id="cBH-YS-3qY"/>
+                            <constraint firstAttribute="height" constant="60" id="cBH-YS-3qY"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="a9u-Dd-rhh">
                             <size key="itemSize" width="128" height="128"/>
@@ -31,7 +30,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0oE-6a-k0T">
-                        <rect key="frame" x="0.0" y="50" width="426" height="270"/>
+                        <rect key="frame" x="0.0" y="70" width="426" height="270"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="270" id="j6u-A9-Llh"/>

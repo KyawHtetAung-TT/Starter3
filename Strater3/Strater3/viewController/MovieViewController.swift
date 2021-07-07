@@ -14,6 +14,7 @@ class MovieViewController: UIViewController,MovieItemDelegate {
     @IBOutlet weak var ivMenu: UIImageView!
     @IBOutlet weak var ivSearch: UIImageView!
     
+    // network call function
     private let networkAgent = MovieDBNetworkAgent.shared
 
     private var upcomingMovieList : MovieListResponse?
@@ -29,8 +30,12 @@ class MovieViewController: UIViewController,MovieItemDelegate {
         // Do any additional setup after loading the view.
         
         registerTableViewCell()
+    
         fetchUpcomingMovieList()
         fetchPopularMovieList()
+        
+        fetchMoiveGenreList()
+        
         fetchPopularSeriesList()
     }
     
@@ -61,7 +66,9 @@ class MovieViewController: UIViewController,MovieItemDelegate {
             self.tableViewMovies.reloadSections(IndexSet(integer: 4), with: .automatic)
         } failure: { (error) in
             print(error.description)
+            
         }
+        
         
     }
     func fetchTopRaingMovieList(){
@@ -69,28 +76,31 @@ class MovieViewController: UIViewController,MovieItemDelegate {
         networkAgent.getTopRatingMovieList { (data) in
             self.topRatingMovieList = data
             // UI update
-            self.tableViewMovies.reloadSections(IndexSet(integer: 4), with: .automatic)
+            self.tableViewMovies.reloadSections(IndexSet(integer: 5), with: .automatic)
         } failure: { (error) in
             print(error.description)
         }
     }
     
     
-    
+    // 1
     func fetchUpcomingMovieList(){
         
         networkAgent.getUpcomingMovieList { (data) in
             self.upcomingMovieList = data
             // UI update
             self.tableViewMovies.reloadSections(IndexSet(integer: 0), with: .automatic)
+            
         } failure: { (error) in
             print(error.description)
+            
         }
     }
     
+    // 2
     func fetchPopularMovieList(){
         
-        networkAgent.getUpcomingMovieList { (data) in
+        networkAgent.getPopularMovieList { (data) in
             self.popularMovieList = data
             // UI update
             self.tableViewMovies.reloadSections(IndexSet(integer: 1), with: .automatic)
@@ -98,10 +108,12 @@ class MovieViewController: UIViewController,MovieItemDelegate {
             print(error.description)
         }
     }
+    
+    // 3
     func fetchPopularSeriesList(){
         
-        networkAgent.getUpcomingMovieList { (data) in
-            self.popularMovieList = data
+        networkAgent.getPopularSeriesList { (data) in
+            self.popularSeriesList = data
             // UI update
             self.tableViewMovies.reloadSections(IndexSet(integer: 2), with: .automatic)
         } failure: { (error) in
@@ -130,7 +142,7 @@ extension MovieViewController: UITableViewDataSource{
 //            }
 //            return cell
         
-        
+        // 1
         case MovieType.MOVIE_SLIDER.rawValue:
             let cell = tableView.dequeCell(identifier: MovieSliderTableViewCell.identifier, indexPath: indexPath) as MovieSliderTableViewCell
 
@@ -139,7 +151,7 @@ extension MovieViewController: UITableViewDataSource{
             
             return cell
            
-            
+        // 2
         case MovieType.MOVIE_POPULAR.rawValue:
 //            return tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath)
             
@@ -149,6 +161,7 @@ extension MovieViewController: UITableViewDataSource{
             cell.data = popularMovieList
             return cell
 
+        // 3
         case MovieType.SERIE_POPULAR.rawValue:
             
             let cell = tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath) as PopularFilmTableViewCell
@@ -158,15 +171,13 @@ extension MovieViewController: UITableViewDataSource{
             return cell
             
             
-            
+        // 4
         case MovieType.MOVIE_SHOWTIME.rawValue:
             let cell = tableView.dequeCell(identifier: MovieShowTImeTableViewCell.identifier, indexPath: indexPath)
             return cell
             
         case MovieType.MOVIE_GENRE.rawValue:
             let cell = tableView.dequeCell(identifier: GenreTableViewCell.identifier, indexPath: indexPath) as GenreTableViewCell
-            
-           
             
             var movieList : [MovieResult] = []
             movieList.append(contentsOf: upcomingMovieList?.results ?? [MovieResult]())
@@ -177,14 +188,17 @@ extension MovieViewController: UITableViewDataSource{
             let resultData : [GenreVO]? = genresMovieList?.genres.map({ movieGenres -> GenreVO in
                 return movieGenres.convertToGenreVO()
             })
+            
             resultData?.first?.isSelected = true
             cell.genreList = resultData
             
             return cell
             
+            
         case MovieType.MOVIE_SHOWCASE.rawValue:
             let cell = tableView.dequeCell(identifier: ShowCaseTableViewCell.identifier, indexPath: indexPath)
             return cell
+            
             
         case MovieType.MOVIE_BESTACTOR.rawValue:
             let cell = tableView.dequeCell(identifier: BestActorTableViewCell.identifier, indexPath: indexPath)

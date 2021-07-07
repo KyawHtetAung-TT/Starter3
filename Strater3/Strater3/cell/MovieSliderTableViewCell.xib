@@ -55,7 +55,7 @@
     </objects>
     <resources>
         <namedColor name="Color primary">
-            <color red="0.074509803921568626" green="0.10588235294117647" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.075000002980232239" green="0.10599999874830246" blue="0.14100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

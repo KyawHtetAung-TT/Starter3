@@ -15,6 +15,7 @@ class MovieSliderTableViewCell: UITableViewCell {
     
     var delegate:MovieItemDelegate? = nil
     
+    
     var  data : MovieListResponse? {
         didSet{
             if let data = data{
@@ -60,9 +61,6 @@ extension MovieSliderTableViewCell:UICollectionViewDataSource,UICollectionViewDe
         cell.data = cellData
         return cell
         
-        
-        
-        
 //        let cell = collectionView.dequeCell(identifier: MovieSliderCollectionViewCell.identifier, indexPath: indexPath)
 //            return cell
             
@@ -73,7 +71,7 @@ extension MovieSliderTableViewCell:UICollectionViewDataSource,UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemWidth : CGFloat = 120
+        let itemWidth : CGFloat = collectionView.frame.width
         let itemHeight : CGFloat = collectionView.frame.height
         return CGSize(width: itemWidth, height: itemHeight)
     }

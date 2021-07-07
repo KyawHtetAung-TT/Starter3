@@ -9,11 +9,11 @@ import Foundation
 
 // VO - Value Object
 
-struct SearchSeriesVO : Codable {
-    let page : Int?
-    let results : [SeriesItemVo]?
-    let totalPages : Int?
-    let totalResults : Int?
+public struct SearchSeriesVO : Codable {
+    public let page : Int?
+    public let results : [SeriesItemVo]?
+    public let totalPages : Int?
+    public let totalResults : Int?
     
     enum CodingKeys : String, CodingKey {
         case page = "page"
@@ -24,7 +24,7 @@ struct SearchSeriesVO : Codable {
 }
 
 
-struct SeriesItemVo : Codable {
+public struct SeriesItemVo : Codable {
     let adult : Bool?
     let backdropPath : String?
     let genreIds : [Int]?
