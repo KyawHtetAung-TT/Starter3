@@ -12,8 +12,15 @@ class ShowCaseTableViewCell: UITableViewCell {
     @IBOutlet weak var lblShowCase: UILabel!
     @IBOutlet weak var lblMoreShowCase: UILabel!
     @IBOutlet weak var showCaseCollectionView: UICollectionView!
+    @IBOutlet weak var heightCollectionViewShowCase : NSLayoutConstraint!
     
-    
+    var  data : MovieListResponse? {
+        didSet{
+            if let _ = data{
+                showCaseCollectionView.reloadData()
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +35,10 @@ class ShowCaseTableViewCell: UITableViewCell {
         
 //        showCaseCollectionView.semanticContentAttribute = UISemanticContentAttribute.forceRightToLeft
         
+        // cell ရဲ့  height နဲ့ collectionview ရဲ့ height ကိုချိန်တာတူအောင်လို
+        let itemWidth : CGFloat = showCaseCollectionView.frame.width - 50
+        let itemHeight : CGFloat = (itemWidth/16)*9
+        heightCollectionViewShowCase.constant = itemHeight
         
     }
 
@@ -41,16 +52,21 @@ class ShowCaseTableViewCell: UITableViewCell {
 
 extension ShowCaseTableViewCell : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+
+        return data?.results?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeCell(identifier: ShowCaseCollectionViewCell.identifier, indexPath: indexPath)
+        let cell = collectionView.dequeCell(identifier: ShowCaseCollectionViewCell.identifier, indexPath: indexPath) as ShowCaseCollectionViewCell
+        cell.data = data?.results?[indexPath.row]
         return cell
         
     }
+    // 16/9 ration for aspect fit
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width-100, height: 180)
+        let itemWidth : CGFloat = collectionView.frame.width - 50
+        let itemHeight : CGFloat = (itemWidth/16)*9
+        return CGSize(width: itemWidth, height: itemHeight)
         
     }
     

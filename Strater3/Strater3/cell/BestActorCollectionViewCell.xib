@@ -19,10 +19,15 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="7ad2da34eaab49324701253e4f7ebb49" translatesAutoresizingMaskIntoConstraints="NO" id="5wp-Yp-GDO">
                         <rect key="frame" x="0.0" y="0.0" width="143" height="230"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="230" id="Tfe-Ph-brn"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5j-Td-vDi">
+                        <rect key="frame" x="0.0" y="0.0" width="143" height="230"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.24674048013245034" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-bk-D4p">
                         <rect key="frame" x="109" y="11.5" width="24" height="21.5"/>
                         <color key="tintColor" red="0.92247580179999999" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,16 +49,16 @@
                             <constraint firstAttribute="width" constant="24" id="amO-nE-uLh"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU LIKE 18 MOVIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ISe-Yy-YFp">
-                        <rect key="frame" x="35" y="205.5" width="98" height="9"/>
-                        <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="7"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOVIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ISe-Yy-YFp">
+                        <rect key="frame" x="35" y="202.5" width="98" height="15"/>
+                        <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back widow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YcY-Vd-poW">
-                        <rect key="frame" x="10" y="179" width="75" height="16"/>
-                        <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="13"/>
-                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back widow" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YcY-Vd-poW">
+                        <rect key="frame" x="10" y="176.5" width="123" height="18.5"/>
+                        <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -64,26 +69,34 @@
                 <constraint firstItem="5wp-Yp-GDO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="0a3-7a-yCf"/>
                 <constraint firstItem="lmt-bk-D4p" firstAttribute="leading" secondItem="ZKn-hv-ei9" secondAttribute="leading" id="4dA-Kb-KQW"/>
                 <constraint firstItem="YcY-Vd-poW" firstAttribute="leading" secondItem="AyC-SU-r0Z" secondAttribute="leading" id="8Sq-SC-RKK"/>
-                <constraint firstAttribute="trailing" secondItem="ISe-Yy-YFp" secondAttribute="trailing" constant="10" id="Ch3-75-3LM"/>
                 <constraint firstAttribute="trailing" secondItem="ZKn-hv-ei9" secondAttribute="trailing" constant="10" id="IwL-DJ-5Gn"/>
                 <constraint firstAttribute="bottom" secondItem="5wp-Yp-GDO" secondAttribute="bottom" id="JXI-L4-5fi"/>
+                <constraint firstItem="j5j-Td-vDi" firstAttribute="leading" secondItem="5wp-Yp-GDO" secondAttribute="leading" id="K8b-DU-ds0"/>
                 <constraint firstItem="5wp-Yp-GDO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="OAd-zi-oOJ"/>
                 <constraint firstItem="ZKn-hv-ei9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="Oz9-MN-FOh"/>
+                <constraint firstItem="j5j-Td-vDi" firstAttribute="top" secondItem="5wp-Yp-GDO" secondAttribute="top" id="P38-CN-Ipu"/>
+                <constraint firstItem="j5j-Td-vDi" firstAttribute="trailing" secondItem="5wp-Yp-GDO" secondAttribute="trailing" id="Q4M-bX-Fc2"/>
+                <constraint firstAttribute="trailing" secondItem="ISe-Yy-YFp" secondAttribute="trailing" constant="10" id="V6z-th-h79"/>
                 <constraint firstItem="ISe-Yy-YFp" firstAttribute="centerY" secondItem="AyC-SU-r0Z" secondAttribute="centerY" id="XCk-Ui-HWS"/>
                 <constraint firstAttribute="bottom" secondItem="AyC-SU-r0Z" secondAttribute="bottom" constant="10" id="ZFV-oP-qrA"/>
                 <constraint firstAttribute="trailing" secondItem="5wp-Yp-GDO" secondAttribute="trailing" id="aw5-HL-RUu"/>
                 <constraint firstItem="ISe-Yy-YFp" firstAttribute="leading" secondItem="AyC-SU-r0Z" secondAttribute="trailing" constant="5" id="hOj-yd-w4p"/>
+                <constraint firstItem="j5j-Td-vDi" firstAttribute="bottom" secondItem="5wp-Yp-GDO" secondAttribute="bottom" id="iR1-1t-KPo"/>
                 <constraint firstItem="AyC-SU-r0Z" firstAttribute="top" secondItem="YcY-Vd-poW" secondAttribute="bottom" constant="5" id="kDd-nC-hSa"/>
                 <constraint firstItem="lmt-bk-D4p" firstAttribute="top" secondItem="ZKn-hv-ei9" secondAttribute="top" id="onW-tZ-GuO"/>
                 <constraint firstItem="lmt-bk-D4p" firstAttribute="trailing" secondItem="ZKn-hv-ei9" secondAttribute="trailing" id="otK-Z8-pRr"/>
                 <constraint firstItem="lmt-bk-D4p" firstAttribute="bottom" secondItem="ZKn-hv-ei9" secondAttribute="bottom" id="qca-Uf-vpG"/>
+                <constraint firstAttribute="trailing" secondItem="YcY-Vd-poW" secondAttribute="trailing" constant="10" id="xdv-WY-juS"/>
             </constraints>
             <size key="customSize" width="143" height="230"/>
             <connections>
+                <outlet property="imageViewActorProfile" destination="5wp-Yp-GDO" id="G35-Vi-b1Y"/>
                 <outlet property="ivHeart" destination="lmt-bk-D4p" id="BwR-00-YZs"/>
                 <outlet property="ivHeartFill" destination="ZKn-hv-ei9" id="isV-dU-tW4"/>
+                <outlet property="labelActorName" destination="YcY-Vd-poW" id="5UT-6s-5KS"/>
+                <outlet property="labelKnownForDepartment" destination="ISe-Yy-YFp" id="LYf-0v-yzO"/>
             </connections>
-            <point key="canvasLocation" x="178.98550724637681" y="137.27678571428569"/>
+            <point key="canvasLocation" x="177.536231884058" y="136.60714285714286"/>
         </collectionViewCell>
     </objects>
     <resources>

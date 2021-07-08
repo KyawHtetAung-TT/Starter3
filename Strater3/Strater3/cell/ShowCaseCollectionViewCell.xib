@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="362" height="230"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="showcase img" translatesAutoresizingMaskIntoConstraints="NO" id="P4S-VG-r59">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="showcase img" translatesAutoresizingMaskIntoConstraints="NO" id="P4S-VG-r59">
                         <rect key="frame" x="0.0" y="0.0" width="362" height="230"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="230" id="ftU-78-4rd"/>
@@ -24,16 +24,16 @@
                     </imageView>
                     <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vru-FA-6K3">
                         <rect key="frame" x="0.0" y="0.0" width="362" height="230"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVENGERS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brc-Oj-HcO">
-                        <rect key="frame" x="10" y="186" width="72.5" height="16"/>
-                        <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="13"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVENGERS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brc-Oj-HcO">
+                        <rect key="frame" x="10" y="176.5" width="342" height="18.5"/>
+                        <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31 January 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwz-gj-2jN">
-                        <rect key="frame" x="10" y="205" width="90.5" height="15"/>
+                        <rect key="frame" x="10" y="200" width="90.5" height="15"/>
                         <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -50,13 +50,14 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Bwz-gj-2jN" secondAttribute="bottom" constant="10" id="0ho-P1-NF6"/>
+                <constraint firstAttribute="bottom" secondItem="Bwz-gj-2jN" secondAttribute="bottom" constant="15" id="0ho-P1-NF6"/>
                 <constraint firstItem="P4S-VG-r59" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="14x-Hk-i5T"/>
                 <constraint firstItem="tpO-LZ-mgc" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="1bi-7M-FHj"/>
                 <constraint firstItem="vru-FA-6K3" firstAttribute="top" secondItem="P4S-VG-r59" secondAttribute="top" id="54X-rL-bvu"/>
                 <constraint firstItem="vru-FA-6K3" firstAttribute="trailing" secondItem="P4S-VG-r59" secondAttribute="trailing" id="AMe-kY-8bf"/>
+                <constraint firstAttribute="trailing" secondItem="brc-Oj-HcO" secondAttribute="trailing" constant="10" id="Fuj-1C-sxB"/>
                 <constraint firstItem="P4S-VG-r59" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Hob-WI-75K"/>
-                <constraint firstItem="Bwz-gj-2jN" firstAttribute="top" secondItem="brc-Oj-HcO" secondAttribute="bottom" constant="3" id="IBf-Oi-DVm"/>
+                <constraint firstItem="Bwz-gj-2jN" firstAttribute="top" secondItem="brc-Oj-HcO" secondAttribute="bottom" constant="5" id="IBf-Oi-DVm"/>
                 <constraint firstAttribute="bottom" secondItem="P4S-VG-r59" secondAttribute="bottom" id="IiG-mL-1qt"/>
                 <constraint firstItem="brc-Oj-HcO" firstAttribute="leading" secondItem="Bwz-gj-2jN" secondAttribute="leading" id="aAN-ry-NUg"/>
                 <constraint firstItem="tpO-LZ-mgc" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aIu-le-Wva"/>
@@ -66,6 +67,11 @@
                 <constraint firstItem="Bwz-gj-2jN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="rZu-ql-XYx"/>
             </constraints>
             <size key="customSize" width="362" height="230"/>
+            <connections>
+                <outlet property="imageViewBackdrop" destination="P4S-VG-r59" id="2yV-Mm-eJt"/>
+                <outlet property="labelContentTitle" destination="brc-Oj-HcO" id="iSa-13-DS8"/>
+                <outlet property="labelReleaseDate" destination="Bwz-gj-2jN" id="htd-eh-Aw2"/>
+            </connections>
             <point key="canvasLocation" x="337.68115942028987" y="139.28571428571428"/>
         </collectionViewCell>
     </objects>

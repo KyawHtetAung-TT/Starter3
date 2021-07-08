@@ -8,12 +8,12 @@
 import Foundation
 
 enum MovieType : Int {
-    case MOVIE_SLIDER = 0
-    case MOVIE_POPULAR = 1
-    case SERIE_POPULAR = 2
+    case MOVIE_SLIDER = 0      //1
+    case MOVIE_POPULAR = 1     //2
+    case SERIE_POPULAR = 2     //3
     case MOVIE_SHOWTIME = 3
-    case MOVIE_GENRE = 4
-    case MOVIE_SHOWCASE = 5
-    case MOVIE_BESTACTOR = 6
+    case MOVIE_GENRE = 4       //4
+    case MOVIE_SHOWCASE = 5    //5
+    case MOVIE_BESTACTOR = 6   //6
     
 }

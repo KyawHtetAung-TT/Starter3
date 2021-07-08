@@ -51,6 +51,7 @@
 		9836FB1426694B6D00E2A0BE /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9836FB1326694B6D00E2A0BE /* Router.swift */; };
 		9836FB17266BEB6900E2A0BE /* GenreSmallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9836FB15266BEB6900E2A0BE /* GenreSmallCollectionViewCell.swift */; };
 		9836FB18266BEB6900E2A0BE /* GenreSmallCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9836FB16266BEB6900E2A0BE /* GenreSmallCollectionViewCell.xib */; };
+		983CE0EA269719F900064C80 /* ActorListResopnse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983CE0E9269719F900064C80 /* ActorListResopnse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		9836FB1326694B6D00E2A0BE /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		9836FB15266BEB6900E2A0BE /* GenreSmallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSmallCollectionViewCell.swift; sourceTree = "<group>"; };
 		9836FB16266BEB6900E2A0BE /* GenreSmallCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreSmallCollectionViewCell.xib; sourceTree = "<group>"; };
+		983CE0E9269719F900064C80 /* ActorListResopnse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListResopnse.swift; sourceTree = "<group>"; };
 		D4B4B6F75D3290196B0AE9DD /* Pods_Strater3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Strater3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -323,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				9826AF2B268F1E60008DD7AA /* SearchSeriesResponse.swift */,
+				983CE0E9269719F900064C80 /* ActorListResopnse.swift */,
 				9826AF2A268F1E60008DD7AA /* MovieListResponse.swift */,
 				9826AF2C268F1E60008DD7AA /* Models.swift */,
 			);
@@ -480,6 +483,7 @@
 				7892C70625C500C80066E549 /* MovieShowTImeTableViewCell.swift in Sources */,
 				9836FB122669477000E2A0BE /* MovieDetailViewController.swift in Sources */,
 				9836FB0A26693E3000E2A0BE /* MovieItemDelegate.swift in Sources */,
+				983CE0EA269719F900064C80 /* ActorListResopnse.swift in Sources */,
 				9826AF24268F1AEA008DD7AA /* NetworkingAgent.swift in Sources */,
 				7892C72325C526470066E549 /* GenreCollectionViewCell.swift in Sources */,
 				9826AF2E268F1E60008DD7AA /* SearchSeriesResponse.swift in Sources */,

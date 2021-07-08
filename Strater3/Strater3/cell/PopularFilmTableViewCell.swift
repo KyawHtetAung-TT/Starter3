@@ -58,7 +58,9 @@ extension PopularFilmTableViewCell : UICollectionViewDataSource,UICollectionView
         return cell
         
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.onTapMovie()
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth : CGFloat = 120
         let itemHeight : CGFloat = collectionView.frame.height

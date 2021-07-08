@@ -22,6 +22,7 @@ extension UIStoryboard{
     }
 }
 
+
 extension UIViewController{
     
     func nevigateToMovieDetailViewController(){

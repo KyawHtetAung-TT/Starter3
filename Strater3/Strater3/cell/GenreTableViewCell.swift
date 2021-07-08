@@ -18,16 +18,14 @@ class GenreTableViewCell: UITableViewCell {
         didSet{
             if let _ = genreList {
                 collectionViewGenre.reloadData()
-                
-                genreList?.removeAll(where: { (genreVO) in
+        
+                genreList?.removeAll(where: { (genreVO) -> Bool in
                     let genreID = genreVO.id
                    
                     let results = movieListByGenre.filter { (key,value) -> Bool in
                         genreID == key
                     }
                     return results.count == 0
-                    
-                    
                 })
             }
         }
@@ -106,7 +104,7 @@ extension GenreTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == collectionViewMovie{
-            return allMoivieAndSeries.count
+            return selectedMovieList.count
         }
         return genreList?.count ?? 0
     }
@@ -121,6 +119,7 @@ extension GenreTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
             }
             
             cell.data = selectedMovieList[indexPath.row]
+            
             return cell
             
         }
@@ -164,8 +163,10 @@ extension GenreTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == collectionViewMovie{
-         
-            return CGSize(width: collectionView.frame.width/3, height: 250)
+            let itemWidth : CGFloat = 120
+            let itemHeight : CGFloat = collectionView.frame.height
+            return CGSize(width: itemWidth, height: itemHeight)
+//            return CGSize(width: collectionView.frame.width/3, height: 250)
         }
         
         return CGSize(width: widthOfString(text: genreList?[indexPath.row].name ?? "",font: UIFont(name: "Geeza Pro Regular", size: 14) ?? UIFont.systemFont(ofSize: 14))+40, height: 40)
@@ -182,6 +183,7 @@ extension GenreTableViewCell : UICollectionViewDataSource,UICollectionViewDelega
         
         return textSize.width
     }
+   
     
     
     

@@ -14,43 +14,6 @@ struct MovieDBNetworkAgent {
     
     private init() { } // initialization ကိုပိတ်တာ
     
-    
-    
-    func getGenreList(success : @escaping (MovieGenreList) -> Void, failure : @escaping (String) -> Void){
-       
-        let url = "\(AppConstants.BaseURL)/genre/movie/list?api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: MovieGenreList.self) { response in
-            switch response.result{
-            case .success(let data):
-                success(data)
-            case .failure(let error):
-                failure(error.errorDescription!)
-                    
-            }
-            
-        }
-    
-    }
-    
-    
-    func getTopRatingMovieList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
-       
-        let url = "\(AppConstants.BaseURL)/movie/top_rated?api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: MovieListResponse.self) { response in
-            switch response.result{
-            case .success(let data):
-                success(data)
-            case .failure(let error):
-                failure(error.errorDescription!)
-
-            }
-
-        }
-    
-    }
-    
     // network call သည် asynchronous ဖြစ်လို @escaping သုံးရတာ
     // 1
     
@@ -67,11 +30,8 @@ struct MovieDBNetworkAgent {
 //                }
             case .failure(let error):
                 failure(error.errorDescription!)
-                    
             }
-            
         }
-    
     }
     
     // 2
@@ -86,11 +46,8 @@ struct MovieDBNetworkAgent {
                 success(data)
             case .failure(let error):
                 failure(error.errorDescription!)
-                    
             }
-            
         }
-    
     }
 
     // 3
@@ -104,15 +61,55 @@ struct MovieDBNetworkAgent {
                 success(data)
             case .failure(let error):
                 failure(error.errorDescription!)
-                    
             }
-            
         }
+    }
     
+    // 4
+    func getGenreList(success : @escaping (MovieGenreList) -> Void, failure : @escaping (String) -> Void){
+       
+        let url = "\(AppConstants.BaseURL)/genre/movie/list?api_key=\(AppConstants.apiKey)"
+
+        AF.request(url).responseDecodable(of: MovieGenreList.self) { response in
+            switch response.result{
+            case .success(let data):
+                success(data)
+            case .failure(let error):
+                failure(error.errorDescription!)
+            }
+        }
+    }
+    
+    //5
+    func getTopRatingMovieList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
+       
+        let url = "\(AppConstants.BaseURL)/movie/top_rated?api_key=\(AppConstants.apiKey)"
+
+        AF.request(url).responseDecodable(of: MovieListResponse.self) { response in
+            switch response.result{
+            case .success(let data):
+                success(data)
+            case .failure(let error):
+                failure(error.errorDescription!)
+            }
+        }
     }
     
     
-    
+    // 6
+    func getPopularPeople(success : @escaping (ActorListResponse) -> Void, failure : @escaping (String) -> Void){
+       
+        let url = "\(AppConstants.BaseURL)/person/popular?api_key=\(AppConstants.apiKey)"
+
+        AF.request(url).responseDecodable(of: ActorListResponse.self) { response in
+            switch response.result{
+            case .success(let data):
+                success(data)
+            case .failure(let error):
+                failure(error.errorDescription!)
+            }
+        }
+    }
 
 
 }
