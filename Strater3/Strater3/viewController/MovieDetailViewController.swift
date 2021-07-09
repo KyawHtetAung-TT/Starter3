@@ -39,6 +39,7 @@ class MovieDetailViewController: UIViewController {
     
     private var productionCompanies : [ProductionCompany] = []
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,21 +59,25 @@ class MovieDetailViewController: UIViewController {
         
         collectionViewActor.dataSource = self
         collectionViewActor.delegate = self
-        collectionViewActor.register(UINib(nibName:String(describing: BestActorCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BestActorCollectionViewCell.self))
-//        collectionViewActor.registerForCell(identifier: BestActorCollectionViewCell.identifier)
+//        collectionViewActor.register(UINib(nibName:String(describing: BestActorCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BestActorCollectionViewCell.self))
+        collectionViewActor.registerForCell(identifier: BestActorCollectionViewCell.identifier)
         
         
         
         collectionViewCreator.dataSource = self
         collectionViewCreator.delegate = self
-        collectionViewCreator.register(UINib(nibName:String(describing: BestActorCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BestActorCollectionViewCell.self))
-//        collectionViewCreator.registerForCell(identifier: BestActorCollectionViewCell.identifier)
+//        collectionViewCreator.register(UINib(nibName:String(describing: BestActorCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BestActorCollectionViewCell.self))
+        collectionViewCreator.registerForCell(identifier: BestActorCollectionViewCell.identifier)
         
        
         collectionProductionCompanies.dataSource = self
         collectionProductionCompanies.delegate = self
-        collectionProductionCompanies.register(UINib(nibName:String(describing: ProudctionCompanyCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: ProudctionCompanyCollectionViewCell.self))
-//        collectionProductionCompanies.registerForCell(identifier: ProudctionCompanyCollectionViewCell.identifier)
+//        collectionProductionCompanies.register(UINib(nibName:String(describing: ProudctionCompanyCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: ProudctionCompanyCollectionViewCell.self))
+        collectionProductionCompanies.registerForCell(identifier: ProudctionCompanyCollectionViewCell.identifier)
+        
+        collectionViewSmallGenre.dataSource = self
+        collectionViewSmallGenre.delegate = self
+        collectionViewSmallGenre.registerForCell(identifier: GenreSmallCollectionViewCell.identifier)
     }
     
     private func initGestureRecognizerBack(){
@@ -105,11 +110,12 @@ class MovieDetailViewController: UIViewController {
         labelMovieTitle.text = data.originalTitle
         labelMovieDescription.text = data.overview
         
-        labelDruation.text =  "\(Int((data.runtime ?? 0)/60))hr\(Int((data.runtime ?? 0) % 60))mins"
-//        labelDruation.text =  "\(runTimeHour)hr\(runTimeMinutes)"
-//        let runTimeHour = Int((data.runtime ?? 0)/60)
-//        let runTimeMinutes = ((data.runtime ?? 0 ) - runTimeHour)
-     
+//        labelDruation.text =  "\(Int((data.runtime ?? 0)/60))hr\(Int((data.runtime ?? 0) % 60))mins"
+        
+        let runTimeHour = Int((data.runtime ?? 0)/60)
+        let runTimeMinutes = ((data.runtime ?? 0 ) - runTimeHour)
+        labelDruation.text =  "\(runTimeHour)hr\(runTimeMinutes)"
+        
         labelRating.text = "\(data.voteAverage ?? 0)"
         viewRatingCount.rating = Int((data.voteAverage ?? 0.0) * 0.5)
         labelVoteCount.text = "\(data.voteCount ?? 0)votes"
@@ -157,6 +163,8 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionProductionCompanies{
             return productionCompanies.count
+        }else if collectionView == collectionViewSmallGenre{
+            return 3
         }else{
             return 5
         }
@@ -164,26 +172,35 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == collectionProductionCompanies{
+        if collectionView == collectionViewActor{
             // TODO:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BestActorCollectionViewCell.self), for: indexPath) as? BestActorCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            return cell
+        }else if collectionView == collectionViewSmallGenre{
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GenreSmallCollectionViewCell.self), for: indexPath) as? GenreSmallCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            return cell
+        }else if collectionView == collectionViewCreator{
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BestActorCollectionViewCell.self), for: indexPath) as? BestActorCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            return cell
+        }else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProudctionCompanyCollectionViewCell.self), for: indexPath) as? ProudctionCompanyCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.data = productionCompanies[indexPath.row]
+            cell.data = self.productionCompanies[indexPath.row]
             return cell
-        }else{
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProudctionCompanyCollectionViewCell.self), for: indexPath) as? ProudctionCompanyCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        return cell
-
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == collectionProductionCompanies {
-            let itemWidth : CGFloat = 200
-            let itemHeight = itemWidth
-            return CGSize(width: itemWidth, height: itemHeight)
+//            let itemWidth : CGFloat = 200
+//            let itemHeight = itemWidth
+            return CGSize(width: 200, height: 200)
         }else{
         return CGSize(width: collectionView.frame.width/2, height: CGFloat(220))
             }
