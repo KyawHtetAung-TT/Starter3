@@ -25,12 +25,13 @@ extension UIStoryboard{
 
 extension UIViewController{
     
-    func nevigateToMovieDetailViewController(){
+    func nevigateToMovieDetailViewController(movieId: Int){
 //        let storyBoard = UIStoryboard(name: StoryBoardName.Main.rawValue, bundle: nil)
         
         guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: MovieDetailViewController.identifier) as? MovieDetailViewController  else { return }
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
+        vc.movieID = movieId
         present(vc, animated: true)
     }
 }

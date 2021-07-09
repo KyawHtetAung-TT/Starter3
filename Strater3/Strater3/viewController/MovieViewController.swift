@@ -9,6 +9,8 @@ import UIKit
 
 class MovieViewController: UIViewController,MovieItemDelegate {
     
+    
+    
     @IBOutlet weak var tableViewMovies: UITableView!
     @IBOutlet weak var viewForToolbar: UIView!
     @IBOutlet weak var ivMenu: UIImageView!
@@ -51,15 +53,10 @@ class MovieViewController: UIViewController,MovieItemDelegate {
         tableViewMovies.registerForCell(identifier: BestActorTableViewCell.identifier)
     }
     
-    
-    func onTapMovie() {
-        
-        nevigateToMovieDetailViewController()
-        
+    func onTapMovie(id: Int) {
+        nevigateToMovieDetailViewController(movieId: id )
     }
-    
-    
-    
+
     
     // 1
     func fetchUpcomingMovieList(){
