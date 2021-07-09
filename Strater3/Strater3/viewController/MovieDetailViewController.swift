@@ -37,6 +37,8 @@ class MovieDetailViewController: UIViewController {
     
     var movieID : Int = -1
     
+    private var productionCompanies : [ProductionCompany] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,16 +58,21 @@ class MovieDetailViewController: UIViewController {
         
         collectionViewActor.dataSource = self
         collectionViewActor.delegate = self
-        collectionViewActor.registerForCell(identifier: BestActorCollectionViewCell.identifier)
+        collectionViewActor.register(UINib(nibName:String(describing: BestActorCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BestActorCollectionViewCell.self))
+//        collectionViewActor.registerForCell(identifier: BestActorCollectionViewCell.identifier)
+        
+        
         
         collectionViewCreator.dataSource = self
         collectionViewCreator.delegate = self
-        collectionViewCreator.registerForCell(identifier: BestActorCollectionViewCell.identifier)
+        collectionViewCreator.register(UINib(nibName:String(describing: BestActorCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BestActorCollectionViewCell.self))
+//        collectionViewCreator.registerForCell(identifier: BestActorCollectionViewCell.identifier)
         
        
         collectionProductionCompanies.dataSource = self
         collectionProductionCompanies.delegate = self
-        collectionProductionCompanies.registerForCell(identifier: ProudctionCompanyCollectionViewCell.identifier)
+        collectionProductionCompanies.register(UINib(nibName:String(describing: ProudctionCompanyCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: ProudctionCompanyCollectionViewCell.self))
+//        collectionProductionCompanies.registerForCell(identifier: ProudctionCompanyCollectionViewCell.identifier)
     }
     
     private func initGestureRecognizerBack(){
@@ -87,7 +94,9 @@ class MovieDetailViewController: UIViewController {
     }
     
     private func bindData(data : MovieDetailResponse){
+        productionCompanies = data.productionCompanies ?? [ProductionCompany]()
         
+        collectionProductionCompanies.reloadData()
         let posterPath = "\(AppConstants.baseImageUrl)\(data.backdropPath ?? "")"
         imageViewMoviePoster.sd_setImage(with: URL(string: posterPath))
         
@@ -147,7 +156,7 @@ class MovieDetailViewController: UIViewController {
 extension MovieDetailViewController : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionProductionCompanies{
-        return 0 // TODO:
+            return productionCompanies.count
         }else{
             return 5
         }
@@ -160,6 +169,7 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProudctionCompanyCollectionViewCell.self), for: indexPath) as? ProudctionCompanyCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            cell.data = productionCompanies[indexPath.row]
             return cell
         }else{
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProudctionCompanyCollectionViewCell.self), for: indexPath) as? ProudctionCompanyCollectionViewCell else {
@@ -171,7 +181,7 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == collectionProductionCompanies {
-            let itemWidth : CGFloat = 100
+            let itemWidth : CGFloat = 200
             let itemHeight = itemWidth
             return CGSize(width: itemWidth, height: itemHeight)
         }else{
