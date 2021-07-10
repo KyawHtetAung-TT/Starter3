@@ -55,6 +55,7 @@
 		983CE0EC2697628600064C80 /* MovieDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983CE0EB2697628600064C80 /* MovieDetailResponse.swift */; };
 		983CE0EF2698327300064C80 /* ProudctionCompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983CE0ED2698327300064C80 /* ProudctionCompanyCollectionViewCell.swift */; };
 		983CE0F02698327300064C80 /* ProudctionCompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 983CE0EE2698327300064C80 /* ProudctionCompanyCollectionViewCell.xib */; };
+		983CE0F62698BB1600064C80 /* MovieCreditResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983CE0F52698BB1600064C80 /* MovieCreditResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		983CE0EB2697628600064C80 /* MovieDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailResponse.swift; sourceTree = "<group>"; };
 		983CE0ED2698327300064C80 /* ProudctionCompanyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProudctionCompanyCollectionViewCell.swift; sourceTree = "<group>"; };
 		983CE0EE2698327300064C80 /* ProudctionCompanyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProudctionCompanyCollectionViewCell.xib; sourceTree = "<group>"; };
+		983CE0F52698BB1600064C80 /* MovieCreditResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCreditResult.swift; sourceTree = "<group>"; };
 		D4B4B6F75D3290196B0AE9DD /* Pods_Strater3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Strater3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -332,6 +334,7 @@
 		9826AF29268F1E37008DD7AA /* model */ = {
 			isa = PBXGroup;
 			children = (
+				983CE0F52698BB1600064C80 /* MovieCreditResult.swift */,
 				983CE0EB2697628600064C80 /* MovieDetailResponse.swift */,
 				9826AF2B268F1E60008DD7AA /* SearchSeriesResponse.swift */,
 				983CE0E9269719F900064C80 /* ActorListResopnse.swift */,
@@ -498,6 +501,7 @@
 				7892C72325C526470066E549 /* GenreCollectionViewCell.swift in Sources */,
 				9826AF2E268F1E60008DD7AA /* SearchSeriesResponse.swift in Sources */,
 				7892C74C25C66B4F0066E549 /* ShowCaseCollectionViewCell.swift in Sources */,
+				983CE0F62698BB1600064C80 /* MovieCreditResult.swift in Sources */,
 				7892C6F725C41D320066E549 /* PopularFilmTableViewCell.swift in Sources */,
 				7892C6C825C30D7B0066E549 /* MovieViewController.swift in Sources */,
 				7892C7ED25CAF1950066E549 /* BestActorCollectionViewCell.swift in Sources */,

@@ -38,7 +38,7 @@ class MovieDetailViewController: UIViewController {
     var movieID : Int = -1
     
     private var productionCompanies : [ProductionCompany] = []
-    
+    private var casts : [MovieCast] = []
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +46,14 @@ class MovieDetailViewController: UIViewController {
         initGestureRecognizerBack()
         btnBorderColor()
         registerCollectionView()
-        
         fetchMovieDetail(id: movieID)
+//        fetchContentDetail(id: movieID)
+        
+        
+        
         
 //        btnRateMovie.isUserInteractionEnabled = false
-
-        // Do any additional setup after loading the view.
-        
+      
     }
     
     private func registerCollectionView(){
@@ -87,6 +88,17 @@ class MovieDetailViewController: UIViewController {
         
     }
     
+    // TODO :
+//    private func fetchContentDetail(id : Int){
+//        switch contentType {
+//        case .serie:
+//            fetchSerieDetail(id:id)
+//        case .movie:
+//            fetchMovieDetail(id:id)
+//        }
+//        fetchContentDetail(id: id)
+//    }
+    
     // movie detail data binding
     private func fetchMovieDetail(id : Int){
         networkAgent.getMovieDetailById (id: id) { (data) in
@@ -98,6 +110,21 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
+    // movie credit response
+    
+    public func getMovieCreditById(id : Int){
+        networkAgent.getMovieCreditById(id: id) { (data) in
+            // Movie Credit Response
+            self.casts = data.cast ?? [ MovieCast]()
+            self.collectionViewActor.reloadData()
+        } failure: { (error) in
+            print(error)
+        }
+
+    }
+    
+    
+    // slider / popular movie
     private func bindData(data : MovieDetailResponse){
         productionCompanies = data.productionCompanies ?? [ProductionCompany]()
         
@@ -126,8 +153,11 @@ class MovieDetailViewController: UIViewController {
         data.genres?.forEach({ (item) in
             genreListStr += "\(item.name), "
         })
-        genreListStr.removeLast()
-        genreListStr.removeLast()
+        if genreListStr.count > 2{
+            genreListStr.removeLast()
+            genreListStr.removeLast()
+        }
+        
 
         labelGenreCollectionString.text = genreListStr
 //        labelGenreCollectionString.text = data.genres?.map{$0.name}.reduce(""){"\($0), \($1)"}
@@ -136,8 +166,11 @@ class MovieDetailViewController: UIViewController {
         data.productionCountries?.forEach({ (item) in
             countryListStr += "\(item.name ?? ""), "
         })
-        countryListStr.removeLast()
-        countryListStr.removeLast()
+        if countryListStr.count > 2 {
+            countryListStr.removeLast()
+            countryListStr.removeLast()
+        }
+        
         
         labelProductionCountriesString.text = countryListStr
         
@@ -163,8 +196,10 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionProductionCompanies{
             return productionCompanies.count
+        }else if collectionView == collectionViewActor{
+            return casts.count
         }else if collectionView == collectionViewSmallGenre{
-            return 3
+            return 2
         }else{
             return 5
         }
@@ -173,12 +208,20 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == collectionViewActor{
-            // TODO:
+            
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BestActorCollectionViewCell.self), for: indexPath) as? BestActorCollectionViewCell else {
                 return UICollectionViewCell()
             }
             return cell
-        }else if collectionView == collectionViewSmallGenre{
+        }else if collectionView == collectionViewActor{
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BestActorCollectionViewCell.self), for: indexPath) as? BestActorCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            let item : MovieCast = casts[indexPath.row]
+            cell.data = item.converToActorInfoResopnse()
+            return cell
+        }
+        else if collectionView == collectionViewSmallGenre{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GenreSmallCollectionViewCell.self), for: indexPath) as? GenreSmallCollectionViewCell else {
                 return UICollectionViewCell()
             }
@@ -201,14 +244,19 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
 //            let itemWidth : CGFloat = 200
 //            let itemHeight = itemWidth
             return CGSize(width: 200, height: 200)
+        }else if collectionView == collectionViewActor{
+            let itemWidth : CGFloat = 120
+            let itemHeght : CGFloat = itemWidth * 1.5
+            return CGSize(width: itemWidth, height: itemHeght)
         }else{
         return CGSize(width: collectionView.frame.width/2, height: CGFloat(220))
             }
+
     }
 
 
 
-
+   
 
 }
 

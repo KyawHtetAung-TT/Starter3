@@ -125,5 +125,20 @@ struct MovieDBNetworkAgent {
             }
         }
     }
+    
+    // moviecredit
+    func getMovieCreditById(id : Int, success : @escaping (MovieCreditResponse) -> Void, failure : @escaping (String) -> Void){
+       
+        let url = "\(AppConstants.BaseURL)/movie/\(id)/credits?api_key=\(AppConstants.apiKey)"
+
+        AF.request(url).responseDecodable(of: MovieCreditResponse.self) { response in
+            switch response.result{
+            case .success(let data):
+                success(data)
+            case .failure(let error):
+                failure(error.errorDescription!)
+            }
+        }
+    }
 
 }

@@ -14,6 +14,8 @@ class ShowCaseTableViewCell: UITableViewCell {
     @IBOutlet weak var showCaseCollectionView: UICollectionView!
     @IBOutlet weak var heightCollectionViewShowCase : NSLayoutConstraint!
     
+    
+    
     var  data : MovieListResponse? {
         didSet{
             if let _ = data{
@@ -74,5 +76,5 @@ extension ShowCaseTableViewCell : UICollectionViewDataSource,UICollectionViewDel
         ( (scrollView.subviews[(scrollView.subviews.count-1)]).subviews[0]).backgroundColor = UIColor(named: "Yellow")
     }
 
-    
+   
 }

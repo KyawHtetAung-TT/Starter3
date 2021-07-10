@@ -32,6 +32,7 @@ extension UIViewController{
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
         vc.movieID = movieId
+        
         present(vc, animated: true)
     }
 }

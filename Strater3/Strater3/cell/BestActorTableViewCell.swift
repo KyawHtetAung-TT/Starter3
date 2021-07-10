@@ -14,6 +14,8 @@ class BestActorTableViewCell: UITableViewCell,ActorActionDelegate{
     @IBOutlet weak var lblMoreActors: UILabel!
     @IBOutlet weak var collectionViewActors: UICollectionView!
     
+    
+    
     var  data : ActorListResponse? {
         didSet{
             if let _ = data{
@@ -71,7 +73,6 @@ extension BestActorTableViewCell : UICollectionViewDataSource,UICollectionViewDe
         
 //      return CGSize(width: collectionView.frame.width/3, height: CGFloat(220))
     }
-    
     
     
 }
