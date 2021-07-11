@@ -23,6 +23,11 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="230" id="Tfe-Ph-brn"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5j-Td-vDi">
                         <rect key="frame" x="0.0" y="0.0" width="143" height="230"/>

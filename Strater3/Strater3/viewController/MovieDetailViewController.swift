@@ -140,8 +140,8 @@ class MovieDetailViewController: UIViewController {
 //        labelDruation.text =  "\(Int((data.runtime ?? 0)/60))hr\(Int((data.runtime ?? 0) % 60))mins"
         
         let runTimeHour = Int((data.runtime ?? 0)/60)
-        let runTimeMinutes = ((data.runtime ?? 0 ) - runTimeHour)
-        labelDruation.text =  "\(runTimeHour)hr\(runTimeMinutes)"
+        let runTimeMinutes = ((data.runtime ?? 0 ) % 60)
+        labelDruation.text =  "\(runTimeHour)hr\(runTimeMinutes)mins"
         
         labelRating.text = "\(data.voteAverage ?? 0)"
         viewRatingCount.rating = Int((data.voteAverage ?? 0.0) * 0.5)

@@ -21,6 +21,11 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="Kgb-x8-uhS"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgp-N1-nQK">
                         <rect key="frame" x="0.0" y="208" width="211" height="35"/>
