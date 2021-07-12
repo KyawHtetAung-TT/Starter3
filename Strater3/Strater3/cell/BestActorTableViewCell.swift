@@ -65,6 +65,7 @@ extension BestActorTableViewCell : UICollectionViewDataSource,UICollectionViewDe
         return cell
         
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let itemWidth : CGFloat = 120

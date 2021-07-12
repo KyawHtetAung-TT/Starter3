@@ -17,10 +17,10 @@ class MovieShowTImeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        viewForBackgruoud.layer.cornerRadius = 4
+//        viewForBackgruoud.layer.cornerRadius = 4
         
-//        viewForBackgruoud.layer.cornerRadius = 20
-//        viewForBackgruoud.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMinXMinYCorner]
+        viewForBackgruoud.layer.cornerRadius = 20
+        viewForBackgruoud.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMinXMinYCorner]
         
 //      let attributeString = NSMutableAttributedString(string: "SEE MORE")
 //        attributeString.addAttribute(NSAttributedString.Key.underlineStyle, value: 3, range: NSRange(location: 0, length: attributeString.length))

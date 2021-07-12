@@ -16,12 +16,13 @@ class ProudctionCompanyCollectionViewCell: UICollectionViewCell {
     var data : ProductionCompany?{
         didSet{
             if let data = data{
-                let urlStr = "\(AppConstants.BaseURL)/\(String(describing: data.logoPath))"
+                let urlStr = "\(AppConstants.baseImageUrl)\(String(data.logoPath ?? ""))"
                 imageViewBackdrop.sd_setImage(with: URL(string: urlStr))
                 
                 labelCompanyName.text = data.name
             }
         }
+       
     }
     
     override func awakeFromNib() {

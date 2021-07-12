@@ -17,16 +17,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BEST POPULAR FILMS AND SERIES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFe-yy-6U8">
-                        <rect key="frame" x="20" y="5" width="247" height="21"/>
+                        <rect key="frame" x="20" y="5" width="247" height="41"/>
                         <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bd4-ED-4th">
-                        <rect key="frame" x="0.0" y="36" width="348" height="270"/>
+                        <rect key="frame" x="0.0" y="56" width="348" height="250"/>
                         <color key="backgroundColor" red="0.075351677830000005" green="0.1071746126" blue="0.13983055950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="270" id="cpt-4S-C3A"/>
+                            <constraint firstAttribute="height" constant="250" id="cpt-4S-C3A"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PG6-ag-vgu">
                             <size key="itemSize" width="128" height="128"/>

@@ -10,36 +10,38 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProudctionCompanyCollectionViewCell" customModule="Strater3" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="276" height="194"/>
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="276" height="194"/>
+                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foS-8z-5PJ">
-                        <rect key="frame" x="0.0" y="0.0" width="276" height="194"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hut-zr-L2Y">
-                                <rect key="frame" x="0.0" y="0.0" width="276" height="194"/>
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                             </imageView>
-                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y05-NW-V5P">
-                                <rect key="frame" x="0.0" y="0.0" width="276" height="194"/>
+                            <view alpha="0.29999999999999999" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Y05-NW-V5P">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Production Company Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsl-uf-e8o">
-                                <rect key="frame" x="8" y="165.5" width="260" height="20.5"/>
+                                <rect key="frame" x="8" y="151" width="184" height="41"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="width" constant="200" id="2W7-nV-zvA"/>
                             <constraint firstAttribute="bottom" secondItem="tsl-uf-e8o" secondAttribute="bottom" constant="8" id="8UK-Kk-hjN"/>
                             <constraint firstItem="Y05-NW-V5P" firstAttribute="leading" secondItem="hut-zr-L2Y" secondAttribute="leading" id="9JZ-TK-hgd"/>
                             <constraint firstItem="hut-zr-L2Y" firstAttribute="top" secondItem="foS-8z-5PJ" secondAttribute="top" id="9Rb-wp-SC0"/>
                             <constraint firstItem="Y05-NW-V5P" firstAttribute="bottom" secondItem="hut-zr-L2Y" secondAttribute="bottom" id="A2K-Pw-dXU"/>
                             <constraint firstItem="tsl-uf-e8o" firstAttribute="leading" secondItem="foS-8z-5PJ" secondAttribute="leading" constant="8" id="K62-JE-RVI"/>
                             <constraint firstItem="hut-zr-L2Y" firstAttribute="leading" secondItem="foS-8z-5PJ" secondAttribute="leading" id="MOV-Ed-ktT"/>
+                            <constraint firstAttribute="height" constant="200" id="S6x-PT-llZ"/>
                             <constraint firstItem="Y05-NW-V5P" firstAttribute="trailing" secondItem="hut-zr-L2Y" secondAttribute="trailing" id="SQY-SZ-JqW"/>
                             <constraint firstItem="Y05-NW-V5P" firstAttribute="top" secondItem="hut-zr-L2Y" secondAttribute="top" id="cz5-OM-7hP"/>
                             <constraint firstAttribute="trailing" secondItem="tsl-uf-e8o" secondAttribute="trailing" constant="8" id="fCv-r5-ite"/>
@@ -56,12 +58,12 @@
                 <constraint firstItem="foS-8z-5PJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DTG-k5-dV9"/>
                 <constraint firstAttribute="bottom" secondItem="foS-8z-5PJ" secondAttribute="bottom" id="yuI-uO-TR8"/>
             </constraints>
-            <size key="customSize" width="276" height="194"/>
+            <size key="customSize" width="200" height="200"/>
             <connections>
                 <outlet property="imageViewBackdrop" destination="hut-zr-L2Y" id="IYx-47-jGu"/>
                 <outlet property="labelCompanyName" destination="tsl-uf-e8o" id="V7U-uy-QD6"/>
             </connections>
-            <point key="canvasLocation" x="198.55072463768118" y="103.125"/>
+            <point key="canvasLocation" x="143.47826086956522" y="105.13392857142857"/>
         </collectionViewCell>
     </objects>
 </document>

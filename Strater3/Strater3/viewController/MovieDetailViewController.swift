@@ -47,7 +47,7 @@ class MovieDetailViewController: UIViewController {
         btnBorderColor()
         registerCollectionView()
         fetchMovieDetail(id: movieID)
-//        fetchContentDetail(id: movieID)
+        getMovieCreditById(id: movieID)
         
         
         
@@ -62,6 +62,8 @@ class MovieDetailViewController: UIViewController {
         collectionViewActor.delegate = self
 //        collectionViewActor.register(UINib(nibName:String(describing: BestActorCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BestActorCollectionViewCell.self))
         collectionViewActor.registerForCell(identifier: BestActorCollectionViewCell.identifier)
+//        collectionViewActor.showsHorizontalScrollIndicator = false
+//        collectionViewActor.showsVerticalScrollIndicator = false
         
         
         
@@ -115,7 +117,7 @@ class MovieDetailViewController: UIViewController {
     public func getMovieCreditById(id : Int){
         networkAgent.getMovieCreditById(id: id) { (data) in
             // Movie Credit Response
-            self.casts = data.cast ?? [ MovieCast]()
+            self.casts = data.cast ?? [MovieCast]()
             self.collectionViewActor.reloadData()
         } failure: { (error) in
             print(error)
@@ -129,6 +131,7 @@ class MovieDetailViewController: UIViewController {
         productionCompanies = data.productionCompanies ?? [ProductionCompany]()
         
         collectionProductionCompanies.reloadData()
+        
         let posterPath = "\(AppConstants.baseImageUrl)\(data.backdropPath ?? "")"
         imageViewMoviePoster.sd_setImage(with: URL(string: posterPath))
         
@@ -207,13 +210,14 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+//        if collectionView == collectionViewActor{
+//
+//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BestActorCollectionViewCell.self), for: indexPath) as? BestActorCollectionViewCell else {
+//                return UICollectionViewCell()
+//            }
+//            return cell
+//        }else
         if collectionView == collectionViewActor{
-            
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BestActorCollectionViewCell.self), for: indexPath) as? BestActorCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            return cell
-        }else if collectionView == collectionViewActor{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BestActorCollectionViewCell.self), for: indexPath) as? BestActorCollectionViewCell else {
                 return UICollectionViewCell()
             }
@@ -239,18 +243,35 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
             return cell
         }
     }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
         if collectionView == collectionProductionCompanies {
-//            let itemWidth : CGFloat = 200
-//            let itemHeight = itemWidth
-            return CGSize(width: 200, height: 200)
+            let itemWidth : CGFloat = 200
+            let itemHeight = itemWidth
+            return CGSize(width: itemWidth, height: itemHeight)
+
         }else if collectionView == collectionViewActor{
             let itemWidth : CGFloat = 120
             let itemHeght : CGFloat = itemWidth * 1.5
             return CGSize(width: itemWidth, height: itemHeght)
-        }else{
-        return CGSize(width: collectionView.frame.width/2, height: CGFloat(220))
+
+        }else if collectionView == collectionViewSmallGenre{
+            let itemWidth : CGFloat = 100
+            let itemHeght : CGFloat = 30
+            return CGSize(width: itemWidth, height: itemHeght)
+
+        }
+        else if collectionView == collectionViewCreator {
+            return CGSize(width: collectionView.frame.width/2.5, height: CGFloat(220))
             }
+        else{
+            let itemWidth : CGFloat = 120
+            let itemHeght : CGFloat = itemWidth * 1.5
+            return CGSize(width: itemWidth, height: itemHeght)
+        }
 
     }
 
