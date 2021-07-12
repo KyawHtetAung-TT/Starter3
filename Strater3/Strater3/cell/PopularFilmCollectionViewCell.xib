@@ -10,15 +10,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PopularFilmCollectionViewCell" customModule="Strater3" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="211" height="270"/>
+            <rect key="frame" x="0.0" y="0.0" width="130" height="272"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="211" height="270"/>
+                <rect key="frame" x="0.0" y="0.0" width="130" height="272"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rating img" translatesAutoresizingMaskIntoConstraints="NO" id="pKc-DX-msA">
-                        <rect key="frame" x="0.0" y="0.0" width="211" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="130" height="200"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="130" id="731-AO-XTx"/>
                             <constraint firstAttribute="height" constant="200" id="Kgb-x8-uhS"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -28,10 +29,10 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgp-N1-nQK">
-                        <rect key="frame" x="0.0" y="208" width="211" height="35"/>
+                        <rect key="frame" x="0.0" y="200" width="130" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLACK WIDOW" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0S-7H-fRf">
-                                <rect key="frame" x="5" y="0.0" width="201" height="35"/>
+                                <rect key="frame" x="5" y="5" width="120" height="35"/>
                                 <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -42,18 +43,18 @@
                             <constraint firstAttribute="bottom" secondItem="t0S-7H-fRf" secondAttribute="bottom" id="5lS-7W-ICI"/>
                             <constraint firstItem="t0S-7H-fRf" firstAttribute="leading" secondItem="xgp-N1-nQK" secondAttribute="leading" constant="5" id="PFt-tl-XGU"/>
                             <constraint firstAttribute="trailing" secondItem="t0S-7H-fRf" secondAttribute="trailing" constant="5" id="YAI-Qk-3tZ"/>
-                            <constraint firstAttribute="height" constant="35" id="nZf-xw-oYj"/>
-                            <constraint firstItem="t0S-7H-fRf" firstAttribute="top" secondItem="xgp-N1-nQK" secondAttribute="top" id="tfF-I7-QVh"/>
+                            <constraint firstItem="t0S-7H-fRf" firstAttribute="top" secondItem="xgp-N1-nQK" secondAttribute="top" constant="5" id="tfF-I7-QVh"/>
+                            <constraint firstAttribute="height" constant="40" id="uqM-vY-LFO"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qq6-fd-qXD">
-                        <rect key="frame" x="5" y="248" width="22" height="12"/>
+                        <rect key="frame" x="5" y="245" width="22" height="17"/>
                         <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mw4-wL-6Mr" customClass="RatingControl" customModule="Strater3" customModuleProvider="target">
-                        <rect key="frame" x="32" y="244.5" width="150" height="16"/>
+                        <rect key="frame" x="32" y="242" width="109" height="16"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="size" keyPath="starSize">
                                 <size key="value" width="14" height="14"/>
@@ -70,26 +71,26 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="xgp-N1-nQK" firstAttribute="top" secondItem="pKc-DX-msA" secondAttribute="bottom" constant="8" symbolic="YES" id="0nu-cM-sFy"/>
+                <constraint firstItem="xgp-N1-nQK" firstAttribute="top" secondItem="pKc-DX-msA" secondAttribute="bottom" id="0nu-cM-sFy"/>
                 <constraint firstItem="Qq6-fd-qXD" firstAttribute="top" secondItem="xgp-N1-nQK" secondAttribute="bottom" constant="5" id="4Dj-I0-2z1"/>
                 <constraint firstItem="Qq6-fd-qXD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="5rp-PJ-5SA"/>
                 <constraint firstItem="pKc-DX-msA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7Vj-Eo-Dz7"/>
                 <constraint firstItem="pKc-DX-msA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="CU1-Ba-r08"/>
                 <constraint firstAttribute="trailing" secondItem="xgp-N1-nQK" secondAttribute="trailing" id="H6E-Cl-3sK"/>
                 <constraint firstItem="Mw4-wL-6Mr" firstAttribute="leading" secondItem="Qq6-fd-qXD" secondAttribute="trailing" constant="5" id="IpV-AG-SbL"/>
-                <constraint firstAttribute="trailing" secondItem="pKc-DX-msA" secondAttribute="trailing" id="NSu-Ok-ZHQ"/>
                 <constraint firstAttribute="bottom" secondItem="Qq6-fd-qXD" secondAttribute="bottom" constant="10" id="S4K-ZN-orf"/>
+                <constraint firstAttribute="trailing" secondItem="pKc-DX-msA" secondAttribute="trailing" id="Uk4-bL-d5h"/>
                 <constraint firstItem="xgp-N1-nQK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gfC-GD-YoA"/>
                 <constraint firstItem="Mw4-wL-6Mr" firstAttribute="centerY" secondItem="Qq6-fd-qXD" secondAttribute="centerY" id="mVj-Kc-18W"/>
             </constraints>
-            <size key="customSize" width="211" height="277"/>
+            <size key="customSize" width="177" height="281"/>
             <connections>
                 <outlet property="imageViewBackdrop" destination="pKc-DX-msA" id="aFZ-dj-nY9"/>
                 <outlet property="labelContentTitle" destination="t0S-7H-fRf" id="HVT-DH-kkI"/>
                 <outlet property="labelRating" destination="Qq6-fd-qXD" id="9h2-uS-3Nn"/>
                 <outlet property="ratingStar" destination="Mw4-wL-6Mr" id="wFv-lw-0Lb"/>
             </connections>
-            <point key="canvasLocation" x="228.2608695652174" y="155.35714285714286"/>
+            <point key="canvasLocation" x="200.00000000000003" y="156.69642857142856"/>
         </collectionViewCell>
     </objects>
     <resources>

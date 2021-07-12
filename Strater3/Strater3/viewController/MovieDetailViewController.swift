@@ -14,7 +14,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var btnRateMovie: UIButton!
     @IBOutlet weak var collectionViewSmallGenre: UICollectionView!
     @IBOutlet weak var collectionViewActor: UICollectionView!
-    @IBOutlet weak var collectionViewCreator: UICollectionView!
+    @IBOutlet weak var collectionViewSimilarContent: UICollectionView!
     @IBOutlet weak var collectionProductionCompanies: UICollectionView!
     
     @IBOutlet weak var labelRelaeadedYear : UILabel!
@@ -39,7 +39,8 @@ class MovieDetailViewController: UIViewController {
     
     private var productionCompanies : [ProductionCompany] = []
     private var casts : [MovieCast] = []
-   
+    private var similarMovie : [MovieResult] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,7 +49,7 @@ class MovieDetailViewController: UIViewController {
         registerCollectionView()
         fetchMovieDetail(id: movieID)
         getMovieCreditById(id: movieID)
-        
+        fetchSimilarMovie(id: movieID)
         
         
         
@@ -67,10 +68,10 @@ class MovieDetailViewController: UIViewController {
         
         
         
-        collectionViewCreator.dataSource = self
-        collectionViewCreator.delegate = self
+        collectionViewSimilarContent.dataSource = self
+        collectionViewSimilarContent.delegate = self
 //        collectionViewCreator.register(UINib(nibName:String(describing: BestActorCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BestActorCollectionViewCell.self))
-        collectionViewCreator.registerForCell(identifier: BestActorCollectionViewCell.identifier)
+        collectionViewSimilarContent.registerForCell(identifier: PopularFilmCollectionViewCell.identifier)
         
        
         collectionProductionCompanies.dataSource = self
@@ -112,9 +113,9 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
-    // movie credit response
+    // movie credit response / actor
     
-    public func getMovieCreditById(id : Int){
+    private func getMovieCreditById(id : Int){
         networkAgent.getMovieCreditById(id: id) { (data) in
             // Movie Credit Response
             self.casts = data.cast ?? [MovieCast]()
@@ -125,6 +126,18 @@ class MovieDetailViewController: UIViewController {
 
     }
     
+    // similar contact / you may also like these
+    
+    private func fetchSimilarMovie(id : Int){
+        networkAgent.getSimilarMoiveCredator(id: id) { (data) in
+            // creator
+            self.similarMovie = data.results ?? [MovieResult]()
+            self.collectionViewSimilarContent.reloadData()
+        } failure: { (error) in
+            print(error)
+        }
+
+    }
     
     // slider / popular movie
     private func bindData(data : MovieDetailResponse){
@@ -203,8 +216,10 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
             return casts.count
         }else if collectionView == collectionViewSmallGenre{
             return 2
+        }else if collectionView == collectionViewSimilarContent{
+            return similarMovie.count
         }else{
-            return 5
+            return 0
         }
    
     }
@@ -230,10 +245,11 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
                 return UICollectionViewCell()
             }
             return cell
-        }else if collectionView == collectionViewCreator{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BestActorCollectionViewCell.self), for: indexPath) as? BestActorCollectionViewCell else {
+        }else if collectionView == collectionViewSimilarContent{
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PopularFilmCollectionViewCell.self), for: indexPath) as? PopularFilmCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            cell.data = similarMovie[indexPath.row]
             return cell
         }else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProudctionCompanyCollectionViewCell.self), for: indexPath) as? ProudctionCompanyCollectionViewCell else {
@@ -263,15 +279,16 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
             let itemHeght : CGFloat = 30
             return CGSize(width: itemWidth, height: itemHeght)
 
-        }
-        else if collectionView == collectionViewCreator {
-            return CGSize(width: collectionView.frame.width/2.5, height: CGFloat(220))
-            }
-        else{
+        }else if collectionView == collectionViewSimilarContent{
             let itemWidth : CGFloat = 120
             let itemHeght : CGFloat = itemWidth * 1.5
             return CGSize(width: itemWidth, height: itemHeght)
         }
+        else{
+            return CGSize.zero
+//            return CGSize(width: collectionView.frame.width/2.5, height: CGFloat(220))
+        }
+        
 
     }
 
