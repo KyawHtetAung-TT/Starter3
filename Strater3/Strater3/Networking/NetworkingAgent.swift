@@ -156,5 +156,19 @@ struct MovieDBNetworkAgent {
             }
         }
     }
+    // Movie Trailer
+    
+    func getMovieTrailerVideo(id : Int, success : @escaping (MovieTrailerResponse) -> Void, failure : @escaping (String) -> Void){
+       
+        let url = "\(AppConstants.BaseURL)/movie/\(id)/videos?api_key=\(AppConstants.apiKey)"
 
+        AF.request(url).responseDecodable(of: MovieTrailerResponse.self) { response in
+            switch response.result{
+            case .success(let data):
+                success(data)
+            case .failure(let error):
+                failure(error.errorDescription!)
+            }
+        }
+    }
 }

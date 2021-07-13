@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class MovieDetailViewController: UIViewController {
 
     
@@ -32,6 +33,8 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var labelReleaseData : UILabel!
     @IBOutlet weak var imageViewMoviePoster : UIImageView!
     
+    @IBOutlet weak var buttonPlayTrailer : UIButton!
+    
     
     let networkAgent = MovieDBNetworkAgent.shared
     
@@ -40,6 +43,7 @@ class MovieDetailViewController: UIViewController {
     private var productionCompanies : [ProductionCompany] = []
     private var casts : [MovieCast] = []
     private var similarMovie : [MovieResult] = []
+    private var movieTrailer : [MovieTrailer] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +54,7 @@ class MovieDetailViewController: UIViewController {
         fetchMovieDetail(id: movieID)
         getMovieCreditById(id: movieID)
         fetchSimilarMovie(id: movieID)
-        
+        fetchMovieTrailer(id: movieID)
         
         
 //        btnRateMovie.isUserInteractionEnabled = false
@@ -139,6 +143,31 @@ class MovieDetailViewController: UIViewController {
 
     }
     
+    // Movie Trailer / Youtube video
+    
+    private func fetchMovieTrailer(id : Int){
+        networkAgent.getMovieTrailerVideo(id: id) { (data) in
+            // Movie Trailer
+            self.movieTrailer = data.results ?? [MovieTrailer]()
+            self.buttonPlayTrailer.isHidden = self.movieTrailer.isEmpty
+        } failure: { (error) in
+            print(error)
+        }
+
+    }
+    
+    @IBAction func onClickPlayTrailer(_ sender : UIButton){
+        // play
+        
+        let item = movieTrailer.first
+        let youtubeId = item?.key
+        let playVC = YouTubePlayerViewController()
+        playVC.youtubeId = youtubeId
+        self.present(playVC, animated: true, completion: nil)
+        
+        
+    }
+    
     // slider / popular movie
     private func bindData(data : MovieDetailResponse){
         productionCompanies = data.productionCompanies ?? [ProductionCompany]()
@@ -201,10 +230,12 @@ class MovieDetailViewController: UIViewController {
         
     }
     
-    func btnBorderColor(){
+    private func btnBorderColor(){
         btnRateMovie.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         btnRateMovie.layer.borderWidth = 1
         btnRateMovie.layer.cornerRadius = 20
+        
+        self.buttonPlayTrailer.isHidden = true
     }
 
 }
@@ -265,7 +296,7 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         if collectionView == collectionProductionCompanies {
-            let itemWidth : CGFloat = 200
+            let itemWidth : CGFloat = collectionView.frame.height
             let itemHeight = itemWidth
             return CGSize(width: itemWidth, height: itemHeight)
 

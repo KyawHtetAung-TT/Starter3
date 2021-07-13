@@ -56,6 +56,9 @@
 		983CE0EF2698327300064C80 /* ProudctionCompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983CE0ED2698327300064C80 /* ProudctionCompanyCollectionViewCell.swift */; };
 		983CE0F02698327300064C80 /* ProudctionCompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 983CE0EE2698327300064C80 /* ProudctionCompanyCollectionViewCell.xib */; };
 		983CE0F62698BB1600064C80 /* MovieCreditResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983CE0F52698BB1600064C80 /* MovieCreditResult.swift */; };
+		983CE0FC269CC3AF00064C80 /* MovieTrailerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983CE0FB269CC3AF00064C80 /* MovieTrailerResponse.swift */; };
+		983CE0FF269CCCFC00064C80 /* YouTubePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983CE0FD269CCCFC00064C80 /* YouTubePlayerViewController.swift */; };
+		983CE100269CCCFC00064C80 /* YouTubePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 983CE0FE269CCCFC00064C80 /* YouTubePlayerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +114,9 @@
 		983CE0ED2698327300064C80 /* ProudctionCompanyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProudctionCompanyCollectionViewCell.swift; sourceTree = "<group>"; };
 		983CE0EE2698327300064C80 /* ProudctionCompanyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProudctionCompanyCollectionViewCell.xib; sourceTree = "<group>"; };
 		983CE0F52698BB1600064C80 /* MovieCreditResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCreditResult.swift; sourceTree = "<group>"; };
+		983CE0FB269CC3AF00064C80 /* MovieTrailerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTrailerResponse.swift; sourceTree = "<group>"; };
+		983CE0FD269CCCFC00064C80 /* YouTubePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePlayerViewController.swift; sourceTree = "<group>"; };
+		983CE0FE269CCCFC00064C80 /* YouTubePlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YouTubePlayerViewController.xib; sourceTree = "<group>"; };
 		D4B4B6F75D3290196B0AE9DD /* Pods_Strater3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Strater3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -185,6 +191,8 @@
 			children = (
 				7892C6C725C30D7B0066E549 /* MovieViewController.swift */,
 				9836FB112669477000E2A0BE /* MovieDetailViewController.swift */,
+				983CE0FD269CCCFC00064C80 /* YouTubePlayerViewController.swift */,
+				983CE0FE269CCCFC00064C80 /* YouTubePlayerViewController.xib */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -334,6 +342,7 @@
 		9826AF29268F1E37008DD7AA /* model */ = {
 			isa = PBXGroup;
 			children = (
+				983CE0FB269CC3AF00064C80 /* MovieTrailerResponse.swift */,
 				983CE0F52698BB1600064C80 /* MovieCreditResult.swift */,
 				983CE0EB2697628600064C80 /* MovieDetailResponse.swift */,
 				9826AF2B268F1E60008DD7AA /* SearchSeriesResponse.swift */,
@@ -423,6 +432,7 @@
 			files = (
 				7892C6FF25C426370066E549 /* PopularFilmCollectionViewCell.xib in Resources */,
 				7892C6D025C30D7E0066E549 /* LaunchScreen.storyboard in Resources */,
+				983CE100269CCCFC00064C80 /* YouTubePlayerViewController.xib in Resources */,
 				7892C72425C526470066E549 /* GenreCollectionViewCell.xib in Resources */,
 				7892C74D25C66B4F0066E549 /* ShowCaseCollectionViewCell.xib in Resources */,
 				7892C70725C500C80066E549 /* MovieShowTImeTableViewCell.xib in Resources */,
@@ -500,6 +510,7 @@
 				9826AF24268F1AEA008DD7AA /* NetworkingAgent.swift in Sources */,
 				7892C72325C526470066E549 /* GenreCollectionViewCell.swift in Sources */,
 				9826AF2E268F1E60008DD7AA /* SearchSeriesResponse.swift in Sources */,
+				983CE0FF269CCCFC00064C80 /* YouTubePlayerViewController.swift in Sources */,
 				7892C74C25C66B4F0066E549 /* ShowCaseCollectionViewCell.swift in Sources */,
 				983CE0F62698BB1600064C80 /* MovieCreditResult.swift in Sources */,
 				7892C6F725C41D320066E549 /* PopularFilmTableViewCell.swift in Sources */,
@@ -511,6 +522,7 @@
 				7892C7F425CB08E80066E549 /* ActorActionDelegate.swift in Sources */,
 				7892C73225C52A6B0066E549 /* GenreVO.swift in Sources */,
 				983CE0EC2697628600064C80 /* MovieDetailResponse.swift in Sources */,
+				983CE0FC269CC3AF00064C80 /* MovieTrailerResponse.swift in Sources */,
 				9826AF26268F1BC8008DD7AA /* Consultants.swift in Sources */,
 				7892C6EE25C320880066E549 /* MovieSliderCollectionViewCell.swift in Sources */,
 				7892C6C625C30D7B0066E549 /* SceneDelegate.swift in Sources */,

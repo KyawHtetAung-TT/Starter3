@@ -13,13 +13,19 @@ class ProudctionCompanyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageViewBackdrop : UIImageView!
     @IBOutlet weak var labelCompanyName : UILabel!
         
+    
     var data : ProductionCompany?{
         didSet{
             if let data = data{
                 let urlStr = "\(AppConstants.baseImageUrl)\(String(data.logoPath ?? ""))"
                 imageViewBackdrop.sd_setImage(with: URL(string: urlStr))
                 
-                labelCompanyName.text = data.name
+                if data.logoPath == nil || data.logoPath!.isEmpty{
+                    labelCompanyName.text = data.name
+                }else{
+                    labelCompanyName.text = ""
+                }
+              
             }
         }
        
@@ -28,6 +34,9 @@ class ProudctionCompanyCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+    
     }
 
+    
 }
