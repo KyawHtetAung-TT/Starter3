@@ -25,6 +25,7 @@ extension UIStoryboard{
  
 extension UIViewController{
     
+    // movie detail
     func nevigateToMovieDetailViewController(movieId: Int){
 //        let storyBoard = UIStoryboard(name: StoryBoardName.Main.rawValue, bundle: nil)
         
@@ -33,6 +34,30 @@ extension UIViewController{
         vc.modalTransitionStyle = .crossDissolve
         vc.movieID = movieId
         
+        present(vc, animated: true)
+    }
+    
+    // showcase detail
+    func nevigateToShowcaseDetailViewController(){
+//        let storyBoard = UIStoryboard(name: StoryBoardName.Main.rawValue, bundle: nil)
+        
+        guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: MovieDetailViewController.identifier) as? MovieDetailViewController  else { return }
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        
+        
+        present(vc, animated: true)
+    }
+    
+    
+    // Actor detail
+    func nevigateToActorDetailViewController(actorId : Int) {
+//        let storyBoard = UIStoryboard(name: StoryBoardName.Main.rawValue, bundle: nil)
+
+        guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: ActorDetailViewController.identifier) as? ActorDetailViewController  else { return }
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        vc.actorID = actorId
         present(vc, animated: true)
     }
 }

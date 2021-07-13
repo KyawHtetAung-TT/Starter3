@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieViewController: UIViewController,MovieItemDelegate {
+class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegate,ShowcaseItemDelegate {
     
     
     
@@ -56,7 +56,13 @@ class MovieViewController: UIViewController,MovieItemDelegate {
     func onTapMovie(id: Int) {
         nevigateToMovieDetailViewController(movieId: id )
     }
-
+    func onTapActorDetail(id : Int) {
+        nevigateToActorDetailViewController(actorId: id )
+    }
+    func onTapShowcase(id : Int) {
+        nevigateToMovieDetailViewController(movieId: id )
+    }
+    
     
     // 1
     func fetchUpcomingMovieList(){
@@ -213,6 +219,7 @@ extension MovieViewController: UITableViewDataSource{
         case MovieType.MOVIE_SHOWCASE.rawValue:
             let cell = tableView.dequeCell(identifier: ShowCaseTableViewCell.identifier, indexPath: indexPath) as ShowCaseTableViewCell
             
+            cell.delegate = self
             cell.data = topRatingMovieList
             return cell
             
@@ -221,6 +228,7 @@ extension MovieViewController: UITableViewDataSource{
         case MovieType.MOVIE_BESTACTOR.rawValue:
             let cell = tableView.dequeCell(identifier: BestActorTableViewCell.identifier, indexPath: indexPath) as BestActorTableViewCell
             cell.data = popularPeople
+            cell.delegate = self
             return cell
             
         default:

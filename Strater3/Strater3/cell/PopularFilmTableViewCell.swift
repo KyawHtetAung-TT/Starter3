@@ -14,6 +14,7 @@ class PopularFilmTableViewCell: UITableViewCell {
     
     var delegate:MovieItemDelegate? = nil
     
+    
     var  data : MovieListResponse? {
         didSet{
             if let data = data{

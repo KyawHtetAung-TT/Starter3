@@ -14,7 +14,7 @@ class BestActorTableViewCell: UITableViewCell,ActorActionDelegate{
     @IBOutlet weak var lblMoreActors: UILabel!
     @IBOutlet weak var collectionViewActors: UICollectionView!
     
-    
+    var delegate : ActorDetailDelegate? = nil
     
     var  data : ActorListResponse? {
         didSet{
@@ -74,6 +74,9 @@ extension BestActorTableViewCell : UICollectionViewDataSource,UICollectionViewDe
         
 //      return CGSize(width: collectionView.frame.width/3, height: CGFloat(220))
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = data?.results?[indexPath.row]
+        delegate?.onTapActorDetail(id: item?.id ?? -1)
+    }
     
 }

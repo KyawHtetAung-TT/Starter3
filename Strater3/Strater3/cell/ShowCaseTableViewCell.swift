@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Foundation
+
 
 class ShowCaseTableViewCell: UITableViewCell {
     
@@ -14,7 +16,7 @@ class ShowCaseTableViewCell: UITableViewCell {
     @IBOutlet weak var showCaseCollectionView: UICollectionView!
     @IBOutlet weak var heightCollectionViewShowCase : NSLayoutConstraint!
     
-    
+    var delegate : ShowcaseItemDelegate? = nil
     
     var  data : MovieListResponse? {
         didSet{
@@ -24,6 +26,7 @@ class ShowCaseTableViewCell: UITableViewCell {
         }
     }
     
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -49,6 +52,8 @@ class ShowCaseTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
     
 }
 
@@ -76,5 +81,11 @@ extension ShowCaseTableViewCell : UICollectionViewDataSource,UICollectionViewDel
         ( (scrollView.subviews[(scrollView.subviews.count-1)]).subviews[0]).backgroundColor = UIColor(named: "Yellow")
     }
 
-   
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let item = data?.results?[indexPath.row]
+        delegate?.onTapShowcase(id: item?.id ?? -1)
+    }
+    
 }

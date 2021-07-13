@@ -45,6 +45,8 @@ class MovieDetailViewController: UIViewController {
     private var similarMovie : [MovieResult] = []
     private var movieTrailer : [MovieTrailer] = []
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,7 +64,7 @@ class MovieDetailViewController: UIViewController {
     }
     
     private func registerCollectionView(){
-        
+       
         collectionViewActor.dataSource = self
         collectionViewActor.delegate = self
 //        collectionViewActor.register(UINib(nibName:String(describing: BestActorCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BestActorCollectionViewCell.self))
