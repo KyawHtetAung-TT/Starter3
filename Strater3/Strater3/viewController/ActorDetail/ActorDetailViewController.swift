@@ -47,6 +47,7 @@ class ActorDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     private func getActorCreditById(id : Int){
+        
         networkAgent.getActorDetailById(id: id) { (data) in
             //actor detail
             self.binddata(data: data)

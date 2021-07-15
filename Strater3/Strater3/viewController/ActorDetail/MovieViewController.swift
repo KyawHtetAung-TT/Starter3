@@ -11,10 +11,9 @@ class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegat
     
     
     
+    
     @IBOutlet weak var tableViewMovies: UITableView!
-    @IBOutlet weak var viewForToolbar: UIView!
-    @IBOutlet weak var ivMenu: UIImageView!
-    @IBOutlet weak var ivSearch: UIImageView!
+  
     
     // network call function
     private let networkAgent = MovieDBNetworkAgent.shared
@@ -39,6 +38,19 @@ class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegat
         fetchPopularSeriesList()
         fetchPopularPeople()
     }
+  
+    
+    @IBAction func SearchBarButtonItem(_ sender: Any) {
+        
+        let searchVC = SearchContentViewController()
+        self.present(searchVC, animated: true, completion: nil)
+        searchVC.modalPresentationStyle = .automatic
+        searchVC.modalTransitionStyle = .crossDissolve
+        
+    }
+    
+    
+    
     
     private func registerTableViewCell(){
         tableViewMovies.dataSource = self
@@ -230,6 +242,7 @@ extension MovieViewController: UITableViewDataSource{
             cell.data = popularPeople
             cell.delegate = self
             return cell
+            
             
         default:
             return UITableViewCell()

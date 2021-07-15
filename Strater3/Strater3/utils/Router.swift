@@ -25,6 +25,27 @@ extension UIStoryboard{
  
 extension UIViewController{
     
+//    func navigateToSearchViewController(){
+//        let vc = SearchContentViewController()
+//        self.navigationController?.pushViewController(vc, animated: true)
+//        present(vc, animated: true, completion: nil)
+//
+//    }
+    
+//    func navigateToViewMoreActorViewController(data : ActorListResponse){
+//        let vc = ViewMoreActorViewController()
+//        vc.initData = data
+//        present(vc, animated: true, completion: nil)
+//
+//    }
+//
+//    func navigateToViewMoreShowCaseViewController(data : MovieListResponse){
+//        let vc = ViewMoreShowcaseViewController()
+//        vc.initData = data
+//        present(vc, animated: true, completion: nil)
+//
+//    }
+    
     // movie detail // showcase
     func nevigateToMovieDetailViewController(movieId: Int){
 //        let storyBoard = UIStoryboard(name: StoryBoardName.Main.rawValue, bundle: nil)
@@ -33,10 +54,19 @@ extension UIViewController{
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
         vc.movieID = movieId
-        
+//        vc.contentType = .movie
         present(vc, animated: true)
     }
     
+//    func nevigateToSeriesDetailViewController(seriesId: Int){
+//
+//        guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: MovieDetailViewController.identifier) as? MovieDetailViewController  else { return }
+//        vc.modalPresentationStyle = .fullScreen
+//        vc.modalTransitionStyle = .crossDissolve
+//        vc.movieID = seriesId
+////        vc.contentType = .series
+//        present(vc, animated: true)
+//    }
   
     
     
@@ -48,6 +78,7 @@ extension UIViewController{
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
         vc.actorID = actorId
+        
         present(vc, animated: true)
     }
 }

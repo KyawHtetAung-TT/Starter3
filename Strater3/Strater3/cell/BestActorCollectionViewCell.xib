@@ -68,6 +68,8 @@
                                     <constraint firstItem="AyC-SU-r0Z" firstAttribute="leading" secondItem="YcY-Vd-poW" secondAttribute="leading" id="G0T-GU-YWw"/>
                                     <constraint firstItem="ISe-Yy-YFp" firstAttribute="leading" secondItem="AyC-SU-r0Z" secondAttribute="trailing" constant="5" id="GrG-Gd-sNq"/>
                                     <constraint firstItem="AyC-SU-r0Z" firstAttribute="top" secondItem="YcY-Vd-poW" secondAttribute="bottom" constant="3" id="HbK-kj-7Vd"/>
+                                    <constraint firstAttribute="width" constant="150" id="ffZ-iy-Tk8"/>
+                                    <constraint firstAttribute="height" constant="220" id="hQT-um-L9C"/>
                                     <constraint firstAttribute="trailing" secondItem="lmt-bk-D4p" secondAttribute="trailing" constant="12" id="n9f-qX-gpx"/>
                                     <constraint firstAttribute="bottom" secondItem="AyC-SU-r0Z" secondAttribute="bottom" constant="12" id="wrv-aK-2Sl"/>
                                 </constraints>
@@ -109,7 +111,7 @@
                 <outlet property="labelActorName" destination="YcY-Vd-poW" id="5UT-6s-5KS"/>
                 <outlet property="labelKnownForDepartment" destination="ISe-Yy-YFp" id="LYf-0v-yzO"/>
             </connections>
-            <point key="canvasLocation" x="308.69565217391306" y="191.51785714285714"/>
+            <point key="canvasLocation" x="236" y="181"/>
         </collectionViewCell>
     </objects>
     <resources>
