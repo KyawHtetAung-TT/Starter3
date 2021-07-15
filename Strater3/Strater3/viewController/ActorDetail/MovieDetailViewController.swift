@@ -53,6 +53,7 @@ class MovieDetailViewController: UIViewController {
         initGestureRecognizerBack()
         btnBorderColor()
         registerCollectionView()
+        
         fetchMovieDetail(id: movieID)
         getMovieCreditById(id: movieID)
         fetchSimilarMovie(id: movieID)
@@ -108,7 +109,7 @@ class MovieDetailViewController: UIViewController {
 //        fetchContentDetail(id: id)
 //    }
     
-    // movie detail data binding
+    // movie detail data binding // showcase
     private func fetchMovieDetail(id : Int){
         networkAgent.getMovieDetailById (id: id) { (data) in
             // bind data
@@ -273,6 +274,7 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
             cell.data = item.converToActorInfoResopnse()
             return cell
         }
+        
         else if collectionView == collectionViewSmallGenre{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GenreSmallCollectionViewCell.self), for: indexPath) as? GenreSmallCollectionViewCell else {
                 return UICollectionViewCell()

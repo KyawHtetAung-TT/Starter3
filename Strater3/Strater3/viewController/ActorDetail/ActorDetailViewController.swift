@@ -35,17 +35,12 @@ class ActorDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         getActorCreditById(id: actorID)
         
         
+        seemoretapGesture()
         
-        // see more
-        lblBiographyDetail.numberOfLines = 5
-        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.labelAction(gesture:)))
-        lblBiographyDetail.addGestureRecognizer(tap)
-        lblBiographyDetail.isUserInteractionEnabled = true
-                tap.delegate = self
 
         
     }
-
+    
     
     
     // actor detail response
@@ -63,6 +58,8 @@ class ActorDetailViewController: UIViewController, UIGestureRecognizerDelegate {
 
     }
     
+    
+    
     private func binddata(data : ActorDetailResponse){
         
         let posterPath = "\(AppConstants.baseImageUrl)\(data.profilePath ?? "")"
@@ -72,15 +69,25 @@ class ActorDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         lblActorName.text = data.name
         lblBiographyDetail.text = data.biography
         
+        
     
     }
     
-    
+    // see more
+    func seemoretapGesture(){
+        
+        lblBiographyDetail.numberOfLines = 4
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.labelAction(gesture:)))
+        lblBiographyDetail.addGestureRecognizer(tap)
+        lblBiographyDetail.isUserInteractionEnabled = true
+        tap.delegate = self
+    }
         
     // See more
     @objc func labelAction(gesture: UITapGestureRecognizer){
            if lblBiographyDetail.numberOfLines == 0 {
-            lblBiographyDetail.numberOfLines = 5
+            lblBiographyDetail.numberOfLines = 4
+            
            } else {
             lblBiographyDetail.numberOfLines = 0
            }

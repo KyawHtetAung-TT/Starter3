@@ -9,7 +9,8 @@ import UIKit
 
 class BestActorTableViewCell: UITableViewCell,ActorActionDelegate{
     
-
+    
+    
     @IBOutlet weak var lblBestActors: UILabel!
     @IBOutlet weak var lblMoreActors: UILabel!
     @IBOutlet weak var collectionViewActors: UICollectionView!
@@ -23,10 +24,22 @@ class BestActorTableViewCell: UITableViewCell,ActorActionDelegate{
             }
         }
     }
+    // =
+//    func seemoreactor(){
+//
+//         let tapGestureForImage = UITapGestureRecognizer(target: self, action: #selector(onTapImage))
+//        lblMoreActors.addGestureRecognizer(tapGestureForImage)
+//        lblMoreActors.isUserInteractionEnabled = true
+//    }
+//    @objc func onTapImage(){
+//
+//
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+//        seemoreactor()
         
         collectionViewActors.dataSource = self
         collectionViewActors.delegate = self

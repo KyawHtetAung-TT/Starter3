@@ -25,7 +25,7 @@ extension UIStoryboard{
  
 extension UIViewController{
     
-    // movie detail
+    // movie detail // showcase
     func nevigateToMovieDetailViewController(movieId: Int){
 //        let storyBoard = UIStoryboard(name: StoryBoardName.Main.rawValue, bundle: nil)
         
@@ -37,17 +37,7 @@ extension UIViewController{
         present(vc, animated: true)
     }
     
-    // showcase detail
-    func nevigateToShowcaseDetailViewController(){
-//        let storyBoard = UIStoryboard(name: StoryBoardName.Main.rawValue, bundle: nil)
-        
-        guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: MovieDetailViewController.identifier) as? MovieDetailViewController  else { return }
-        vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        
-        
-        present(vc, animated: true)
-    }
+  
     
     
     // Actor detail
