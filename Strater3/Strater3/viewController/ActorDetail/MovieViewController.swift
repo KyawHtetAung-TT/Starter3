@@ -7,11 +7,9 @@
 
 import UIKit
 
-class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegate,ShowcaseItemDelegate,moreShowcaseDelegate {
+class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegate,ShowcaseItemDelegate,moreShowcaseDelegate,viewMoreActorDelegate {
     
-    
-    
-    
+  
     @IBOutlet weak var tableViewMovies: UITableView!
   
     
@@ -64,13 +62,12 @@ class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegat
         tableViewMovies.registerForCell(identifier: ShowCaseTableViewCell.identifier)
         tableViewMovies.registerForCell(identifier: BestActorTableViewCell.identifier)
     }
-    
-    func onTapShowcaselabel() {
-//        print("tap")
-        nevigateToMoreShowcaseViewController()
-        
+    func onTapViewMoreActor() {
+        nevigateToViewMoreActorViewController()
     }
-    
+    func onTapShowcaselabel() {
+        nevigateToMoreShowcaseViewController()
+    }
     func onTapMovie(id: Int) {
         nevigateToMovieDetailViewController(movieId: id )
     }
@@ -247,8 +244,10 @@ extension MovieViewController: UITableViewDataSource{
         // 6
         case MovieType.MOVIE_BESTACTOR.rawValue:
             let cell = tableView.dequeCell(identifier: BestActorTableViewCell.identifier, indexPath: indexPath) as BestActorTableViewCell
+            
             cell.data = popularPeople
             cell.delegate = self
+            cell.delegateViewMoreActor = self
             return cell
             
             

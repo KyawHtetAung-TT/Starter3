@@ -15,6 +15,8 @@ class BestActorTableViewCell: UITableViewCell,ActorActionDelegate{
     @IBOutlet weak var lblMoreActors: UILabel!
     @IBOutlet weak var collectionViewActors: UICollectionView!
     
+    var delegateViewMoreActor : viewMoreActorDelegate? = nil
+    
     var delegate : ActorDetailDelegate? = nil
     
     var  data : ActorListResponse? {
@@ -24,22 +26,24 @@ class BestActorTableViewCell: UITableViewCell,ActorActionDelegate{
             }
         }
     }
-    // =
-//    func seemoreactor(){
-//
-//         let tapGestureForImage = UITapGestureRecognizer(target: self, action: #selector(onTapImage))
-//        lblMoreActors.addGestureRecognizer(tapGestureForImage)
-//        lblMoreActors.isUserInteractionEnabled = true
-//    }
-//    @objc func onTapImage(){
-//
-//
-//    }
+    func MoreActor(){
+
+           let tapGestureForImage = UITapGestureRecognizer(target: self, action: #selector(onTapMoreActor))
+        lblMoreActors.addGestureRecognizer(tapGestureForImage)
+        lblMoreActors.isUserInteractionEnabled = true
+      }
+    
+      @objc func onTapMoreActor(){
+
+        delegateViewMoreActor?.onTapViewMoreActor()
+
+      }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 //        seemoreactor()
+        MoreActor()
         
         collectionViewActors.dataSource = self
         collectionViewActors.delegate = self

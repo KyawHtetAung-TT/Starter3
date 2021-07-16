@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gi3-LM-7EE">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c4e-2l-oPh">
                         <size key="itemSize" width="128" height="128"/>
@@ -30,14 +31,19 @@
                 </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" name="Color primary"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="gi3-LM-7EE" secondAttribute="bottom" id="F4h-fY-WWM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gi3-LM-7EE" secondAttribute="trailing" id="RRq-RA-B5T"/>
-                <constraint firstItem="gi3-LM-7EE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="e1v-lA-3Pz"/>
+                <constraint firstItem="gi3-LM-7EE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="e1v-lA-3Pz"/>
                 <constraint firstItem="gi3-LM-7EE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fsB-yp-sBg"/>
             </constraints>
             <point key="canvasLocation" x="35" y="63"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="Color primary">
+            <color red="0.075000002980232239" green="0.10599999874830246" blue="0.14100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

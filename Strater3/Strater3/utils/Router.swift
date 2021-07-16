@@ -63,12 +63,17 @@ extension UIViewController{
         let vc = ViewMoreShowcaseViewController()
         
 //        guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: ViewMoreShowcaseViewController.identifier) as? ViewMoreShowcaseViewController  else { return }
-        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .automatic
         vc.modalTransitionStyle = .crossDissolve
-//        vc.contentType = .series
         present(vc, animated: true)
     }
-  
+    
+    func nevigateToViewMoreActorViewController(){
+        let vc = ViewMoreActorViewController()
+        vc.modalPresentationStyle = .automatic
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true)
+    }
     
     
     // Actor detail
