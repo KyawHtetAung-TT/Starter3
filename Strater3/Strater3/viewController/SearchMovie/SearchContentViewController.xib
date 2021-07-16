@@ -3,8 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,21 +22,17 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1T-dS-voC">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.turn.up.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hpd-BJ-k3P">
-                            <rect key="frame" x="10" y="11" width="32" height="29.5"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.left" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hpd-BJ-k3P">
+                            <rect key="frame" x="10" y="12.5" width="32" height="27"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="ARK-iy-CDX"/>
                                 <constraint firstAttribute="height" constant="32" id="JE9-fG-1Uv"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DTv-K1-EJi">
-                            <rect key="frame" x="42" y="10" width="362" height="34"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zjc-I7-z3Q">
-                            <rect key="frame" x="0.0" y="54" width="414" height="764"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <rect key="frame" x="0.0" y="51" width="414" height="767"/>
+                            <color key="backgroundColor" name="Color primary"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yb7-bS-sq5">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -44,23 +40,29 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
+                        <searchBar contentMode="redraw" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="AM3-x4-ddK">
+                            <rect key="frame" x="52" y="0.0" width="352" height="51"/>
+                            <color key="backgroundColor" name="Color primary"/>
+                            <color key="barTintColor" name="Color primary"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="Color primary"/>
                     <constraints>
                         <constraint firstItem="hpd-BJ-k3P" firstAttribute="leading" secondItem="Z1T-dS-voC" secondAttribute="leading" constant="10" id="3bY-SL-CjA"/>
-                        <constraint firstItem="zjc-I7-z3Q" firstAttribute="top" secondItem="DTv-K1-EJi" secondAttribute="bottom" constant="10" id="52v-C7-9UI"/>
                         <constraint firstAttribute="bottom" secondItem="zjc-I7-z3Q" secondAttribute="bottom" id="Ffz-07-dJy"/>
+                        <constraint firstItem="zjc-I7-z3Q" firstAttribute="top" secondItem="AM3-x4-ddK" secondAttribute="bottom" id="JY1-iN-Kei"/>
                         <constraint firstAttribute="trailing" secondItem="zjc-I7-z3Q" secondAttribute="trailing" id="KDy-KC-8yN"/>
-                        <constraint firstItem="DTv-K1-EJi" firstAttribute="top" secondItem="Z1T-dS-voC" secondAttribute="top" constant="10" id="Xri-Ub-3Y1"/>
-                        <constraint firstAttribute="trailing" secondItem="DTv-K1-EJi" secondAttribute="trailing" constant="10" id="Y2C-Qo-URQ"/>
-                        <constraint firstItem="DTv-K1-EJi" firstAttribute="leading" secondItem="hpd-BJ-k3P" secondAttribute="trailing" id="fse-gm-TP5"/>
+                        <constraint firstAttribute="trailing" secondItem="AM3-x4-ddK" secondAttribute="trailing" constant="10" id="br9-AK-ga1"/>
+                        <constraint firstItem="AM3-x4-ddK" firstAttribute="leading" secondItem="hpd-BJ-k3P" secondAttribute="trailing" constant="10" id="nXd-0p-drd"/>
+                        <constraint firstItem="AM3-x4-ddK" firstAttribute="top" secondItem="Z1T-dS-voC" secondAttribute="top" id="uhU-jC-2Vt"/>
                         <constraint firstItem="zjc-I7-z3Q" firstAttribute="leading" secondItem="Z1T-dS-voC" secondAttribute="leading" id="y3J-I3-LJe"/>
                         <constraint firstItem="hpd-BJ-k3P" firstAttribute="top" secondItem="Z1T-dS-voC" secondAttribute="top" constant="10" id="zk8-dz-yUR"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="Color primary"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Z1T-dS-voC" secondAttribute="bottom" id="6BF-QO-Vsl"/>
                 <constraint firstItem="Z1T-dS-voC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="E0l-jF-iX0"/>
@@ -71,9 +73,9 @@
         </view>
     </objects>
     <resources>
-        <image name="arrowshape.turn.up.backward" catalog="system" width="128" height="106"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <namedColor name="Color primary">
+            <color red="0.075000002980232239" green="0.10599999874830246" blue="0.14100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

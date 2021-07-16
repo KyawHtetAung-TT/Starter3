@@ -99,7 +99,7 @@ struct MovieDBNetworkAgent {
     // 6
     func getPopularPeople(page : Int = 1, success : @escaping (ActorListResponse) -> Void, failure : @escaping (String) -> Void){
        
-        let url = "\(AppConstants.BaseURL)/person/popular?page=\(page)api_key=\(AppConstants.apiKey)"
+        let url = "\(AppConstants.BaseURL)/person/popular?page=\(page)&api_key=\(AppConstants.apiKey)"
 
         AF.request(url).responseDecodable(of: ActorListResponse.self) { response in
             switch response.result{

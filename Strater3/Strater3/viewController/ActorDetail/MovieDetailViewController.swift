@@ -95,7 +95,7 @@ class MovieDetailViewController: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapButton))
         ivBack.isUserInteractionEnabled = true
         ivBack.addGestureRecognizer(tapGestureRecognizer)
-        
+
     }
     
     // TODO :
@@ -183,6 +183,11 @@ class MovieDetailViewController: UIViewController {
         labelRelaeadedYear.text = String(data.releaseDate?.split(separator:"-")[0] ?? " ")
         
         labelMovieTitle.text = data.originalTitle
+        
+        // navigation movie title
+        navigationItem.title = data.originalTitle
+//        self.navigationItem.title = data.originalTitle
+
         labelMovieDescription.text = data.overview
         
 //        labelDruation.text =  "\(Int((data.runtime ?? 0)/60))hr\(Int((data.runtime ?? 0) % 60))mins"
@@ -229,8 +234,8 @@ class MovieDetailViewController: UIViewController {
     
     @objc func onTapButton(){
     
-        self.dismiss(animated: true, completion: nil)
-        
+//        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func btnBorderColor(){

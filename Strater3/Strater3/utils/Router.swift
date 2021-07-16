@@ -55,18 +55,19 @@ extension UIViewController{
         vc.modalTransitionStyle = .crossDissolve
         vc.movieID = movieId
 //        vc.contentType = .movie
-        present(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
+//        present(vc, animated: true)
     }
     
-//    func nevigateToSeriesDetailViewController(seriesId: Int){
-//
-//        guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: MovieDetailViewController.identifier) as? MovieDetailViewController  else { return }
-//        vc.modalPresentationStyle = .fullScreen
-//        vc.modalTransitionStyle = .crossDissolve
-//        vc.movieID = seriesId
-////        vc.contentType = .series
-//        present(vc, animated: true)
-//    }
+    func nevigateToMoreShowcaseViewController(){
+        let vc = ViewMoreShowcaseViewController()
+        
+//        guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: ViewMoreShowcaseViewController.identifier) as? ViewMoreShowcaseViewController  else { return }
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+//        vc.contentType = .series
+        present(vc, animated: true)
+    }
   
     
     
@@ -78,7 +79,7 @@ extension UIViewController{
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
         vc.actorID = actorId
-        
-        present(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
+//        present(vc, animated: true)
     }
 }

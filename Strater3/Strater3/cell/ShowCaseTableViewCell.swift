@@ -9,12 +9,17 @@ import UIKit
 import Foundation
 
 
+
 class ShowCaseTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblShowCase: UILabel!
     @IBOutlet weak var lblMoreShowCase: UILabel!
     @IBOutlet weak var showCaseCollectionView: UICollectionView!
     @IBOutlet weak var heightCollectionViewShowCase : NSLayoutConstraint!
+    
+    
+    var delegateshowcase : moreShowcaseDelegate? = nil
+    
     
     var delegate : ShowcaseItemDelegate? = nil
     
@@ -26,10 +31,24 @@ class ShowCaseTableViewCell: UITableViewCell {
         }
     }
     
+    func seeMoreShowCase(){
+
+           let tapGestureForImage = UITapGestureRecognizer(target: self, action: #selector(onTaplabel))
+        lblMoreShowCase.addGestureRecognizer(tapGestureForImage)
+        lblMoreShowCase.isUserInteractionEnabled = true
+      }
+    
+      @objc func onTaplabel(){
+
+        delegateshowcase?.onTapShowcaselabel()
+
+      }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        seeMoreShowCase()
+        
         showCaseCollectionView.dataSource = self
         showCaseCollectionView.delegate = self
         

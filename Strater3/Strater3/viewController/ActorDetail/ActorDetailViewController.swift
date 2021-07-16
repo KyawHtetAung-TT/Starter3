@@ -106,12 +106,13 @@ class ActorDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapButton))
         ivActorDetailBack.isUserInteractionEnabled = true
         ivActorDetailBack.addGestureRecognizer(tapGestureRecognizer)
-        
+
     }
     @objc func onTapButton(){
-    
+
         self.dismiss(animated: true, completion: nil)
-        
+        self.navigationController?.popViewController(animated: true)
+
     }
     
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegate,ShowcaseItemDelegate {
+class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegate,ShowcaseItemDelegate,moreShowcaseDelegate {
     
     
     
@@ -63,6 +63,12 @@ class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegat
         tableViewMovies.registerForCell(identifier: GenreTableViewCell.identifier)
         tableViewMovies.registerForCell(identifier: ShowCaseTableViewCell.identifier)
         tableViewMovies.registerForCell(identifier: BestActorTableViewCell.identifier)
+    }
+    
+    func onTapShowcaselabel() {
+//        print("tap")
+        nevigateToMoreShowcaseViewController()
+        
     }
     
     func onTapMovie(id: Int) {
@@ -233,6 +239,8 @@ extension MovieViewController: UITableViewDataSource{
             
             cell.delegate = self
             cell.data = topRatingMovieList
+            cell.delegateshowcase = self
+            
             return cell
             
             

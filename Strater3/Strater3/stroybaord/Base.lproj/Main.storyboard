@@ -80,12 +80,12 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
                                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.turn.up.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4f4-ah-VvL">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.turn.up.backward.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ebU-UP-hbe">
                                                                 <rect key="frame" x="24" y="49" width="32" height="29.5"/>
-                                                                <color key="tintColor" name="White"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="32" id="fud-da-vML"/>
-                                                                    <constraint firstAttribute="height" constant="32" id="xfc-XT-Q7r"/>
+                                                                    <constraint firstAttribute="width" constant="32" id="66L-NJ-zX4"/>
+                                                                    <constraint firstAttribute="height" constant="32" id="Yvg-CI-pMK"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Pqg-yQ-6cL">
@@ -237,9 +237,9 @@
                                                         <constraints>
                                                             <constraint firstItem="Pqg-yQ-6cL" firstAttribute="top" secondItem="IW7-RG-Jrx" secondAttribute="top" constant="48" id="1A2-G8-4Es"/>
                                                             <constraint firstItem="vV2-s7-AhU" firstAttribute="leading" secondItem="IW7-RG-Jrx" secondAttribute="leading" constant="24" id="6W6-9B-E3i"/>
-                                                            <constraint firstItem="4f4-ah-VvL" firstAttribute="leading" secondItem="IW7-RG-Jrx" secondAttribute="leading" constant="24" id="8jq-tO-lbU"/>
                                                             <constraint firstItem="z2I-YK-psL" firstAttribute="leading" secondItem="4rt-6x-JHx" secondAttribute="leading" id="D3Q-Bq-xMw"/>
                                                             <constraint firstAttribute="bottom" secondItem="vV2-s7-AhU" secondAttribute="bottom" id="GhR-vi-IIj"/>
+                                                            <constraint firstItem="ebU-UP-hbe" firstAttribute="top" secondItem="IW7-RG-Jrx" secondAttribute="top" constant="48" id="JnU-uB-k9B"/>
                                                             <constraint firstAttribute="trailing" secondItem="4rt-6x-JHx" secondAttribute="trailing" id="KLQ-XH-oHP"/>
                                                             <constraint firstItem="4rt-6x-JHx" firstAttribute="top" secondItem="IW7-RG-Jrx" secondAttribute="top" id="KYS-KP-WaV"/>
                                                             <constraint firstItem="z2I-YK-psL" firstAttribute="trailing" secondItem="4rt-6x-JHx" secondAttribute="trailing" id="Okg-wW-g1y"/>
@@ -249,7 +249,7 @@
                                                             <constraint firstItem="4rt-6x-JHx" firstAttribute="leading" secondItem="IW7-RG-Jrx" secondAttribute="leading" id="e5p-SC-NG2"/>
                                                             <constraint firstItem="z2I-YK-psL" firstAttribute="top" secondItem="4rt-6x-JHx" secondAttribute="top" id="fPL-ug-T8T"/>
                                                             <constraint firstItem="z2I-YK-psL" firstAttribute="bottom" secondItem="4rt-6x-JHx" secondAttribute="bottom" id="jx4-a1-qh0"/>
-                                                            <constraint firstItem="4f4-ah-VvL" firstAttribute="top" secondItem="IW7-RG-Jrx" secondAttribute="top" constant="48" id="tkf-aA-kCt"/>
+                                                            <constraint firstItem="ebU-UP-hbe" firstAttribute="leading" secondItem="IW7-RG-Jrx" secondAttribute="leading" constant="24" id="tDV-sl-Ltf"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl2-ZQ-5Bz" userLabel="storyline">
@@ -665,7 +665,7 @@
                         <outlet property="collectionViewSimilarContent" destination="9BI-CZ-08Z" id="1m4-Xx-v9e"/>
                         <outlet property="collectionViewSmallGenre" destination="i5n-qw-U9Y" id="yy5-xR-Eal"/>
                         <outlet property="imageViewMoviePoster" destination="4rt-6x-JHx" id="fFI-H9-H8e"/>
-                        <outlet property="ivBack" destination="4f4-ah-VvL" id="6i9-SW-yls"/>
+                        <outlet property="ivBack" destination="ebU-UP-hbe" id="zuc-oa-Asm"/>
                         <outlet property="labelAboutMovieDescription" destination="1I0-93-e33" id="HMw-Se-cmA"/>
                         <outlet property="labelAboutMovieTitile" destination="Tot-xF-UC6" id="IpV-rc-Vwn"/>
                         <outlet property="labelDruation" destination="ZS1-SR-WiF" id="eLO-oQ-BCf"/>
@@ -716,12 +716,12 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.turn.up.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hwx-UW-lZ4">
-                                                        <rect key="frame" x="24" y="49" width="32" height="29.5"/>
-                                                        <color key="tintColor" name="White"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.turn.up.backward.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Z6Q-Zg-UEs">
+                                                        <rect key="frame" x="15" y="26" width="32" height="29.5"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="32" id="X8a-7f-Fcr"/>
-                                                            <constraint firstAttribute="width" constant="32" id="lLY-xe-wyv"/>
+                                                            <constraint firstAttribute="height" constant="32" id="KeM-1c-0JK"/>
+                                                            <constraint firstAttribute="width" constant="32" id="iAL-QU-Rhp"/>
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jZz-mK-25S">
@@ -775,11 +775,11 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="hwx-UW-lZ4" firstAttribute="top" secondItem="0Ip-ar-qoz" secondAttribute="top" constant="48" id="1Zg-oP-UAg"/>
                                                     <constraint firstItem="dou-VX-4yu" firstAttribute="leading" secondItem="C93-AJ-Btn" secondAttribute="leading" id="5T8-Gh-zOU"/>
                                                     <constraint firstAttribute="trailing" secondItem="C93-AJ-Btn" secondAttribute="trailing" id="9rH-JI-scz"/>
+                                                    <constraint firstItem="Z6Q-Zg-UEs" firstAttribute="top" secondItem="0Ip-ar-qoz" secondAttribute="top" constant="25" id="Bat-q4-JDV"/>
+                                                    <constraint firstItem="Z6Q-Zg-UEs" firstAttribute="leading" secondItem="0Ip-ar-qoz" secondAttribute="leading" constant="15" id="KDE-TU-zI8"/>
                                                     <constraint firstItem="dou-VX-4yu" firstAttribute="trailing" secondItem="C93-AJ-Btn" secondAttribute="trailing" id="NMf-MN-2fd"/>
-                                                    <constraint firstItem="hwx-UW-lZ4" firstAttribute="leading" secondItem="0Ip-ar-qoz" secondAttribute="leading" constant="24" id="TWR-HP-5fh"/>
                                                     <constraint firstItem="C93-AJ-Btn" firstAttribute="top" secondItem="0Ip-ar-qoz" secondAttribute="top" id="a1R-nR-WdA"/>
                                                     <constraint firstAttribute="bottom" secondItem="jZz-mK-25S" secondAttribute="bottom" constant="24" id="f2z-Jp-dtQ"/>
                                                     <constraint firstItem="C93-AJ-Btn" firstAttribute="leading" secondItem="0Ip-ar-qoz" secondAttribute="leading" id="fDE-hV-FcS"/>
@@ -932,7 +932,7 @@
                     <connections>
                         <outlet property="collectionViewTVCredit" destination="Tfr-co-jGi" id="QW3-Oh-wfD"/>
                         <outlet property="imgView" destination="C93-AJ-Btn" id="emi-l5-7tn"/>
-                        <outlet property="ivActorDetailBack" destination="hwx-UW-lZ4" id="qCX-VS-XOy"/>
+                        <outlet property="ivActorDetailBack" destination="Z6Q-Zg-UEs" id="5IK-xM-RtZ"/>
                         <outlet property="lblActorName" destination="1WM-fc-yJa" id="Dd3-r5-aIM"/>
                         <outlet property="lblBiographyDetail" destination="Nsz-Zc-amg" id="Loh-9S-SKY"/>
                         <outlet property="lblDateOfBirth" destination="L2Y-09-QwA" id="1IX-t6-EgW"/>
@@ -969,7 +969,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.turn.up.backward" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

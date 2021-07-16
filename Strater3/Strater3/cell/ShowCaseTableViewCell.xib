@@ -29,12 +29,6 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7of-Jg-BRL" userLabel="moreShowCase">
-                        <rect key="frame" x="217" y="10" width="170" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="170" id="2lO-ML-L7p"/>
-                        </constraints>
-                    </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="sJz-av-ELd">
                         <rect key="frame" x="0.0" y="46" width="402" height="220"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,12 +49,9 @@
                     <constraint firstAttribute="bottom" secondItem="sJz-av-ELd" secondAttribute="bottom" id="7x0-OP-egm"/>
                     <constraint firstAttribute="trailing" secondItem="sJz-av-ELd" secondAttribute="trailing" id="Ne5-2e-l5X"/>
                     <constraint firstItem="sJz-av-ELd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NrL-CD-CN4"/>
-                    <constraint firstAttribute="trailing" secondItem="7of-Jg-BRL" secondAttribute="trailing" constant="15" id="VnK-ZM-hbh"/>
-                    <constraint firstItem="7of-Jg-BRL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="XL3-Y8-Azb"/>
                     <constraint firstItem="eV2-me-dvu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="XnD-xY-H2t"/>
                     <constraint firstItem="sJz-av-ELd" firstAttribute="top" secondItem="cBE-Gl-oBS" secondAttribute="bottom" constant="15" id="YLt-2F-cVS"/>
                     <constraint firstItem="cBE-Gl-oBS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ZMQ-NK-3vz"/>
-                    <constraint firstItem="sJz-av-ELd" firstAttribute="top" secondItem="7of-Jg-BRL" secondAttribute="bottom" constant="15" id="dUj-sm-dWe"/>
                     <constraint firstItem="eV2-me-dvu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="eHn-iN-RlI"/>
                     <constraint firstItem="cBE-Gl-oBS" firstAttribute="centerY" secondItem="eV2-me-dvu" secondAttribute="centerY" id="spK-Dc-9m4"/>
                     <constraint firstAttribute="trailing" secondItem="cBE-Gl-oBS" secondAttribute="trailing" constant="15" id="tda-tn-Ofu"/>
