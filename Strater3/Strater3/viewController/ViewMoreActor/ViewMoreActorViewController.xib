@@ -31,6 +31,7 @@
                 </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="Color primary"/>
             <constraints>
                 <constraint firstItem="F1I-Y7-ne6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5YD-s3-oUb"/>
                 <constraint firstAttribute="bottom" secondItem="F1I-Y7-ne6" secondAttribute="bottom" id="Eij-vS-5B5"/>

@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchContentViewController" customModule="Strater3" customModuleProvider="target">
             <connections>
-                <outlet property="ivBack" destination="hpd-BJ-k3P" id="BYq-qs-CnM"/>
+                <outlet property="collectionViewResults" destination="zjc-I7-z3Q" id="QhA-QU-TD5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,16 +22,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1T-dS-voC">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.left" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hpd-BJ-k3P">
-                            <rect key="frame" x="10" y="12.5" width="32" height="27"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="32" id="ARK-iy-CDX"/>
-                                <constraint firstAttribute="height" constant="32" id="JE9-fG-1Uv"/>
-                            </constraints>
-                        </imageView>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zjc-I7-z3Q">
-                            <rect key="frame" x="0.0" y="51" width="414" height="767"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <color key="backgroundColor" name="Color primary"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yb7-bS-sq5">
                                 <size key="itemSize" width="128" height="128"/>
@@ -40,24 +32,13 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
-                        <searchBar contentMode="redraw" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="AM3-x4-ddK">
-                            <rect key="frame" x="52" y="0.0" width="352" height="51"/>
-                            <color key="backgroundColor" name="Color primary"/>
-                            <color key="barTintColor" name="Color primary"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                     </subviews>
                     <color key="backgroundColor" name="Color primary"/>
                     <constraints>
-                        <constraint firstItem="hpd-BJ-k3P" firstAttribute="leading" secondItem="Z1T-dS-voC" secondAttribute="leading" constant="10" id="3bY-SL-CjA"/>
                         <constraint firstAttribute="bottom" secondItem="zjc-I7-z3Q" secondAttribute="bottom" id="Ffz-07-dJy"/>
-                        <constraint firstItem="zjc-I7-z3Q" firstAttribute="top" secondItem="AM3-x4-ddK" secondAttribute="bottom" id="JY1-iN-Kei"/>
                         <constraint firstAttribute="trailing" secondItem="zjc-I7-z3Q" secondAttribute="trailing" id="KDy-KC-8yN"/>
-                        <constraint firstAttribute="trailing" secondItem="AM3-x4-ddK" secondAttribute="trailing" constant="10" id="br9-AK-ga1"/>
-                        <constraint firstItem="AM3-x4-ddK" firstAttribute="leading" secondItem="hpd-BJ-k3P" secondAttribute="trailing" constant="10" id="nXd-0p-drd"/>
-                        <constraint firstItem="AM3-x4-ddK" firstAttribute="top" secondItem="Z1T-dS-voC" secondAttribute="top" id="uhU-jC-2Vt"/>
+                        <constraint firstItem="zjc-I7-z3Q" firstAttribute="top" secondItem="Z1T-dS-voC" secondAttribute="top" id="m3I-lZ-Ewp"/>
                         <constraint firstItem="zjc-I7-z3Q" firstAttribute="leading" secondItem="Z1T-dS-voC" secondAttribute="leading" id="y3J-I3-LJe"/>
-                        <constraint firstItem="hpd-BJ-k3P" firstAttribute="top" secondItem="Z1T-dS-voC" secondAttribute="top" constant="10" id="zk8-dz-yUR"/>
                     </constraints>
                 </view>
             </subviews>
@@ -73,7 +54,6 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <namedColor name="Color primary">
             <color red="0.075000002980232239" green="0.10599999874830246" blue="0.14100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

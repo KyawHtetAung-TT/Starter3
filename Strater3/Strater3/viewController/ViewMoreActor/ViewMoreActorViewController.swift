@@ -10,12 +10,12 @@ import UIKit
 class ViewMoreActorViewController: UIViewController {
 
     @IBOutlet weak var collectionViewActors : UICollectionView!
-//
-//    var initData : ActorListResponse?
-//
-//    private var data : [ActorInfoResopnse] = []
+
+    var initData : ActorListResponse?
+
+    private var data : [ActorInfoResopnse] = []
     
-//    private let networkAgent = MovieDBNetworkAgent.shared
+    private let networkAgent = MovieDBNetworkAgent.shared
     
     private let itemSpacing : CGFloat = 10
     private let numberOfItemsPerRow = 3
@@ -26,7 +26,7 @@ class ViewMoreActorViewController: UIViewController {
         super.viewDidLoad()
 
         initView()
-//        initState()
+        initState()
         
     }
 
@@ -34,18 +34,25 @@ class ViewMoreActorViewController: UIViewController {
         setupCollectionView()
     }
 
-//   }
+    private func initState(){
+        currentPage = initData?.page ?? 1
+        totalPages = initData?.totalPages ?? 1
+        
+        data.append(contentsOf: initData?.results ?? [ActorInfoResopnse]())
+        collectionViewActors.reloadData()
+    }
+
     
-//    private func fetchData(page : Int){
-//        networkAgent.getPopularPeople (page : page){ (data) in
-//            self.data.append(contentsOf: data.results ?? [ActorInfoResopnse]())
-//            self.collectionViewActors.reloadData()
-//        } failure: { (error) in
-//            print(error)
-//        }
-//
-//
-//    }
+    private func fetchData(page : Int){
+        networkAgent.getPopularPeople (page : page){ (data) in
+            self.data.append(contentsOf: data.results ?? [ActorInfoResopnse]())
+            self.collectionViewActors.reloadData()
+        } failure: { (error) in
+            print(error)
+        }
+
+
+    }
     
     func setupCollectionView(){
         
@@ -53,10 +60,10 @@ class ViewMoreActorViewController: UIViewController {
         collectionViewActors.delegate = self
         collectionViewActors.showsHorizontalScrollIndicator = false
         collectionViewActors.showsVerticalScrollIndicator = false
-//        collectionViewActors.contentInset = UIEdgeInsets.init(top: 16, left: 16, bottom: 161, right: 16)
-//        if let layout = collectionViewActors.collectionViewLayout as? UICollectionViewFlowLayout{
-//            layout.scrollDirection = .vertical
-//        }
+        collectionViewActors.contentInset = UIEdgeInsets.init(top: 16, left: 16, bottom: 161, right: 16)
+        if let layout = collectionViewActors.collectionViewLayout as? UICollectionViewFlowLayout{
+            layout.scrollDirection = .vertical
+        }
        
         collectionViewActors.register(UINib(nibName: String(describing: BestActorCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BestActorCollectionViewCell.self))
     }
@@ -67,8 +74,8 @@ class ViewMoreActorViewController: UIViewController {
 
 extension ViewMoreActorViewController : UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return data.count
-        return 10
+        return data.count
+//        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -76,23 +83,11 @@ extension ViewMoreActorViewController : UICollectionViewDataSource,UICollectionV
             
             return UICollectionViewCell()
         }
-//        cell.data = data[indexPath.row]
+        cell.data = data[indexPath.row]
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//
-//        let isAtlastRow = indexPath.row == (data.count - 1)
-//        let hasMorePage = currentPage < totalPages // 9, 10 => page 10 => fetchData(page_ 10)
-//
-//        if isAtlastRow && hasMorePage {
-//            currentPage = currentPage + 1
-//
-//            fetchData(page: currentPage)
-//
-//
-//        }
-//    }
+  
     
 }
 extension  ViewMoreActorViewController : UICollectionViewDelegateFlowLayout{
@@ -112,6 +107,19 @@ extension  ViewMoreActorViewController : UICollectionViewDelegateFlowLayout{
         return itemSpacing
     }
 
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 
+        let isAtlastRow = indexPath.row == (data.count - 1)
+        let hasMorePage = currentPage < totalPages // 9, 10 => page 10 => fetchData(page_ 10)
+
+        if isAtlastRow && hasMorePage {
+            currentPage = currentPage + 1
+
+            // api call
+            fetchData(page: currentPage)
+
+
+        }
+    }
 
 }

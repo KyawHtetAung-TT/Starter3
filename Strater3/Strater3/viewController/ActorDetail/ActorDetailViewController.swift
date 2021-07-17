@@ -110,7 +110,7 @@ class ActorDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     @objc func onTapButton(){
 
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
 
     }

@@ -8,7 +8,7 @@
 import UIKit
 
 
-class MovieDetailViewController: UIViewController {
+class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
 
     
     @IBOutlet weak var ivBack: UIImageView!
@@ -59,6 +59,7 @@ class MovieDetailViewController: UIViewController {
         fetchSimilarMovie(id: movieID)
         fetchMovieTrailer(id: movieID)
         
+        seemoretapGesture()
         
 //        btnRateMovie.isUserInteractionEnabled = false
       
@@ -333,7 +334,25 @@ extension MovieDetailViewController : UICollectionViewDataSource,UICollectionVie
     }
 
 
-
+    // see more
+    func seemoretapGesture(){
+        
+        labelMovieDescription.numberOfLines = 4
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.labelAction(gesture:)))
+        labelMovieDescription.addGestureRecognizer(tap)
+        labelMovieDescription.isUserInteractionEnabled = true
+        tap.delegate = self
+    }
+        
+    // See more
+    @objc func labelAction(gesture: UITapGestureRecognizer){
+           if labelMovieDescription.numberOfLines == 0 {
+            labelMovieDescription.numberOfLines = 4
+            
+           } else {
+            labelMovieDescription.numberOfLines = 0
+           }
+    }
    
 
 }

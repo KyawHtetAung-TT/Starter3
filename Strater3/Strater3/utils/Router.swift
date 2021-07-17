@@ -25,34 +25,21 @@ extension UIStoryboard{
  
 extension UIViewController{
     
-//    func navigateToSearchViewController(){
-//        let vc = SearchContentViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
-//        present(vc, animated: true, completion: nil)
-//
-//    }
-    
-//    func navigateToViewMoreActorViewController(data : ActorListResponse){
-//        let vc = ViewMoreActorViewController()
-//        vc.initData = data
-//        present(vc, animated: true, completion: nil)
-//
-//    }
-//
-//    func navigateToViewMoreShowCaseViewController(data : MovieListResponse){
-//        let vc = ViewMoreShowcaseViewController()
-//        vc.initData = data
-//        present(vc, animated: true, completion: nil)
-//
-//    }
+    func navigateToSearchViewController(){
+        let searchVC = SearchContentViewController()
+//        self.present(searchVC, animated: true, completion: nil)
+//        searchVC.modalPresentationStyle = .fullScreen
+//        searchVC.modalTransitionStyle = .crossDissolve
+        self.navigationController?.pushViewController(searchVC, animated: true)
+    }
     
     // movie detail // showcase
     func nevigateToMovieDetailViewController(movieId: Int){
 //        let storyBoard = UIStoryboard(name: StoryBoardName.Main.rawValue, bundle: nil)
         
         guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: MovieDetailViewController.identifier) as? MovieDetailViewController  else { return }
-        vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = .crossDissolve
+//        vc.modalPresentationStyle = .fullScreen
+//        vc.modalTransitionStyle = .crossDissolve
         vc.movieID = movieId
 //        vc.contentType = .movie
         self.navigationController?.pushViewController(vc, animated: true)
@@ -63,16 +50,18 @@ extension UIViewController{
         let vc = ViewMoreShowcaseViewController()
         
 //        guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: ViewMoreShowcaseViewController.identifier) as? ViewMoreShowcaseViewController  else { return }
-        vc.modalPresentationStyle = .automatic
-        vc.modalTransitionStyle = .crossDissolve
-        present(vc, animated: true)
+//        vc.modalPresentationStyle = .automatic
+//        vc.modalTransitionStyle = .crossDissolve
+        self.navigationController?.pushViewController(vc, animated: true)
+//        present(vc, animated: true)
     }
     
     func nevigateToViewMoreActorViewController(){
         let vc = ViewMoreActorViewController()
-        vc.modalPresentationStyle = .automatic
-        vc.modalTransitionStyle = .crossDissolve
-        present(vc, animated: true)
+//        vc.modalPresentationStyle = .automatic
+//        vc.modalTransitionStyle = .crossDissolve
+        self.navigationController?.pushViewController(vc, animated: true)
+//        present(vc, animated: true)
     }
     
     
@@ -81,10 +70,13 @@ extension UIViewController{
 //        let storyBoard = UIStoryboard(name: StoryBoardName.Main.rawValue, bundle: nil)
 
         guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: ActorDetailViewController.identifier) as? ActorDetailViewController  else { return }
-        vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = .crossDissolve
+//        vc.modalPresentationStyle = .fullScreen
+//        vc.modalTransitionStyle = .crossDissolve
         vc.actorID = actorId
         self.navigationController?.pushViewController(vc, animated: true)
 //        present(vc, animated: true)
     }
+    
+    
+    
 }

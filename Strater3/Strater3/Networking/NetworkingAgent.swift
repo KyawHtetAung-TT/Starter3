@@ -173,6 +173,22 @@ struct MovieDBNetworkAgent {
             }
         }
     }
+    
+    // search
+//    func getSimilarMoiveCredator(query : String,page : Int, success : @escaping (MovieResult) -> Void, failure : @escaping (String) -> Void){
+//       
+//        let url = "\(AppConstants.BaseURL)/movie/\(id)/similar?api_key=\(AppConstants.apiKey)"
+//
+//        AF.request(url).responseDecodable(of: MovieResult.self) { response in
+//            switch response.result{
+//            case .success(let data):
+//                success(data)
+//            case .failure(let error):
+//                failure(error.errorDescription!)
+//            }
+//        }
+//    }
+    
     // Movie Trailer
     
     func getMovieTrailerVideo(id : Int, success : @escaping (MovieTrailerResponse) -> Void, failure : @escaping (String) -> Void){

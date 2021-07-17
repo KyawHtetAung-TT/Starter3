@@ -26,7 +26,7 @@ class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "")
         registerTableViewCell()
     
         fetchUpcomingMovieList()
@@ -40,10 +40,7 @@ class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegat
     
     @IBAction func SearchBarButtonItem(_ sender: Any) {
         
-        let searchVC = SearchContentViewController()
-        self.present(searchVC, animated: true, completion: nil)
-        searchVC.modalPresentationStyle = .automatic
-        searchVC.modalTransitionStyle = .crossDissolve
+        navigateToSearchViewController()
         
     }
     
