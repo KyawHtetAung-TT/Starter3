@@ -20,8 +20,9 @@ struct MovieDBNetworkAgent {
     func getUpcomingMovieList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
 
         let url = "\(AppConstants.BaseURL)/movie/upcoming?api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: MovieListResponse.self) { response in
+        AF.request(url)
+            
+            .responseDecodable(of: MovieListResponse.self) { response in
             switch response.result{
             case .success(let upcomingMovieList):
                 success(upcomingMovieList)
@@ -39,8 +40,9 @@ struct MovieDBNetworkAgent {
     func getPopularMovieList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
        
         let url = "\(AppConstants.BaseURL)/movie/popular?api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: MovieListResponse.self) { response in
+        AF.request(url)
+            
+            .responseDecodable(of: MovieListResponse.self) { response in
             switch response.result{
             case .success(let data):
                 success(data)
@@ -54,8 +56,9 @@ struct MovieDBNetworkAgent {
     func getPopularSeriesList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
        
         let url = "\(AppConstants.BaseURL)/tv/popular?api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: MovieListResponse.self) { response in
+        AF.request(url)
+            
+            .responseDecodable(of: MovieListResponse.self) { response in
             switch response.result{
             case .success(let data):
                 success(data)
@@ -66,16 +69,21 @@ struct MovieDBNetworkAgent {
     }
     
     // 4
-    func getGenreList(success : @escaping (MovieGenreList) -> Void, failure : @escaping (String) -> Void){
-       
-        let url = "\(AppConstants.BaseURL)/genre/movie/list?api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: MovieGenreList.self) { response in
+//    func getGenreList(success : @escaping (MovieGenreList) -> Void, failure : @escaping (String) -> Void){
+    func getGenreList(completion : @escaping (MDBResult<MovieGenreList>) ->  Void){
+//  let url = "\(AppConstants.BaseURL)/genre/movie/list?api_key=\(AppConstants.apiKey)"
+//  AF.request(url)
+//  AF.request(MDBEndpoint.movieGenres.url) //URLConvertible ကိုကြော်ငြာမထားရင်အနောက်က url ကိုထည် ပေးနေရမာ
+        AF.request(MDBEndpoint.movieGenres)
+            .responseDecodable(of: MovieGenreList.self) { response in
             switch response.result{
             case .success(let data):
-                success(data)
+//                success(data)
+                completion(.success(data))
             case .failure(let error):
-                failure(error.errorDescription!)
+//                failure(error.errorDescription!)
+                completion(.failure(error.errorDescription!))
+               
             }
         }
     }
@@ -84,8 +92,9 @@ struct MovieDBNetworkAgent {
     func getTopRatingMovieList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
        
         let url = "\(AppConstants.BaseURL)/movie/top_rated?api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: MovieListResponse.self) { response in
+        AF.request(url)
+        
+            .responseDecodable(of: MovieListResponse.self) { response in
             switch response.result{
             case .success(let data):
                 success(data)
@@ -100,8 +109,9 @@ struct MovieDBNetworkAgent {
     func getPopularPeople(page : Int = 1, success : @escaping (ActorListResponse) -> Void, failure : @escaping (String) -> Void){
        
         let url = "\(AppConstants.BaseURL)/person/popular?page=\(page)&api_key=\(AppConstants.apiKey)"
+        AF.request(url)
 
-        AF.request(url).responseDecodable(of: ActorListResponse.self) { response in
+            .responseDecodable(of: ActorListResponse.self) { response in
             switch response.result{
             case .success(let data):
                 success(data)
@@ -111,12 +121,14 @@ struct MovieDBNetworkAgent {
         }
     }
 
+    
     // moviedetail  // showcase
     func getMovieDetailById(id : Int, success : @escaping (MovieDetailResponse) -> Void, failure : @escaping (String) -> Void){
        
         let url = "\(AppConstants.BaseURL)/movie/\(id)?api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: MovieDetailResponse.self) { response in
+        AF.request(url)
+            
+            .responseDecodable(of: MovieDetailResponse.self) { response in
             switch response.result{
             case .success(let data):
                 success(data)
@@ -126,12 +138,14 @@ struct MovieDBNetworkAgent {
         }
     }
     
+    
     // actordetail
     func getActorDetailById(id : Int, success : @escaping (ActorDetailResponse) -> Void, failure : @escaping (String) -> Void){
        
         let url = "\(AppConstants.BaseURL)/person/\(id)?api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: ActorDetailResponse.self) { response in
+        AF.request(url)
+            
+            .responseDecodable(of: ActorDetailResponse.self) { response in
             switch response.result{
             case .success(let data):
                 success(data)
@@ -147,8 +161,9 @@ struct MovieDBNetworkAgent {
     func getMovieCreditById(id : Int, success : @escaping (MovieCreditResponse) -> Void, failure : @escaping (String) -> Void){
        
         let url = "\(AppConstants.BaseURL)/movie/\(id)/credits?api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: MovieCreditResponse.self) { response in
+        AF.request(url)
+            
+            .responseDecodable(of: MovieCreditResponse.self) { response in
             switch response.result{
             case .success(let data):
                 success(data)
@@ -163,8 +178,9 @@ struct MovieDBNetworkAgent {
     func getSimilarMoiveCredator(id : Int, success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
        
         let url = "\(AppConstants.BaseURL)/movie/\(id)/similar?api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: MovieListResponse.self) { response in
+        AF.request(url)
+            
+            .responseDecodable(of: MovieListResponse.self) { response in
             switch response.result{
             case .success(let data):
                 success(data)
@@ -178,8 +194,9 @@ struct MovieDBNetworkAgent {
 //    func getSimilarMoiveCredator(query : String,page : Int, success : @escaping (MovieResult) -> Void, failure : @escaping (String) -> Void){
 //       
 //        let url = "\(AppConstants.BaseURL)/movie/\(id)/similar?api_key=\(AppConstants.apiKey)"
-//
-//        AF.request(url).responseDecodable(of: MovieResult.self) { response in
+//        AF.request(url)
+    
+//            .responseDecodable(of: MovieResult.self) { response in
 //            switch response.result{
 //            case .success(let data):
 //                success(data)
@@ -194,8 +211,9 @@ struct MovieDBNetworkAgent {
     func getMovieTrailerVideo(id : Int, success : @escaping (MovieTrailerResponse) -> Void, failure : @escaping (String) -> Void){
        
         let url = "\(AppConstants.BaseURL)/movie/\(id)/videos?api_key=\(AppConstants.apiKey)"
-
-        AF.request(url).responseDecodable(of: MovieTrailerResponse.self) { response in
+        AF.request(url)
+            
+            .responseDecodable(of: MovieTrailerResponse.self) { response in
             switch response.result{
             case .success(let data):
                 success(data)
@@ -205,15 +223,13 @@ struct MovieDBNetworkAgent {
         }
     }
     
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
+
+enum MDBResult<T> {
+    case success(T)
+    case failure(String)
+        
+}
+
+

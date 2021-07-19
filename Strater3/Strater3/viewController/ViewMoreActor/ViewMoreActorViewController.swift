@@ -11,10 +11,12 @@ class ViewMoreActorViewController: UIViewController {
 
     @IBOutlet weak var collectionViewActors : UICollectionView!
 
+    
+    
     var initData : ActorListResponse?
 
-    private var data : [ActorInfoResopnse] = []
     
+    private var data : [ActorInfoResopnse] = []
     private let networkAgent = MovieDBNetworkAgent.shared
     
     private let itemSpacing : CGFloat = 10
@@ -27,9 +29,13 @@ class ViewMoreActorViewController: UIViewController {
 
         initView()
         initState()
-        
+
+       
     }
 
+
+    
+    
     private func initView(){
         setupCollectionView()
     }
@@ -37,11 +43,13 @@ class ViewMoreActorViewController: UIViewController {
     private func initState(){
         currentPage = initData?.page ?? 1
         totalPages = initData?.totalPages ?? 1
-        
+
         data.append(contentsOf: initData?.results ?? [ActorInfoResopnse]())
         collectionViewActors.reloadData()
     }
-
+    
+    
+    
     
     private func fetchData(page : Int){
         networkAgent.getPopularPeople (page : page){ (data) in
@@ -64,7 +72,7 @@ class ViewMoreActorViewController: UIViewController {
         if let layout = collectionViewActors.collectionViewLayout as? UICollectionViewFlowLayout{
             layout.scrollDirection = .vertical
         }
-       
+//
         collectionViewActors.register(UINib(nibName: String(describing: BestActorCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BestActorCollectionViewCell.self))
     }
 
@@ -74,8 +82,8 @@ class ViewMoreActorViewController: UIViewController {
 
 extension ViewMoreActorViewController : UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
-//        return 10
+        return initData?.results?.count ?? 0
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -83,7 +91,8 @@ extension ViewMoreActorViewController : UICollectionViewDataSource,UICollectionV
             
             return UICollectionViewCell()
         }
-        cell.data = data[indexPath.row]
+        cell.data = initData?.results?[indexPath.row]
+       
         return cell
     }
     
@@ -117,8 +126,6 @@ extension  ViewMoreActorViewController : UICollectionViewDelegateFlowLayout{
 
             // api call
             fetchData(page: currentPage)
-
-
         }
     }
 

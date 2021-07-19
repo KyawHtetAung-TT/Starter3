@@ -34,9 +34,7 @@ class BestActorTableViewCell: UITableViewCell,ActorActionDelegate{
       }
     
       @objc func onTapMoreActor(){
-
         delegateViewMoreActor?.onTapViewMoreActor()
-
       }
     
     override func awakeFromNib() {

@@ -14,6 +14,16 @@ class ViewMoreShowcaseViewController: UIViewController {
     
     @IBOutlet weak var collectionViewMoreShowcase: UICollectionView!
     
+   
+    var  data : MovieListResponse? {
+        didSet{
+            if let data = data{
+                collectionViewMoreShowcase.reloadData()
+            }
+        }
+    }
+    
+    private let networkAgent = MovieDBNetworkAgent.shared
     
     private let itemSpacing : CGFloat = 10
     private let numberOfItemsPerRow = 1
@@ -28,6 +38,7 @@ class ViewMoreShowcaseViewController: UIViewController {
     private func initView(){
         setupCollectionView()
     }
+    
     
     
     
@@ -46,13 +57,15 @@ class ViewMoreShowcaseViewController: UIViewController {
 }
 extension ViewMoreShowcaseViewController: UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+//        return 10
+        return data?.results?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ShowCaseCollectionViewCell.self), for: indexPath) as? ShowCaseCollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.data = data?.results?[indexPath.row]
         return cell
     }
     

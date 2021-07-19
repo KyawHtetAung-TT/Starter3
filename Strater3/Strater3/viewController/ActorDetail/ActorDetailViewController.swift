@@ -31,21 +31,13 @@ class ActorDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         
         actorDetailnib()
         initGestureRecognizerBack()
-        
         getActorCreditById(id: actorID)
-        
-        
         seemoretapGesture()
         
 
         
     }
-    
-    
-    
     // actor detail response
-    
-    
     private func getActorCreditById(id : Int){
         
         networkAgent.getActorDetailById(id: id) { (data) in
@@ -125,6 +117,7 @@ extension ActorDetailViewController : UICollectionViewDataSource,UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing : PopularFilmCollectionViewCell.self), for: indexPath) as? PopularFilmCollectionViewCell else {
             return UICollectionViewCell()
         }
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

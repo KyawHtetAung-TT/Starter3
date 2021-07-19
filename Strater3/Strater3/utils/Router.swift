@@ -60,7 +60,9 @@ extension UIViewController{
         let vc = ViewMoreActorViewController()
 //        vc.modalPresentationStyle = .automatic
 //        vc.modalTransitionStyle = .crossDissolve
+//        vc.actorID = actorID
         self.navigationController?.pushViewController(vc, animated: true)
+       
 //        present(vc, animated: true)
     }
     

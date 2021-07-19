@@ -9,6 +9,8 @@ import UIKit
 
 class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegate,ShowcaseItemDelegate,moreShowcaseDelegate,viewMoreActorDelegate {
     
+    
+    
   
     @IBOutlet weak var tableViewMovies: UITableView!
   
@@ -115,14 +117,26 @@ class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegat
     }
     
     // 4
+//    func fetchMoiveGenreList(){
+//
+//        networkAgent.getGenreList { (data) in
+//            self.genresMovieList = data
+//            // UI update
+//            self.tableViewMovies.reloadSections(IndexSet(integer: MovieType.MOVIE_GENRE.rawValue), with: .automatic)
+//        } failure: { (error) in
+//            print(error.description)
+//
+//        }
+             //update
     func fetchMoiveGenreList(){
-        
-        networkAgent.getGenreList { (data) in
-            self.genresMovieList = data
-            // UI update
-            self.tableViewMovies.reloadSections(IndexSet(integer: MovieType.MOVIE_GENRE.rawValue), with: .automatic)
-        } failure: { (error) in
-            print(error.description)
+        networkAgent.getGenreList { (result) in
+            switch result{
+            case .success(let data):
+                self.genresMovieList = data
+                self.tableViewMovies.reloadSections(IndexSet(integer: MovieType.MOVIE_GENRE.rawValue), with: .automatic)
+            case .failure(let message):
+                print(message)
+            }
             
         }
     }
