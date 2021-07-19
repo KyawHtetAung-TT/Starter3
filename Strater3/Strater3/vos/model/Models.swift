@@ -78,12 +78,16 @@ struct MovieGenreList : Codable {
 public struct MoiveGenre : Codable{
     public let id : Int
     public let name : String
+    
+    enum CodingKeys : String, CodingKey {
+        case id
+        case name  
+    }
 //    let anotherProperty : String?   // data မပါရင်သုံးဖို
     func convertToGenreVO() -> GenreVO{
         let vo = GenreVO(id: id, name: name, isSelected: false)
         return vo
     }
-    
     
 }
 

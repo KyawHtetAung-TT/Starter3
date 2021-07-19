@@ -82,7 +82,9 @@ struct MovieDBNetworkAgent {
                 completion(.success(data))
             case .failure(let error):
 //                failure(error.errorDescription!)
-                completion(.failure(error.errorDescription!))
+//                completion(.failure(error.errorDescription!))
+                completion(.failure(handleError(response, error, MDBCommomResponseError.self)))
+
                
             }
         }
@@ -224,6 +226,90 @@ struct MovieDBNetworkAgent {
     }
     
     
+
+
+  /**
+    Network Error - Different Scenarios
+ 
+ * JSON Serialization Error
+ * Wrong URL Path
+ * Incorrect method
+ * Missing credentials
+ * 4xx
+ * 5xx
+    
+    **/
+    /// 3 - Customized error body
+
+fileprivate func handleError<T, E : MDBErrorModel>(
+    _ response : DataResponse<T,AFError>,
+    _ error : (AFError),
+    _ errorBodyType : E.Type) -> String{
+    
+    var respBody : String = ""
+    var serverErrorMessage : String?
+    
+    var errorBody : E?
+    if let respData = response.data{
+        respBody = String(data: respData, encoding: .utf8) ?? "empty response body"
+        
+        errorBody = try? JSONDecoder().decode(errorBodyType, from: respData)
+        serverErrorMessage = errorBody?.message
+    }
+
+
+    /// 2 - Extract debug Info
+
+    let respCode : Int = response.response?.statusCode ?? 0
+
+    let sourcePath = response.request?.url?.absoluteString ?? "no url"
+
+
+    /// 1. Essential debug info
+    print(
+        """
+        ===================
+        URL
+        -> \(sourcePath)
+
+        Status
+        -> \(respCode)
+
+        Body
+        -> \(respBody)
+
+        Underlying Error
+        -> \(error.underlyingError!)
+
+        Error Description
+        -> \(error.errorDescription!)
+
+        ===================
+        """
+    )
+
+    return serverErrorMessage ?? error.errorDescription ?? "undefined"
+
+    }
+    
+}
+
+protocol MDBErrorModel : Decodable {
+    var message : String { get }
+}
+
+class MDBCommomResponseError : MDBErrorModel{
+    var message: String{
+        return statusMessage
+    }
+    
+    let statusMessage : String
+    let statusCode : Int
+    
+    enum CodingKeys : String, CodingKey {
+        case statusMessage = "status_message"
+        case statusCode = "status_code"
+    }
 }
 
 enum MDBResult<T> {
@@ -231,5 +317,3 @@ enum MDBResult<T> {
     case failure(String)
         
 }
-
-
