@@ -14,14 +14,19 @@ class ViewMoreShowcaseViewController: UIViewController {
     
     @IBOutlet weak var collectionViewMoreShowcase: UICollectionView!
     
-   
-    var  data : MovieListResponse? {
-        didSet{
-            if let data = data{
-                collectionViewMoreShowcase.reloadData()
-            }
-        }
-    }
+    
+//    private var data = [MovieResult]()
+    private var data : [MovieResult] = []
+//    private var moreShowCaseMovieList : MovieListResponse?
+//
+////    private var data : [MovieResult] = []
+//    var  data : MovieResult? {
+//        didSet{
+//            if let _ = data{
+//                collectionViewMoreShowcase.reloadData()
+//            }
+//        }
+//    }
     
     private let networkAgent = MovieDBNetworkAgent.shared
     
@@ -31,15 +36,29 @@ class ViewMoreShowcaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
-        
+        fetchData()
         // Do any additional setup after loading the view.
+        self.title = String("More Showcase")
     }
 
     private func initView(){
         setupCollectionView()
     }
     
-    
+    private func fetchData(){
+        networkAgent.getMoreShowCaseMovieList (){ (data) in
+            
+            self.data.append(contentsOf: data.results ?? [MovieResult]())
+            self.collectionViewMoreShowcase.reloadData()
+            
+            
+        } failure: { (error) in
+            print(error)
+        }
+
+
+    }
+
     
     
     func setupCollectionView(){
@@ -57,29 +76,25 @@ class ViewMoreShowcaseViewController: UIViewController {
 }
 extension ViewMoreShowcaseViewController: UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 10
-        return data?.results?.count ?? 0
+
+//        return data?.results?.count ?? 0
+            return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ShowCaseCollectionViewCell.self), for: indexPath) as? ShowCaseCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.data = data?.results?[indexPath.row]
+        cell.data = data[indexPath.row]
         return cell
     }
+    
     
     
 }
 extension  ViewMoreShowcaseViewController : UICollectionViewDelegateFlowLayout{
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-//        let totatSacing : CGFloat = (itemSpacing * CGFloat(numberOfItemsPerRow - 1)) + (collectionView.contentInset.left + collectionView.contentInset.right)
-//
-//        let itemWidth : CGFloat = (collectionView.frame.width / CGFloat(numberOfItemsPerRow)) - (totatSacing / CGFloat(numberOfItemsPerRow))
-//
-//        let itemHeight : CGFloat = itemWidth * 0.45
 
         let itemWidth : CGFloat = collectionView.frame.width - 50
         let itemHeight : CGFloat = (itemWidth/16)*9
@@ -90,6 +105,7 @@ extension  ViewMoreShowcaseViewController : UICollectionViewDelegateFlowLayout{
         return itemSpacing
     }
 
-
+    
+    
 
 }

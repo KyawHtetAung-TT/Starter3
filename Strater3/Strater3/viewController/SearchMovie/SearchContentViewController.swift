@@ -26,7 +26,6 @@ class SearchContentViewController: UIViewController {
     private let networkAgent = MovieDBNetworkAgent.shared
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -53,6 +53,7 @@ extension UIViewController{
 //        vc.modalPresentationStyle = .automatic
 //        vc.modalTransitionStyle = .crossDissolve
         self.navigationController?.pushViewController(vc, animated: true)
+        
 //        present(vc, animated: true)
     }
     
@@ -78,7 +79,13 @@ extension UIViewController{
         self.navigationController?.pushViewController(vc, animated: true)
 //        present(vc, animated: true)
     }
-    
+    func nevigateToNewDetailViewController(id : Int,movieType : MovieType) {
+        guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: MovieDetailViewController.identifier) as? MovieDetailViewController  else { return }
+        vc.movieID = id
+        vc.movieType = movieType
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    }
     
     
 }

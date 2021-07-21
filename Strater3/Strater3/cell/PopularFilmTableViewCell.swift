@@ -12,8 +12,11 @@ class PopularFilmTableViewCell: UITableViewCell {
     @IBOutlet weak var lableTitle: UILabel!
     @IBOutlet weak var collectionViewMoive: UICollectionView!
     
-    var delegate:MovieItemDelegate? = nil
+//    var delegate:MovieItemDelegate? = nil
     
+    var celldelegate : movieCellDelegate?
+    
+    var movieType : MovieType?
     
     var  data : MovieListResponse? {
         didSet{
@@ -56,13 +59,15 @@ extension PopularFilmTableViewCell : UICollectionViewDataSource,UICollectionView
         }
         
         cell.data = data?.results?[indexPath.row]
+        
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = data?.results?[indexPath.row]
-        delegate?.onTapMovie(id: item?.id ?? -1)
+//        delegate?.onTapMovie(id: item?.id ?? -1)
+        celldelegate?.userDidTap(id: item?.id ?? -1, moiveType: movieType!)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

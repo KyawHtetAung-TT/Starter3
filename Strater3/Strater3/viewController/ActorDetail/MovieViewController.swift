@@ -7,11 +7,10 @@
 
 import UIKit
 
-class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegate,ShowcaseItemDelegate,moreShowcaseDelegate,viewMoreActorDelegate {
-    
-    
+class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegate,ShowcaseItemDelegate,moreShowcaseDelegate,viewMoreActorDelegate,movieCellDelegate {
     
   
+    
     @IBOutlet weak var tableViewMovies: UITableView!
   
     
@@ -46,9 +45,6 @@ class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegat
         
     }
     
-    
-    
-    
     private func registerTableViewCell(){
         tableViewMovies.dataSource = self
         
@@ -67,8 +63,14 @@ class MovieViewController: UIViewController,MovieItemDelegate,ActorDetailDelegat
     func onTapShowcaselabel() {
         nevigateToMoreShowcaseViewController()
     }
+    
+    func userDidTap(id: Int, moiveType: MovieType) {
+        nevigateToNewDetailViewController(id: id, movieType: moiveType)
+    }
+    
     func onTapMovie(id: Int) {
-        nevigateToMovieDetailViewController(movieId: id )
+        nevigateToMovieDetailViewController(movieId: id)
+
     }
     func onTapActorDetail(id : Int) {
         nevigateToActorDetailViewController(actorId: id )
@@ -199,18 +201,24 @@ extension MovieViewController: UITableViewDataSource{
 //            return tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath)
             
             let cell = tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath) as PopularFilmTableViewCell
-            cell.delegate = self
+//            cell.delegate = self
+            cell.celldelegate = self
             cell.lableTitle.text = "popular moives".uppercased()
+            cell.movieType = MovieType.MOVIE_POPULAR
             cell.data = popularMovieList
+            
             return cell
 
         // 3
         case MovieType.SERIE_POPULAR.rawValue:
             
             let cell = tableView.dequeCell(identifier: PopularFilmTableViewCell.identifier, indexPath: indexPath) as PopularFilmTableViewCell
-            cell.delegate = self
+//            cell.delegate = self
+            cell.celldelegate = self
             cell.lableTitle.text = "popular series".uppercased()
+            cell.movieType = MovieType.SERIE_POPULAR
             cell.data = popularSeriesList
+            
             
             return cell
             

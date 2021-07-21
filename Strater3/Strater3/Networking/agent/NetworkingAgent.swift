@@ -140,6 +140,36 @@ struct MovieDBNetworkAgent {
         }
     }
     
+    // seriesdetail  // showcase
+    func getSeriesDetailById(id : Int, success : @escaping (SeriesDetailResponse) -> Void, failure : @escaping (String) -> Void){
+       
+        let url = "\(AppConstants.BaseURL)/tv/\(id)?api_key=\(AppConstants.apiKey)"
+        AF.request(url)
+            
+            .responseDecodable(of: SeriesDetailResponse.self) { response in
+            switch response.result{
+            case .success(let data):
+                success(data)
+            case .failure(let error):
+                failure(error.errorDescription!)
+            }
+        }
+    }
+    
+    func getMoreShowCaseMovieList(success : @escaping (MovieListResponse) -> Void, failure : @escaping (String) -> Void){
+       
+        let url = "\(AppConstants.BaseURL)/movie/top_rated?api_key=\(AppConstants.apiKey)"
+        AF.request(url)
+        
+            .responseDecodable(of: MovieListResponse.self) { response in
+            switch response.result{
+            case .success(let data):
+                success(data)
+            case .failure(let error):
+                failure(error.errorDescription!)
+            }
+        }
+    }
     
     // actordetail
     func getActorDetailById(id : Int, success : @escaping (ActorDetailResponse) -> Void, failure : @escaping (String) -> Void){
@@ -239,6 +269,7 @@ struct MovieDBNetworkAgent {
  * 5xx
     
     **/
+    
     /// 3 - Customized error body
 
 fileprivate func handleError<T, E : MDBErrorModel>(
@@ -287,7 +318,7 @@ fileprivate func handleError<T, E : MDBErrorModel>(
         ===================
         """
     )
-
+    /// 4 - Client display
     return serverErrorMessage ?? error.errorDescription ?? "undefined"
 
     }

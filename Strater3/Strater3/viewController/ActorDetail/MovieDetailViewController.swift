@@ -38,6 +38,8 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let networkAgent = MovieDBNetworkAgent.shared
     
+    var movieType : MovieType?
+    
     var movieID : Int = -1
     
     private var productionCompanies : [ProductionCompany] = []
@@ -54,7 +56,17 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         btnBorderColor()
         registerCollectionView()
         
-        fetchMovieDetail(id: movieID)
+        switch movieType {
+        case .MOVIE_POPULAR:
+            fetchMovieDetail(id: movieID)
+        case .SERIE_POPULAR:
+            fetchSeriesDetail(id: movieID)
+        default:
+            break
+        }
+        
+       
+        
         getMovieCreditById(id: movieID)
         fetchSimilarMovie(id: movieID)
         fetchMovieTrailer(id: movieID)
@@ -114,8 +126,19 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     private func fetchMovieDetail(id : Int){
         networkAgent.getMovieDetailById (id: id) { (data) in
             // bind data
-            self.bindData(data: data)
+            self.bindData(moviedata: data)
             
+        } failure: { (error) in
+            print(error)
+        }
+    }
+    
+    // series detail data binding
+    private func fetchSeriesDetail(id : Int){
+        networkAgent.getSeriesDetailById (id: id) { (data) in
+            // bind data
+//            self.bindData(data: data)
+            self.bindData(seriesdata: data)
         } failure: { (error) in
             print(error)
         }
@@ -173,38 +196,38 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // slider / popular movie
-    private func bindData(data : MovieDetailResponse){
-        productionCompanies = data.productionCompanies ?? [ProductionCompany]()
+    private func bindData(moviedata : MovieDetailResponse){
+        productionCompanies = moviedata.productionCompanies ?? [ProductionCompany]()
         
         collectionProductionCompanies.reloadData()
         
-        let posterPath = "\(AppConstants.baseImageUrl)\(data.backdropPath ?? "")"
+        let posterPath = "\(AppConstants.baseImageUrl)\(moviedata.backdropPath ?? "")"
         imageViewMoviePoster.sd_setImage(with: URL(string: posterPath))
         
-        labelRelaeadedYear.text = String(data.releaseDate?.split(separator:"-")[0] ?? " ")
+        labelRelaeadedYear.text = String(moviedata.releaseDate?.split(separator:"-")[0] ?? " ")
         
-        labelMovieTitle.text = data.originalTitle
+        labelMovieTitle.text = moviedata.originalTitle
         
         // navigation movie title
-        navigationItem.title = data.originalTitle
+        navigationItem.title = moviedata.originalTitle
 //        self.navigationItem.title = data.originalTitle
 
-        labelMovieDescription.text = data.overview
+        labelMovieDescription.text = moviedata.overview
         
 //        labelDruation.text =  "\(Int((data.runtime ?? 0)/60))hr\(Int((data.runtime ?? 0) % 60))mins"
         
-        let runTimeHour = Int((data.runtime ?? 0)/60)
-        let runTimeMinutes = ((data.runtime ?? 0 ) % 60)
+        let runTimeHour = Int((moviedata.runtime ?? 0)/60)
+        let runTimeMinutes = ((moviedata.runtime ?? 0 ) % 60)
         labelDruation.text =  "\(runTimeHour)hr\(runTimeMinutes)mins"
         
-        labelRating.text = "\(data.voteAverage ?? 0)"
-        viewRatingCount.rating = Int((data.voteAverage ?? 0.0) * 0.5)
-        labelVoteCount.text = "\(data.voteCount ?? 0)votes"
+        labelRating.text = "\(moviedata.voteAverage ?? 0)"
+        viewRatingCount.rating = Int((moviedata.voteAverage ?? 0.0) * 0.5)
+        labelVoteCount.text = "\(moviedata.voteCount ?? 0)votes"
         
-        labelAboutMovieTitile.text = data.originalTitle
+        labelAboutMovieTitile.text = moviedata.originalTitle
         
         var genreListStr = ""
-        data.genres?.forEach({ (item) in
+        moviedata.genres?.forEach({ (item) in
             genreListStr += "\(item.name), "
         })
         if genreListStr.count > 2{
@@ -217,7 +240,7 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
 //        labelGenreCollectionString.text = data.genres?.map{$0.name}.reduce(""){"\($0), \($1)"}
     
         var countryListStr = ""
-        data.productionCountries?.forEach({ (item) in
+        moviedata.productionCountries?.forEach({ (item) in
             countryListStr += "\(item.name ?? ""), "
         })
         if countryListStr.count > 2 {
@@ -228,11 +251,72 @@ class MovieDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         
         labelProductionCountriesString.text = countryListStr
         
-        labelAboutMovieDescription.text = data.overview
-        labelReleaseData.text = data.releaseDate
+        labelAboutMovieDescription.text = moviedata.overview
+        labelReleaseData.text = moviedata.releaseDate
         
     }
     
+    // slider / popular movie
+    private func bindData(seriesdata : SeriesDetailResponse){
+        productionCompanies = seriesdata.productionCompanies ?? [ProductionCompany]()
+        
+        collectionProductionCompanies.reloadData()
+        
+        let posterPath = "\(AppConstants.baseImageUrl)\(seriesdata.backdropPath ?? "")"
+        imageViewMoviePoster.sd_setImage(with: URL(string: posterPath))
+        
+        labelRelaeadedYear.text = String(seriesdata.lastAirDate?.split(separator:"-")[0] ?? " ")
+        
+        labelMovieTitle.text = seriesdata.originalName
+        
+        // navigation movie title
+//        navigationItem.title = seriesdata.originalName
+        self.navigationItem.title = seriesdata.originalName
+
+        labelMovieDescription.text = seriesdata.overview
+        
+//        labelDruation.text =  "\(Int((seriesdata.episodeRunTime ?? 0)/60))hr\(Int((seriesdata.episodeRunTime ?? 0) % 60))mins"
+        
+        let runTimeHour = Int((seriesdata.episodeRunTime?[0] ?? 0) / 60)
+        let runTimeMinutes = ((seriesdata.episodeRunTime?[0] ?? 0 ) % 60)
+        labelDruation.text =  "\(runTimeHour)hr\(runTimeMinutes)mins"
+        
+        labelRating.text = "\(seriesdata.voteAverage ?? 0)"
+        viewRatingCount.rating = Int((seriesdata.voteAverage ?? 0.0) * 0.5)
+        labelVoteCount.text = "\(seriesdata.voteCount ?? 0)votes"
+        
+        labelAboutMovieTitile.text = seriesdata.originalName
+        
+        var genreListStr = ""
+        seriesdata.genres?.forEach({ (item) in
+            genreListStr += "\(item.name), "
+        })
+        if genreListStr.count > 2{
+            genreListStr.removeLast()
+            genreListStr.removeLast()
+        }
+        
+
+//        labelGenreCollectionString.text = genreListStr
+        labelGenreCollectionString.text = seriesdata.genres?.map{$0.name}.reduce(""){"\($0), \($1)"}
+    
+        var countryListStr = ""
+        seriesdata.productionCountries?.forEach({ (item) in
+            countryListStr += "\(item.name ?? ""), "
+        })
+        if countryListStr.count > 2 {
+            countryListStr.removeLast()
+            countryListStr.removeLast()
+        }
+        
+        
+        labelProductionCountriesString.text = countryListStr
+        
+        labelAboutMovieDescription.text = seriesdata.overview
+        labelReleaseData.text = seriesdata .lastAirDate
+        self.navigationItem.title = seriesdata.originalName
+        
+    }
     @objc func onTapButton(){
     
 //        self.dismiss(animated: true, completion: nil)

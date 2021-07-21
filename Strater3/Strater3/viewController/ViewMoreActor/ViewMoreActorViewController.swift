@@ -12,11 +12,10 @@ class ViewMoreActorViewController: UIViewController {
     @IBOutlet weak var collectionViewActors : UICollectionView!
 
     
-    
-    var initData : ActorListResponse?
-
-    
+//    var initData : ActorListResponse?
     private var data : [ActorInfoResopnse] = []
+//    private var data = [ActorInfoResopnse]()
+    
     private let networkAgent = MovieDBNetworkAgent.shared
     
     private let itemSpacing : CGFloat = 10
@@ -29,8 +28,8 @@ class ViewMoreActorViewController: UIViewController {
 
         initView()
         initState()
-
-       
+        fetchData(page: currentPage)
+        self.title = String("More Actors")
     }
 
 
@@ -41,10 +40,10 @@ class ViewMoreActorViewController: UIViewController {
     }
 
     private func initState(){
-        currentPage = initData?.page ?? 1
-        totalPages = initData?.totalPages ?? 1
-
-        data.append(contentsOf: initData?.results ?? [ActorInfoResopnse]())
+//        currentPage = initData?.page ?? 1
+//        totalPages = initData?.totalPages ?? 1
+//
+//        data.append(contentsOf: initData?.results ?? [ActorInfoResopnse]())
         collectionViewActors.reloadData()
     }
     
@@ -82,8 +81,8 @@ class ViewMoreActorViewController: UIViewController {
 
 extension ViewMoreActorViewController : UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return initData?.results?.count ?? 0
-        
+//        return initData?.results?.count ?? 0
+        return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -91,13 +90,12 @@ extension ViewMoreActorViewController : UICollectionViewDataSource,UICollectionV
             
             return UICollectionViewCell()
         }
-        cell.data = initData?.results?[indexPath.row]
-       
+//        cell.data = initData?.results?[indexPath.row]
+        cell.data = data[indexPath.row]
         return cell
     }
     
-  
-    
+
 }
 extension  ViewMoreActorViewController : UICollectionViewDelegateFlowLayout{
 
@@ -125,7 +123,7 @@ extension  ViewMoreActorViewController : UICollectionViewDelegateFlowLayout{
             currentPage = currentPage + 1
 
             // api call
-            fetchData(page: currentPage)
+//            fetchData(page: currentPage)
         }
     }
 
